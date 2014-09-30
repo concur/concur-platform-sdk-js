@@ -1,14 +1,14 @@
 {
   "name": "concur-platform",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "The concur-platform-sdk-js",
   "main": "index.js",
   "scripts": {
     "test": "mocha"
   },
   "repository": {
-      "type": "git",
-      "url": "git://github.com/concur/concur-platform.git"
+    "type": "git",
+    "url": "git://github.com/concur/concur-platform.git"
   },
   "keywords": [
     "concur",
@@ -26,5 +26,12 @@
     "chai": "^1.9.1",
     "config": "^1.0.2",
     "mocha": "^1.21.4"
+  },
+  "bugs": {
+    "url": "https://github.com/concur/concur-platform/issues"
+  },
+  "homepage": "https://github.com/concur/concur-platform",
+  "directories": {
+    "test": "test"
   }
 }
