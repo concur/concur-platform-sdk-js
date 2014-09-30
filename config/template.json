@@ -1,0 +1,8 @@
+{
+    "productionURL":"https://www.concursolutions.com",
+    "oauthToken":"OAUTH_TOKEN",
+    "webserviceAdminoauthToken":"WEBSERVICE_ADMIN_OAUTH_TOKEN",
+    "username":"USERNAME",
+    "password":"PASSWORD",
+    "consumerKey":"CONSUMER-KEY"
+}
