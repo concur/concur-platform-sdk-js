@@ -28,9 +28,9 @@
     "mocha": "^1.21.4"
   },
   "bugs": {
-    "url": "https://github.com/concur/concur-platform/issues"
+    "url": "https://github.com/concur/concur-platform-sdk-js/issues"
   },
-  "homepage": "https://github.com/concur/concur-platform",
+  "homepage": "https://github.com/concur/concur-platform-sdk-js",
   "directories": {
     "test": "test"
   }
