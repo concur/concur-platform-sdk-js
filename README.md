@@ -1,8 +1,7 @@
 Concur SDK for Javascript
 ==============
 
-Javascript SDK to interact with [Concur's API](http://developer.concur.com). If you want an overview of the APIs check out the [page here!]
-(https://developer.concur.com/get-started/webservices-overview)
+JavaScript SDK for the [Concur Platform](http://developer.concur.com). For more information on the set of platform services, see the [Web services overview](https://developer.concur.com/get-started/webservices-overview) document on the developer portal.
 
 ## Installation
 
@@ -10,23 +9,27 @@ Javascript SDK to interact with [Concur's API](http://developer.concur.com). If 
 
 ## Usage
 
+All platform services are exposed via a root module which can be imported using the following.
+
     var concur = require('concur-platform');
 
-## Contains
+## Platform Services
 
-###Oauth
+### OAuth
 
-Helper functions to get an [OAuth token](https://developer.concur.com/api-documentation/oauth-20-0).
+Enables the client to acquire an [OAuth token](https://developer.concur.com/api-documentation/oauth-20-0).
 
-####Usage
+#### Usage
+
     var concur = require('concur-platform');
 
-    var parameters = {
+    var options = {
         username:username,
         password:password,
         consumerKey:consumerKey
     }
-    concur.oauth.native(parameters)
+
+    concur.oauth.native(options)
     .then(function(token) {
         // token will contain the value, instanceUrl, refreshToken, and expiration details
     })
@@ -34,17 +37,15 @@ Helper functions to get an [OAuth token](https://developer.concur.com/api-docume
         // error will contain the error message returned
     });
 
+### Receipt
 
-###Receipt
+Enables the client to interact with the [receipt](https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages) and [eReceipt](https://developer.concur.com/api-documentation/more-resources/draft-documentation/e-receipt-service) Web services.
 
-Receipt documentation here: [Receipt Image](https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages)
-eReceipt documentation here: [eReceipt](https://developer.concur.com/api-documentation/more-resources/draft-documentation/e-receipt-service)
-
-####Usage
+#### Usage
 
     var concur = require('concur-platform');
 
-    //Sending a receipt
+    // Sending a receipt
     concur.receipt.send({oauthToken:oauthToken, image:image, contentType:'image/png'})
     .then(function(receiptID) {
         //receiptID is returned on success
@@ -53,7 +54,7 @@ eReceipt documentation here: [eReceipt](https://developer.concur.com/api-documen
         // error will contain the error message returned
     });
 
-    //Getting receipts
+    // Getting receipts
     concur.receipt.get({oauthToken:oauthToken})
     .then(function(data) {
         //data will contain a list of receipts
@@ -62,7 +63,7 @@ eReceipt documentation here: [eReceipt](https://developer.concur.com/api-documen
         // error will contain the error message returned
     });
 
-    //Deleting a receipt
+    // Deleting a receipt
     concur.receipt.delete({oauthToken:oauthToken, receiptId:receiptId})
     .then(function(data.statusCode) {
         // data.statusCode will be equal to 204, the receipt was deleted
@@ -71,16 +72,16 @@ eReceipt documentation here: [eReceipt](https://developer.concur.com/api-documen
         // error will contain the error message returned
     });
 
-
-
 ## Tests
 
-To test, in the config folder, create a default.json file containing the credentials of the account that you would like to test with. You can
-use template.json as a template. Then, run the standard npm test:
+To run the client SDK tests, create a default.json file in the config folder which contains the credentials of the Concur account to test with. Template.json can be used as a template. Then, run the following:
 
     npm test
 
-The test will upload the concur logo to the expense receipt store associated with the oAuth token. It will also upload an E-Receipt to the user given by the OauthToken. 
+The test will upload the concur logo to the expense receipt store associated with the OAuth token. It will also upload an E-Receipt to the associated user account. 
+
+## Promises
+In order to simplify the asynchronous nature of the platform Web service calls, the client SDK has made use of the Q promises library. More information can be found on the [project's GitHub site](https://github.com/kriskowal/q);
 
 ## License
 
