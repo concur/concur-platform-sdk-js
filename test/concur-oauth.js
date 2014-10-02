@@ -10,6 +10,7 @@ var consumerKey = config.get('consumerKey');
 
 describe('Concur Native Flow oAuth Tests', function(){
     it('should validate the server returned a valid payload', function(done) {
+        this.timeout(10000);
         var options = {
             username:username,
             password:password,
@@ -35,11 +36,11 @@ describe('Concur Native Flow oAuth Tests', function(){
             consumerKey:consumerKey
         }
         concur.oauth.native(options)
-            .then({})
-            .fail(function(rejected){
-                expect(rejected.error).to.contain('403');
-                done();
-            });
+        .then({})
+        .fail(function(rejected){
+            expect(rejected.error).to.contain('403');
+            done();
+        });
     });
 
     it('should fail if the password is incorrect', function(done) {
@@ -49,11 +50,11 @@ describe('Concur Native Flow oAuth Tests', function(){
             consumerKey:consumerKey
         }
         concur.oauth.native(options)
-            .then({})
-            .fail(function(rejected) {
-                expect(rejected.error).to.contain('403');
-                done();
-            });
+        .then({})
+        .fail(function(rejected) {
+            expect(rejected.error).to.contain('403');
+            done();
+        });
     });
 
     it('should fail if the consumer key is incorrect', function(done) {
@@ -63,10 +64,10 @@ describe('Concur Native Flow oAuth Tests', function(){
             consumerKey:'INVALIDCONSUMERKEY!'
         }
         concur.oauth.native(options)
-            .then({})
-            .fail(function(rejected){
-                expect(rejected.error).to.contain('403');
-                done();
-            });
+        .then({})
+        .fail(function(rejected){
+            expect(rejected.error).to.contain('403');
+            done();
+        });
     });
 });

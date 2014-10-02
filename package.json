@@ -1,6 +1,6 @@
 {
   "name": "concur-platform",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "description": "The concur-platform-sdk-js",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/concur/concur-platform.git"
+    "url": "git://github.com/concur/concur-platform-sdk-js.git"
   },
   "keywords": [
     "concur",

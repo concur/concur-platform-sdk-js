@@ -45,8 +45,14 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
 
     var concur = require('concur-platform');
 
+    var options = {
+        oauthToken:oauthToken,
+        image:image,
+        contentType:'image/png'
+    }
+
     // Sending a receipt
-    concur.receipt.send({oauthToken:oauthToken, image:image, contentType:'image/png'})
+    concur.receipt.send(options)
     .then(function(receiptID) {
         //receiptID is returned on success
     })
@@ -55,7 +61,11 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
     });
 
     // Getting receipts
-    concur.receipt.get({oauthToken:oauthToken})
+    var options = {
+        oauthToken:oauthToken
+    }
+
+    concur.receipt.get(options)
     .then(function(data) {
         //data will contain a list of receipts
     })
@@ -64,9 +74,33 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
     });
 
     // Deleting a receipt
-    concur.receipt.delete({oauthToken:oauthToken, receiptId:receiptId})
+    var options = {
+        oauthToken:oauthToken,
+        receiptId:receiptId
+    }
+
+    concur.receipt.delete(options)
     .then(function(data.statusCode) {
         // data.statusCode will be equal to 204, the receipt was deleted
+    })
+    .fail(function(error) {
+        // error will contain the error message returned
+    });
+
+###User
+
+Enables the user to interact with the [user](https://developer.concur.com/api-documentation/web-services/user) Web service.
+
+####Usage
+
+    var options = {
+        oauthToken:oauthToken,
+        loginId:loginId
+    }
+
+    concur.user.get(options)
+    .then(function(user) {
+        // user will contain user data
     })
     .fail(function(error) {
         // error will contain the error message returned

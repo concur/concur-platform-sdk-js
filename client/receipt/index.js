@@ -2,7 +2,7 @@ var request = require('request'),
     Q = require('q'),
     config = require('config');
 
-var prodURL = config.get('productionURL'),
+var prodURL = 'https://www.concursolutions.com',
     receiptImageURL = prodURL + '/api/v3.0/expense/receiptimages',
     eReceiptURL = prodURL + '/api/v3.0/ereceipt/receipts',
     eReceiptWithImageURL = prodURL + '/api/v3.0/common/receipts';
