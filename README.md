@@ -1,4 +1,4 @@
-Concur SDK for Javascript
+Concur SDK for JavaScript
 ==============
 
 JavaScript SDK for the [Concur Platform](http://developer.concur.com). For more information on the set of platform services, see the [Web services overview](https://developer.concur.com/get-started/webservices-overview) document on the developer portal.
