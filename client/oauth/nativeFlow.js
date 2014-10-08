@@ -1,11 +1,12 @@
 var request = require('request'),
+    utils = require('../utils/utils.js'),
     Q = require('q');
 
 module.exports = {
     requestToken: function(parameters) {
         var deferred = Q.defer();
 
-        var concurAccessTokenURL = 'https://www.concursolutions.com/net2/oauth2/accesstoken.ashx';
+        var concurAccessTokenURL = utils.prodURL + '/net2/oauth2/accesstoken.ashx';
 
         var headers = { 'Authorization' : 'Basic ' + new Buffer(parameters.username+':'+parameters.password).toString('base64'),
             'X-ConsumerKey' : parameters.consumerKey,

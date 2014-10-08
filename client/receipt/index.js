@@ -1,8 +1,8 @@
 var request = require('request'),
-    Q = require('q'),
-    config = require('config');
+    utils = require('../utils/utils.js');
+    Q = require('q');
 
-var prodURL = 'https://www.concursolutions.com',
+var prodURL = utils.prodURL,
     receiptImageURL = prodURL + '/api/v3.0/expense/receiptimages',
     eReceiptURL = prodURL + '/api/v3.0/ereceipt/receipts',
     eReceiptWithImageURL = prodURL + '/api/v3.0/common/receipts';

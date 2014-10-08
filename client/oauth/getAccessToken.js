@@ -1,18 +1,18 @@
 var request = require('request'),
-    Q = require('q'),
-    util = require('util');
+    utils = require('../utils/utils.js'),
+    Q = require('q');
 
 
 
 module.exports = {
-    accessToken: function(parameters) {
+    accessToken: function(options) {
         var deferred = Q.defer();
 
-        var concurAccessTokenURL = util.format('https://www.concursolutions.com/net2/oauth2/getaccesstoken.ashx?code=%s&client_id=%s&client_secret=%s',
-            config.get('productionURL'),
-            parameters.code,
-            parameters.client_id,
-            parameters.client_secret);
+        var concurAccessTokenURL = util.format('%s/net2/oauth2/getaccesstoken.ashx?code=%s&client_id=%s&client_secret=%s',
+            utils.prodURL,
+            options.code,
+            options.client_id,
+            options.client_secret);
 
         var headers = {
             'Accept' : 'application/json'

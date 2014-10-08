@@ -1,11 +1,12 @@
 var request = require('request'),
+    utils = require('../utils/utils.js'),
     Q = require('q');
 
 module.exports = {
     get: function(options) {
         var deferred = Q.defer();
 
-        var concurUserURL = 'https://www.concursolutions.com/api/user/v1.0/User/';
+        var concurUserURL = utils.prodURL + '/api/user/v1.0/User/';
 
         if(options.loginId) {
             concurUserURL + options.loginId;
