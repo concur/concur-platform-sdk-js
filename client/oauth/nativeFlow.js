@@ -6,7 +6,7 @@ module.exports = {
     requestToken: function(parameters) {
         var deferred = Q.defer();
 
-        var concurAccessTokenURL = utils.prodURL + '/net2/oauth2/accesstoken.ashx';
+        var concurAccessTokenURL = utils.serviceURL + '/net2/oauth2/accesstoken.ashx';
 
         var headers = { 'Authorization' : 'Basic ' + new Buffer(parameters.username+':'+parameters.password).toString('base64'),
             'X-ConsumerKey' : parameters.consumerKey,

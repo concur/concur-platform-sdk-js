@@ -6,7 +6,7 @@ module.exports = {
     get: function(options) {
         var deferred = Q.defer();
 
-        var concurUserURL = utils.prodURL + '/api/user/v1.0/User/';
+        var concurUserURL = utils.serviceURL + '/api/user/v1.0/User/';
 
         if(options.loginId) {
             concurUserURL + options.loginId;

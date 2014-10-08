@@ -1,1 +1,1 @@
-exports.prodURL = "https://www.concursolutions.com";
+exports.serviceURL = "https://www.concursolutions.com";

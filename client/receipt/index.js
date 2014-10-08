@@ -2,10 +2,10 @@ var request = require('request'),
     utils = require('../utils/utils.js');
     Q = require('q');
 
-var prodURL = utils.prodURL,
-    receiptImageURL = prodURL + '/api/v3.0/expense/receiptimages',
-    eReceiptURL = prodURL + '/api/v3.0/ereceipt/receipts',
-    eReceiptWithImageURL = prodURL + '/api/v3.0/common/receipts';
+var serviceURL = utils.serviceURL,
+    receiptImageURL = serviceURL + '/api/v3.0/expense/receiptimages',
+    eReceiptURL = serviceURL + '/api/v3.0/ereceipt/receipts',
+    eReceiptWithImageURL = serviceURL + '/api/v3.0/common/receipts';
 
 module.exports = {
     send: function(receiptDetails) {
