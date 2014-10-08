@@ -23,8 +23,11 @@ Enables the client to acquire an [OAuth token](https://developer.concur.com/api-
 
 #### Usage
 
-    //This is for the [native flow Oauth](https://developer.concur.com/api-documentation/oauth-20-0/native-flow).
-    //Use this to get a token to test your application. This requires username, password and your registered consumerkey.
+#####Native Flow
+
+This is for the [native flow Oauth](https://developer.concur.com/api-documentation/oauth-20-0/native-flow). Use this
+to get a token to test your application. This requires username, password and your registered consumerkey.
+
     var concur = require('concur-platform');
 
     var options = {
@@ -41,10 +44,12 @@ Enables the client to acquire an [OAuth token](https://developer.concur.com/api-
         // error will contain the error message returned
     });
 
+#####AppCenter Flow
 
-    //This is for the [AppCenter Flow](https://developer.concur.com/api-documentation/oauth-20-0/app-center-flow).
-    //This requires the code query parameter from Concur AppCenter, clientID (consumerKey) and clientSecret for
-    //your registered partner application.
+This is for the [AppCenter Flow](https://developer.concur.com/api-documentation/oauth-20-0/app-center-flow).
+AppCenter Flow requires the code query parameter from Concur AppCenter, clientID (consumerKey) and clientSecret
+for your registered partner application.
+
     var options = {
         code:code,
         client_id:client_id,
