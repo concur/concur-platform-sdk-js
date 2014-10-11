@@ -100,6 +100,20 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
         // error will contain the error message returned
     });
 
+    //Get a receipt image URL by image ID.
+    var options = {
+        oauthToken:oauthToken,
+        receiptId:receiptId
+    }
+
+    concur.receipt.get(options)
+    .then(function(data) {
+        //data will contain the receipt image url
+    })
+    .fail(function(error) {
+        // error will contain the error message returned
+    });
+
     // Deleting a receipt
     var options = {
         oauthToken:oauthToken,

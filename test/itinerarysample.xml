@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
+    <TripName>Kitten Comfort Rescue</TripName>
+    <StartDateLocal>2015-01-30T03:47:14</StartDateLocal>
+    <EndDateLocal>2015-02-06T03:47:14</EndDateLocal>
+    <Bookings>
+        <Booking>
+            <Segments>
+                <Hotel>
+                    <Status>HK</Status>
+                    <StartCityCode>SJC</StartCityCode>
+                    <StartDateLocal>2015-01-30T07:47:14</StartDateLocal>
+                    <EndDateLocal>2015-01-06T03:47:14</EndDateLocal>
+                    <Name>ALoft Cupertino</Name>
+                    <RecordLocator>Hotel Locator</RecordLocator>
+                    <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
+                    <Currency>USD</Currency>
+                    <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
+                    <DailyRate>240.3500</DailyRate>
+                    <NumRooms>1</NumRooms>
+                    <NumPersons>1</NumPersons>
+                    <RateCode>LV4</RateCode>
+                    <Charges>
+                        <Rate>
+                            <Currency>USD</Currency>
+                            <Amount>220.00</Amount>
+                            <StartDatelocal>2015-01-30T07:47:14</StartDatelocal>
+                            <IsPrimary>false</IsPrimary>
+                            <SemanticsCode>ROOMRATE</SemanticsCode>
+                            <PerUnit>DAY</PerUnit>
+                            <NumUnits>3.00</NumUnits>
+                        </Rate>
+                    </Charges>
+                </Hotel>
+            </Segments>
+            <RecordLocator>CodeCamp</RecordLocator>
+            <BookingSource>Sample Itin for CodeCamp</BookingSource>
+            <DateBookedLocal>2015-01-30T03:47:14</DateBookedLocal>
+        </Booking>
+        <Booking>
+            <Segments>
+                <Air>
+                    <Vendor>AA</Vendor>
+                    <FlightNumber>425</FlightNumber>
+                    <StartCityCode>SEA</StartCityCode>
+                    <StartDateLocal>2015-01-30T03:47:14</StartDateLocal>
+                    <EndCityCode>SFO</EndCityCode>
+                    <EndDateLocal>2015-01-30T07:47:14</EndDateLocal>
+                    <Cabin>O</Cabin>
+                    <ClassOfService>O</ClassOfService>
+                </Air>
+            </Segments>
+            <RecordLocator>Air Locator</RecordLocator>
+            <BookingSource>Sample Itin for CodeCamp</BookingSource>
+            <DateBookedLocal>2015-01-30T03:47:14</DateBookedLocal>
+        </Booking>
+    </Bookings>
+</Itinerary>
