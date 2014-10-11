@@ -1,6 +1,6 @@
 {
   "name": "concur-platform",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "The concur-platform-sdk-js",
   "main": "index.js",
   "scripts": {
@@ -20,7 +20,8 @@
   "license": "Apache 2.0",
   "dependencies": {
     "q": "^1.0.1",
-    "request": "^2.40.0"
+    "request": "^2.40.0",
+    "util": "^0.10.3"
   },
   "devDependencies": {
     "chai": "^1.9.1",

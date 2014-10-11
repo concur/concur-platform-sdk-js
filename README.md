@@ -56,7 +56,7 @@ for your registered partner application.
         client_secret:client_secret
     }
 
-    concur.oauth.appcenter(options)
+    concur.oauth.appCenter(options)
     .then(function(token) {
         // token will contain the value, instanceUrl, refreshToken, and expiration details
     })
@@ -68,7 +68,7 @@ for your registered partner application.
 
 Enables the client to interact with the [receipt](https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages) and [eReceipt](https://developer.concur.com/api-documentation/more-resources/draft-documentation/e-receipt-service) Web services.
 
-#### Usage
+#### Example
 
     var concur = require('concur-platform');
 

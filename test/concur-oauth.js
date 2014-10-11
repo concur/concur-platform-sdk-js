@@ -71,3 +71,26 @@ describe('Concur Native Flow oAuth Tests', function(){
         });
     });
 });
+
+
+//TODO: Mock out the service to test appcenter flow.
+//describe('Concur AppCenter Flow oAuth Tests', function(){
+//    it('should validate the server returned a valid payload', function(done) {
+//        this.timeout(10000);
+//
+//        concur.oauth.appCenter(options)
+//        .then(function(token) {
+//            console.log(token);
+//            done();
+//        })
+//        .fail(function(error) {
+//            console.log(error);
+//        });
+//    });
+//
+//
+//});
+
+
+
+
