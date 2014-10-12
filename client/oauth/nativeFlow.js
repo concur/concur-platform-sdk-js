@@ -8,19 +8,20 @@ module.exports = {
 
         var concurAccessTokenURL = utils.serviceURL + '/net2/oauth2/accesstoken.ashx';
 
-        var headers = { 'Authorization' : 'Basic ' + new Buffer(parameters.username+':'+parameters.password).toString('base64'),
+        var headers = {
+            'Authorization' : 'Basic ' + new Buffer(parameters.username+':'+parameters.password).toString('base64'),
             'X-ConsumerKey' : parameters.consumerKey,
             'Accept' : 'application/json'
         };
 
-        request({url:concurAccessTokenURL, headers:headers}, function(error, response, body){
+        request({url:concurAccessTokenURL, headers:headers}, function(error, response, body) {
             // Error with the actual request
-            if (error){
+            if (error) {
                 return deferred.reject(error);
             }
 
             // Non-200 HTTP response code
-            if (response.statusCode != 200){
+            if (response.statusCode != 200) {
                 return deferred.reject({'error':'Auth URL ('+concurAccessTokenURL+') returned HTTP status code '+response.statusCode});
             }
 

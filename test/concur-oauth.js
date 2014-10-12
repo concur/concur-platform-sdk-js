@@ -15,7 +15,7 @@ describe('Concur Native Flow oAuth Tests', function(){
             username:username,
             password:password,
             consumerKey:consumerKey
-        }
+        };
         concur.oauth.native(options)
         .then(function(token) {
             expect(token).to.have.property('value');
@@ -34,7 +34,7 @@ describe('Concur Native Flow oAuth Tests', function(){
             username:'NOBODY!',
             password:password,
             consumerKey:consumerKey
-        }
+        };
         concur.oauth.native(options)
         .then({})
         .fail(function(rejected){
@@ -48,7 +48,7 @@ describe('Concur Native Flow oAuth Tests', function(){
             username:username,
             password:'BLURGH!',
             consumerKey:consumerKey
-        }
+        };
         concur.oauth.native(options)
         .then({})
         .fail(function(rejected) {
@@ -62,7 +62,7 @@ describe('Concur Native Flow oAuth Tests', function(){
             username:username,
             password:password,
             consumerKey:'INVALIDCONSUMERKEY!'
-        }
+        };
         concur.oauth.native(options)
         .then({})
         .fail(function(rejected){

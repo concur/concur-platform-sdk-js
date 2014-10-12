@@ -11,11 +11,13 @@ module.exports = {
     send: function(receiptDetails) {
         var deferred = Q.defer();
 
-        var headers = { 'Authorization' : 'OAuth '+receiptDetails.oauthToken,
+        var headers = {
+            'Authorization' : 'OAuth '+receiptDetails.oauthToken,
             'Accept':'application/json',
-            'Content-Type':receiptDetails.contentType};
+            'Content-Type':receiptDetails.contentType
+        };
 
-        var requestBody = {}
+        var requestBody = {};
         if (receiptDetails.eReceiptWithImage) {
             requestBody.url = eReceiptWithImageURL;
             requestBody.body = JSON.stringify(receiptDetails.data);
@@ -65,10 +67,12 @@ module.exports = {
             'Accept':'application/json'
         };
 
+        var receiptURL = receiptImageURL;
         if (receiptDetails.receiptId) {
-            receiptImageURL = receiptImageURL +'/'+receiptDetails.receiptId;
+            receiptURL =  receiptURL + '/'+receiptDetails.receiptId;
         }
-        request.get({url: receiptImageURL, headers:headers}, function(error, response, body) {
+
+        request.get({url:receiptURL, headers:headers}, function(error, response, body) {
             // Error with the actual request
             if (error){
                 return deferred.reject(error);
@@ -96,13 +100,14 @@ module.exports = {
         var headers = {
             'Authorization': 'Oauth '+receiptDetails.oauthToken,
             'Accept':'application/json'
+        };
+
+        var receiptURL = receiptImageURL;
+        if (receiptDetails.receiptId) {
+            receiptURL =  receiptURL + '/'+receiptDetails.receiptId;
         }
 
-        var receiptURL;
-        if (receiptDetails.receiptId) {
-            receiptURL = receiptImageURL +'/'+receiptDetails.receiptId;
-        }
-        request.del({url: receiptImageURL, headers:headers}, function(error, response, body) {
+        request.del({url: receiptURL, headers:headers}, function(error, response, body) {
             // Error with the actual request
             if (error){
                 return deferred.reject(error);

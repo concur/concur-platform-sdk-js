@@ -10,7 +10,7 @@ describe('Concur User API Tests', function(){
         var options = {
             oauthToken:config.get('oauthToken'),
             loginId:config.get('username')
-        }
+        };
 
         concur.user.get(options)
         .then(function(user) {
@@ -20,5 +20,21 @@ describe('Concur User API Tests', function(){
         .fail(function(error) {
             console.log("Getting an OAuth token failed: ", error);
         });
+    });
+
+    it('should validate the user matches the oauth token user', function(done) {
+        this.timeout(10000);
+        var options = {
+            oauthToken:config.get('oauthToken')
+        };
+
+        concur.user.get(options)
+            .then(function(user) {
+                expect(user.LoginId).to.equal(config.get('username'));
+                done();
+            })
+            .fail(function(error) {
+                console.log("Getting an OAuth token failed: ", error);
+            });
     });
 });

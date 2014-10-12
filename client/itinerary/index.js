@@ -14,18 +14,20 @@ module.exports = {
             'Accept' : 'application/json'
         };
 
+
+        var itinURL = itineraryURL;
         if (options.itineraryId) {
-            itineraryURL = itineraryURL +'/'+options.itineraryId;
+            itinURL =  itinURL + '/'+options.itineraryId;
         }
 
-        request({url:itineraryURL, headers:headers}, function(error, response, body){
+        request({url:itinURL, headers:headers}, function(error, response, body) {
             // Error with the actual request
-            if (error){
+            if (error) {
                 return deferred.reject(error);
             }
 
             // Non-200 HTTP response code
-            if (response.statusCode != 200){
+            if (response.statusCode != 200) {
                 return deferred.reject({'error':'Auth URL ('+itineraryURL+') returned HTTP status code '+response.statusCode});
             }
 
@@ -42,24 +44,25 @@ module.exports = {
                 deferred.resolve(bodyJSON);
             }
         });
-
         return deferred.promise;
     },
     send: function(options) {
         var deferred = Q.defer();
 
-        var headers = { 'Authorization' : 'OAuth '+options.oauthToken,
+        var headers = {
+            'Authorization' : 'OAuth '+options.oauthToken,
             'Accept':'application/json',
-            'Content-Type':options.contentType};
+            'Content-Type':options.contentType
+        };
 
-        request.post({url:itineraryURL, headers:headers, body:options.body}, function(error, response, body){
+        request.post({url:itineraryURL, headers:headers, body:options.body}, function(error, response, body) {
             // Error with the actual request
-            if (error){
+            if (error) {
                 return deferred.reject(error);
             }
 
             // Non-200 HTTP response code
-            if (response.statusCode != 200){
+            if (response.statusCode != 200) {
                 return deferred.reject({'error':'Auth URL ('+itineraryURL+') returned HTTP status code '+response.statusCode});
             }
 

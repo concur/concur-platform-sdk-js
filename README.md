@@ -64,11 +64,110 @@ for your registered partner application.
         // error will contain the error message returned
     });
 
+### Quick Expenses
+
+Enables the client to interact with the [quick expense](https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses) web service.
+
+#### Usage
+
+##### POST
+
+    var quickexpenseJSON = {
+        "Comment": "I am a Quick Expense",
+        "CurrencyCode": "USD",
+        "ExpenseTypeCode": "CARMI",
+        "LocationCity": "Seattle",
+        "LocationCountry": "US",
+        "LocationSubdivision": "US-WA",
+        "TransactionAmount": "12.23",
+        "TransactionDate": "2015-05-10",
+        "VendorDescription": "Testing"
+    };
+
+    var options = {
+        oauthToken:oauthToken,
+        contentType:'application/json',
+        body:quickexpenseJSON
+    };
+
+    concur.quickexpense.send(options)
+    .then(function(data){
+        //Contains the ID and URI to the resouce
+    })
+    .fail(function (error) {
+        //Error contains the error returned
+    });
+
+##### GET
+
+    //Get a list of quick expenses
+    var options = {
+        oauthToken:oauthToken
+    };
+
+    concur.quickexpense.get(options)
+    .then(function(data) {
+        //Data contains a list of quick expenses
+    })
+    .fail(function (error) {
+        //Error contians the error returned
+    });
+
+    //Get a single quick expense, just add quickexpenseId to options
+    var options = {
+        oauthToken:oauthToken,
+        quickexpenseId:quickexpenseId
+    };
+
+    concur.quickexpense.get(options)
+    .then(function(data) {
+        //Contains the single quick expense
+    })
+    .fail(function (error) {
+        //Contains the error returned
+    });
+
+##### PUT
+
+    var quickexpenseJSON = {
+        "TransactionAmount": "16.23"
+    };
+
+    var options = {
+        oauthToken:oauthToken,
+        contentType:'application/json',
+        quickexpenseId:quickexpenseId,
+        body:quickexpenseJSON
+    };
+
+    concur.quickexpense.put(options)
+    .then(function(data){
+        //Contains the response code 204, for a successful resource update
+    })
+    .fail(function (error) {
+        //Contains the error returned
+    });
+
+##### DELETE
+
+    var options = {
+        oauthToken:oauthToken,
+        quickexpenseId:quickexpenseId
+    };
+
+    concur.quickexpense.delete(options)
+    .then(function(data) {
+        //Contains the response code 204, for a successful resource update
+    })
+    .fail(function (error) {
+        //Contains the error returned
+    });
+
 ### Receipt
 
 Enables the client to interact with the [receipt](https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages) and [eReceipt](https://developer.concur.com/api-documentation/more-resources/draft-documentation/e-receipt-service) Web services.
 
-#### Example
+#### Usage
 
     var concur = require('concur-platform');
 
@@ -160,7 +259,7 @@ In order to simplify the asynchronous nature of the platform Web service calls, 
 
 ## License
 
-Copyright 2014 [Concur Technologies](http://www.concur.com)
+Copyright 2014 [Concur](http://www.concur.com)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -49,7 +49,23 @@ describe('Concur Itinerary Tests', function(){
         var options = {
             oauthToken:oauthToken,
             itineraryId:itineraryid
-        }
+        };
+        concur.itinerary.get(options)
+        .then(function(trip) {
+            expect(trip.Itinerary.TripId[0]).to.equal(itineraryid);
+            done();
+        })
+        .fail(function(error) {
+            console.log("Getting the list of trips have failed: ", error);
+        });
+    });
+
+    it('should contain a single trip with the next call', function(done) {
+        this.timeout(10000);
+        var options = {
+            oauthToken:oauthToken,
+            itineraryId:itineraryid
+        };
         concur.itinerary.get(options)
             .then(function(trip) {
                 expect(trip.Itinerary.TripId[0]).to.equal(itineraryid);
@@ -59,6 +75,7 @@ describe('Concur Itinerary Tests', function(){
                 console.log("Getting the list of trips have failed: ", error);
             });
     });
+
 
 
 });

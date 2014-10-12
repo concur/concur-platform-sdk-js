@@ -19,15 +19,17 @@ module.exports = {
             'Accept' : 'application/json'
         };
 
-        request({url:concurAccessTokenURL, headers:headers}, function(error, response, body){
+        request({url:concurAccessTokenURL, headers:headers}, function(error, response, body) {
             // Error with the actual request
-            if (error){
+            if (error) {
                 return deferred.reject(error);
             }
 
             // Non-200 HTTP response code
-            if (response.statusCode != 200){
-                return deferred.reject({'error':'Auth URL ('+concurAccessTokenURL+') returned HTTP status code '+response.statusCode});
+            if (response.statusCode != 200) {
+                return deferred.reject({
+                    'error':'Auth URL ('+concurAccessTokenURL+') returned HTTP status code '+response.statusCode
+                });
             }
 
             var bodyJSON = JSON.parse(body);
