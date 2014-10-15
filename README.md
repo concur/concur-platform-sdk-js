@@ -19,13 +19,13 @@ All platform services are exposed via a root module which can be imported using 
 
 ### OAuth
 
-Enables the client to acquire an [OAuth token](https://developer.concur.com/api-documentation/oauth-20-0).
+Enables the client to acquire an [OAuth token](https://developer.concur.com/oauth-20).
 
 #### Usage
 
 #####Native Flow
 
-This is for the [native flow Oauth](https://developer.concur.com/api-documentation/oauth-20-0/native-flow). Use this
+This is for the [native flow Oauth](https://developer.concur.com/oauth-20/native-flow). Use this
 to get a token to test your application. This requires username, password and your registered consumerkey.
 
     var concur = require('concur-platform');
@@ -46,7 +46,7 @@ to get a token to test your application. This requires username, password and yo
 
 #####AppCenter Flow
 
-This is for the [AppCenter Flow](https://developer.concur.com/api-documentation/oauth-20-0/app-center-flow).
+This is for the [AppCenter Flow](https://developer.concur.com/oauth-20/app-center-flow).
 AppCenter Flow requires the code query parameter from Concur AppCenter, clientID (consumerKey) and clientSecret
 for your registered partner application.
 
