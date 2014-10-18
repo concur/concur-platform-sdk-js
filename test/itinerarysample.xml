@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
-    <TripName>Kitten Comfort Rescue</TripName>
+    <TripName>SEA TO SJC</TripName>
     <StartDateLocal>2015-01-30T03:47:14</StartDateLocal>
     <EndDateLocal>2015-02-06T03:47:14</EndDateLocal>
+    <IsPersonal>true</IsPersonal>
     <Bookings>
         <Booking>
             <Segments>
