@@ -3,6 +3,7 @@ exports.oauth = require('./client/oauth');
 exports.quickexpense = require('./client/quickexpense');
 exports.receipt = require('./client/receipt');
 exports.user = require('./client/user');
+exports.utils = require('./client/utils');
 
 
 
