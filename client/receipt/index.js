@@ -20,7 +20,7 @@ module.exports = {
         var requestBody = {};
         if (receiptDetails.eReceiptWithImage) {
             requestBody.url = eReceiptWithImageURL;
-            requestBody.body = JSON.stringify(receiptDetails.data);
+            requestBody.body = JSON.stringify(receiptDetails.eReceiptWithImage);
             requestBody.error = "eReceipt with Image URL: " + eReceiptWithImageURL;
         } else if (receiptDetails.image) {
             requestBody.url = receiptImageURL;
