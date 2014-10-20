@@ -25,15 +25,31 @@ describe('Concur Receipt Tests', function(){
         });
     });
 
+    it('should upload the image supplied via URL', function(done) {
+        options = {
+            oauthToken:oauthToken,
+            imageURL:'http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg'
+        };
+
+        concur.receipt.send(options)
+        .then(function(imageId) {
+            expect(imageId).to.be.ok;
+            done();
+        })
+        .fail(function(error) {
+            console.log(error);
+        });
+    });
+
     it('should fail with invalid content type', function(done) {
         fs.readFile('test/concurlogo.png', function(err, image) {
             if (!err) {
                 concur.receipt.send({oauthToken:oauthToken, image:image, contentType:'image/html'})
-                .then({})
-                .fail(function(error) {
-                    expect(error.body).contain('"Message":"Content-Type \\"image/html\\" is unsupported."}');
-                    done();
-                });
+                    .then({})
+                    .fail(function(error) {
+                        expect(error.body).contain('"Message":"Content-Type \\"image/html\\" is unsupported."}');
+                        done();
+                    });
             } else {
                 console.log(err);
             }

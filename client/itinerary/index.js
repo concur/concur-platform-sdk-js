@@ -28,7 +28,7 @@ module.exports = {
 
             // Non-200 HTTP response code
             if (response.statusCode != 200) {
-                return deferred.reject({'error':'Auth URL ('+itineraryURL+') returned HTTP status code '+response.statusCode});
+                return deferred.reject({'error':'Itinerary URL ('+itineraryURL+') returned HTTP status code '+response.statusCode});
             }
 
             if (options.itineraryId) {
@@ -63,7 +63,7 @@ module.exports = {
 
             // Non-200 HTTP response code
             if (response.statusCode != 200) {
-                return deferred.reject({'error':'Auth URL ('+itineraryURL+') returned HTTP status code '+response.statusCode});
+                return deferred.reject({'error':'Itinerary URL ('+itineraryURL+') returned HTTP status code '+response.statusCode});
             }
 
             parseString(body, function (err, result) {

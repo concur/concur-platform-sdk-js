@@ -1,4 +1,6 @@
 var request = require('request'),
+    getImage = require('./loadImageFromURL'),
+    image = require('./post'),
     utils = require('../utils/utils.js');
     Q = require('q');
 
@@ -9,15 +11,8 @@ var serviceURL = utils.serviceURL,
 
 module.exports = {
     send: function(receiptDetails) {
-        var deferred = Q.defer();
-
-        var headers = {
-            'Authorization' : 'OAuth '+receiptDetails.oauthToken,
-            'Accept':'application/json',
-            'Content-Type':receiptDetails.contentType
-        };
-
         var requestBody = {};
+        requestBody.oauthToken = receiptDetails.oauthToken;
         if (receiptDetails.eReceiptWithImage) {
             requestBody.url = eReceiptWithImageURL;
             requestBody.body = JSON.stringify(receiptDetails.eReceiptWithImage);
@@ -26,37 +21,22 @@ module.exports = {
             requestBody.url = receiptImageURL;
             requestBody.body = receiptDetails.image;
             requestBody.error = "Receipt Image URL: " + receiptImageURL;
+        } else if (receiptDetails.imageURL) {
+            requestBody.url = receiptImageURL;
+            requestBody.error = "Receipt Image URL: " + receiptImageURL;
         } else {
             requestBody.url = eReceiptURL;
             requestBody.body = JSON.stringify(receiptDetails.data);
             requestBody.error = "eReceipt Image URL: " + eReceiptURL;
         }
 
-        request.post({url:requestBody.url, headers:headers, body:requestBody.body}, function(error, response, body){
-            // Error with the actual request
-            if (error){
-                return deferred.reject(error);
-            }
-
-            // Non-200 HTTP response code
-            if (response.statusCode != 200){
-                return deferred.reject({'error':requestBody.error+' returned HTTP status code '+response.statusCode, 'body':body});
-            }
-
-            var bodyJSON = JSON.parse(body);
-
-            // 200, but Error in token payload
-            if (bodyJSON.Message) return deferred.reject({'error':bodyJSON.Message});
-
-            // parse and map receipt ID
-            if (bodyJSON.ID) {
-                deferred.resolve(bodyJSON.ID);
-            } else {
-                deferred.resolve(bodyJSON.ReceiptID);
-            }
-
-        });
-        return deferred.promise;
+        if (receiptDetails.imageURL) {
+            requestBody.imageURL = receiptDetails.imageURL;
+            return getImage.loadImageFromURLAndPost(requestBody);
+        } else {
+            requestBody.contentType = receiptDetails.contentType;
+            return image.post(requestBody);
+        }
     },
 
     get:function(receiptDetails) {

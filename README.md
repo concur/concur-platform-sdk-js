@@ -169,8 +169,11 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
 
 #### Usage
 
+#####POST
+
     var concur = require('concur-platform');
 
+    //If you have the image locally, this will post it to Concur.
     var options = {
         oauthToken:oauthToken,
         image:image,
@@ -186,7 +189,24 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
         // error will contain the error message returned
     });
 
-    // Getting receipts
+
+    //If you have a link to the image, using this will get the image, then post it to Concur.
+    options = {
+        oauthToken:oauthToken,
+        imageURL:'http://upload.wikimedia.org/wikipedia/commons/2/22/Turkish_Van_Cat.jpg'
+    };
+
+    concur.receipt.send(options)
+    .then(function(imageId) {
+        //receiptID is returned on success
+    })
+    .fail(function(error) {
+        //error will contain the error message returned
+    });
+
+#####GET
+
+    // Getting a lit of receipts
     var options = {
         oauthToken:oauthToken
     }
@@ -212,6 +232,8 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
     .fail(function(error) {
         // error will contain the error message returned
     });
+
+#####DELETE
 
     // Deleting a receipt
     var options = {

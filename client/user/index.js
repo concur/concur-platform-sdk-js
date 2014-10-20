@@ -27,7 +27,7 @@ module.exports = {
 
             // Non-200 HTTP response code
             if (response.statusCode != 200) {
-                return deferred.reject({'error':'Auth URL ('+concurUserURL+') returned HTTP status code '+response.statusCode});
+                return deferred.reject({'error':'User URL ('+concurUserURL+') returned HTTP status code '+response.statusCode});
             }
 
             var bodyJSON = JSON.parse(body);
