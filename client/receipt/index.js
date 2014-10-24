@@ -13,9 +13,10 @@ module.exports = {
     send: function(receiptDetails) {
         var requestBody = {};
         requestBody.oauthToken = receiptDetails.oauthToken;
-        if (receiptDetails.eReceiptWithImage) {
+
+        if (receiptDetails.data && receiptDetails.data.GeneralDetail) {
             requestBody.url = eReceiptWithImageURL;
-            requestBody.body = JSON.stringify(receiptDetails.eReceiptWithImage);
+            requestBody.body = JSON.stringify(receiptDetails.data);
             requestBody.error = "eReceipt with Image URL: " + eReceiptWithImageURL;
         } else if (receiptDetails.image) {
             requestBody.url = receiptImageURL;

@@ -13,7 +13,6 @@ exports.loadImageFromURLAndPost = function (options) {
 
     // Non-200 HTTP response code
     if (res.statusCode != 200){
-      console.log(res.statusCode)
       return deferred.reject({'error':res.statusCode, 'body':body});
     }
 
