@@ -16,7 +16,8 @@ module.exports = {
 
         var headers = {
             'Authorization' : 'OAuth ' + options.oauthToken,
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'User-Agent':'Concur-platform-sdk-js'
         };
 
         request({url:tempUserURL, headers:headers}, function(error, response, body){

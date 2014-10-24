@@ -11,7 +11,8 @@ module.exports = {
 
         var headers = {
             'Authorization' : 'OAuth ' + options.oauthToken,
-            'Accept' : 'application/json'
+            'Accept' : 'application/json',
+            'User-Agent':'Concur-platform-sdk-js'
         };
 
 
@@ -52,7 +53,8 @@ module.exports = {
         var headers = {
             'Authorization' : 'OAuth '+options.oauthToken,
             'Accept':'application/json',
-            'Content-Type':options.contentType
+            'Content-Type':options.contentType,
+            'User-Agent':'Concur-platform-sdk-js'
         };
 
         request.post({url:itineraryURL, headers:headers, body:options.body}, function(error, response, body) {

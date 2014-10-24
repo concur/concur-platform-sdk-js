@@ -45,7 +45,8 @@ module.exports = {
 
         var headers = {
             'Authorization': 'Oauth '+receiptDetails.oauthToken,
-            'Accept':'application/json'
+            'Accept':'application/json',
+            'User-Agent':'Concur-platform-sdk-js'
         };
 
         var receiptURL = receiptImageURL;
@@ -80,7 +81,8 @@ module.exports = {
 
         var headers = {
             'Authorization': 'Oauth '+receiptDetails.oauthToken,
-            'Accept':'application/json'
+            'Accept':'application/json',
+            'User-Agent':'Concur-platform-sdk-js'
         };
 
         var receiptURL = receiptImageURL;

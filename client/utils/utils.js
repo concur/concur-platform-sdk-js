@@ -42,7 +42,8 @@ exports.send = function(options) {
     var headers = {
         'Authorization' : 'OAuth '+options.oauthToken,
         'Accept':'application/json',
-        'Content-Type':'application/json'
+        'Content-Type':'application/json',
+        'User-Agent':'Concur-platform-sdk-js'
     };
 
     request.post({url:options.resourceURL, headers:headers, body:JSON.stringify(options.body)}, function(error, response, body) {
@@ -71,7 +72,8 @@ exports.get = function(options) {
 
     var headers = {
         'Authorization' : 'OAuth ' + options.oauthToken,
-        'Accept' : 'application/json'
+        'Accept' : 'application/json',
+        'User-Agent':'Concur-platform-sdk-js'
     };
 
     var tempURL = options.resourceURL;
@@ -106,7 +108,8 @@ exports.put = function(options) {
     var headers = {
         'Authorization' : 'OAuth '+options.oauthToken,
         'Accept':'application/json',
-        'Content-Type':'application/json'
+        'Content-Type':'application/json',
+        'User-Agent':'Concur-platform-sdk-js'
     };
 
     var tempURL = options.resourceURL;

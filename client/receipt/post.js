@@ -7,7 +7,8 @@ exports.post = function(options) {
     var headers = {
         'Authorization' : 'OAuth '+options.oauthToken,
         'Accept':'application/json',
-        'Content-Type':options.contentType
+        'Content-Type':options.contentType,
+        'User-Agent':'Concur-platform-sdk-js'
     };
 
     request.post({url:options.url, headers:headers, body:options.body}, function(error, response, body){

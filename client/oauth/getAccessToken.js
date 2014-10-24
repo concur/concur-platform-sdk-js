@@ -16,7 +16,8 @@ module.exports = {
             options.client_secret);
 
         var headers = {
-            'Accept' : 'application/json'
+            'Accept' : 'application/json',
+            'User-Agent':'Concur-platform-sdk-js'
         };
 
         request({url:concurAccessTokenURL, headers:headers}, function(error, response, body) {
