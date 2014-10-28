@@ -1,27 +1,34 @@
-var request = require('request'),
-    utils = require('../utils/utils.js'),
-    Q = require('q');
+var utils = require('../utils/utils.js');
 
-var quickexpenseURL = utils.serviceURL + '/api/v3.0/expense/quickexpenses';
+var url = utils.serviceURL + '/api/v3.0/expense/quickexpenses';
 
 module.exports = {
     get: function (options) {
-        options.resourceURL = quickexpenseURL;
-        options.resourceId = options.quickexpenseId;
+        if (options.quickexpenseId) {
+            options.id = options.quickexpenseId;
+        }
+        options.resourceURL = url;
         return utils.get(options);
     },
     send: function(options) {
-        options.resourceURL = quickexpenseURL;
+        if (options.quickexpenseId) {
+            options.id = options.quickexpenseId;
+        }
+        options.resourceURL = url;
         return utils.send(options);
     },
     put: function(options) {
-        options.resourceURL = quickexpenseURL;
-        options.resourceId = options.quickexpenseId;
+        if (options.quickexpenseId) {
+            options.id = options.quickexpenseId;
+        }
+        options.resourceURL = url;
         return utils.put(options);
     },
     delete:function(options) {
-        options.URL = quickexpenseURL;
-        options.resourceId = options.quickexpenseId;
+        if (options.quickexpenseId) {
+            options.id = options.quickexpenseId;
+        }
+        options.resourceURL = url;
         return utils.delete(options);
     }
 };

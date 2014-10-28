@@ -116,7 +116,7 @@ Enables the client to interact with the [quick expense](https://www.concursoluti
     //Get a single quick expense, just add quickexpenseId to options
     var options = {
         oauthToken:oauthToken,
-        quickexpenseId:quickexpenseId
+        id:quickexpenseId
     };
 
     concur.quickexpense.get(options)
@@ -136,7 +136,7 @@ Enables the client to interact with the [quick expense](https://www.concursoluti
     var options = {
         oauthToken:oauthToken,
         contentType:'application/json',
-        quickexpenseId:quickexpenseId,
+        id:quickexpenseId,
         body:quickexpenseJSON
     };
 
@@ -152,7 +152,7 @@ Enables the client to interact with the [quick expense](https://www.concursoluti
 
     var options = {
         oauthToken:oauthToken,
-        quickexpenseId:quickexpenseId
+        id:quickexpenseId
     };
 
     concur.quickexpense.delete(options)
@@ -222,7 +222,7 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
     //Get a receipt image URL by image ID.
     var options = {
         oauthToken:oauthToken,
-        receiptId:receiptId
+        id:receiptId
     }
 
     concur.receipt.get(options)
@@ -238,7 +238,7 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
     // Deleting a receipt
     var options = {
         oauthToken:oauthToken,
-        receiptId:receiptId
+        id:receiptId
     }
 
     concur.receipt.delete(options)

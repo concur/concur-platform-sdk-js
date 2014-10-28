@@ -1,8 +1,6 @@
-var request = require('request'),
-    getImage = require('./loadImageFromURL'),
+var getImage = require('./loadImageFromURL'),
     image = require('./post'),
     utils = require('../utils/utils.js');
-    Q = require('q');
 
 var serviceURL = utils.serviceURL,
     receiptImageURL = serviceURL + '/api/v3.0/expense/receiptimages',
@@ -10,100 +8,49 @@ var serviceURL = utils.serviceURL,
     eReceiptWithImageURL = serviceURL + '/api/v3.0/common/receipts';
 
 module.exports = {
-    send: function(receiptDetails) {
+    send: function(options) {
         var requestBody = {};
-        requestBody.oauthToken = receiptDetails.oauthToken;
+        requestBody.oauthToken = options.oauthToken;
 
-        if (receiptDetails.data && receiptDetails.data.GeneralDetail) {
+        if (options.data && options.data.MatchingFact) {
             requestBody.url = eReceiptWithImageURL;
-            requestBody.body = JSON.stringify(receiptDetails.data);
+            requestBody.body = JSON.stringify(options.data);
             requestBody.error = "eReceipt with Image URL: " + eReceiptWithImageURL;
-        } else if (receiptDetails.image) {
+        } else if (options.image) {
             requestBody.url = receiptImageURL;
-            requestBody.body = receiptDetails.image;
+            requestBody.body = options.image;
             requestBody.error = "Receipt Image URL: " + receiptImageURL;
-        } else if (receiptDetails.imageURL) {
+        } else if (options.imageURL) {
             requestBody.url = receiptImageURL;
             requestBody.error = "Receipt Image URL: " + receiptImageURL;
         } else {
             requestBody.url = eReceiptURL;
-            requestBody.body = JSON.stringify(receiptDetails.data);
+            requestBody.body = JSON.stringify(options.data);
             requestBody.error = "eReceipt Image URL: " + eReceiptURL;
         }
 
-        if (receiptDetails.imageURL) {
-            requestBody.imageURL = receiptDetails.imageURL;
+        if (options.imageURL) {
+            requestBody.imageURL = options.imageURL;
             return getImage.loadImageFromURLAndPost(requestBody);
         } else {
-            requestBody.contentType = receiptDetails.contentType;
+            requestBody.contentType = options.contentType;
             return image.post(requestBody);
         }
     },
 
-    get:function(receiptDetails) {
-        var deferred = Q.defer();
-
-        var headers = {
-            'Authorization': 'Oauth '+receiptDetails.oauthToken,
-            'Accept':'application/json',
-            'User-Agent':'Concur-platform-sdk-js'
-        };
-
-        var receiptURL = receiptImageURL;
-        if (receiptDetails.receiptId) {
-            receiptURL =  receiptURL + '/'+receiptDetails.receiptId;
+    get: function (options) {
+        if (options.receiptId) {
+            options.id = options.receiptId;
         }
-
-        request.get({url:receiptURL, headers:headers}, function(error, response, body) {
-            // Error with the actual request
-            if (error){
-                return deferred.reject(error);
-            }
-
-            // Non-200 HTTP response code
-            if (response.statusCode != 200){
-                return deferred.reject({'error':'returned HTTP status code '+response.statusCode, 'body':body});
-            }
-
-            var bodyJSON = JSON.parse(body);
-
-            // 200, but Error in token payload
-            if (bodyJSON.Message) return deferred.reject({'error':bodyJSON.Message});
-
-            deferred.resolve(bodyJSON);
-
-        });
-        return deferred.promise;
+        options.resourceURL = receiptImageURL;
+        return utils.get(options);
     },
 
-    delete:function(receiptDetails) {
-        var deferred = Q.defer();
-
-        var headers = {
-            'Authorization': 'Oauth '+receiptDetails.oauthToken,
-            'Accept':'application/json',
-            'User-Agent':'Concur-platform-sdk-js'
-        };
-
-        var receiptURL = receiptImageURL;
-        if (receiptDetails.receiptId) {
-            receiptURL =  receiptURL + '/'+receiptDetails.receiptId;
+    delete:function(options) {
+        if (options.receiptId) {
+            options.id = options.receiptId;
         }
-
-        request.del({url: receiptURL, headers:headers}, function(error, response, body) {
-            // Error with the actual request
-            if (error){
-                return deferred.reject(error);
-            }
-
-            // Non-204 HTTP response code
-            if (response.statusCode != 204){
-                return deferred.reject({'error':'returned HTTP status code '+response.statusCode, 'body':body});
-            }
-
-            deferred.resolve(response);
-
-        });
-        return deferred.promise;
+        options.resourceURL = receiptImageURL;
+        return utils.delete(options);
     }
 };

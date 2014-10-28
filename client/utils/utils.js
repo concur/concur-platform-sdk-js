@@ -8,12 +8,13 @@ exports.delete = function(options) {
 
     var headers = {
         'Authorization': 'Oauth '+options.oauthToken,
-        'Accept':'application/json'
+        'Accept':'application/json',
+        'User-Agent':'Concur-platform-sdk-js'
     };
 
-    var tempURL = options.URL;
-    if (options.resourceId) {
-        tempURL = tempURL +'/'+options.resourceId;
+    var tempURL = options.resourceURL;
+    if (options.id) {
+        tempURL = tempURL +'/'+options.id;
     }
 
     request.del({url: tempURL, headers:headers}, function(error, response, body) {
@@ -77,8 +78,8 @@ exports.get = function(options) {
     };
 
     var tempURL = options.resourceURL;
-    if (options.resourceId) {
-        tempURL = tempURL +'/'+options.resourceId;
+    if (options.id) {
+        tempURL = tempURL +'/'+options.id;
     }
 
     request({url:tempURL, headers:headers}, function(error, response, body) {
@@ -113,8 +114,8 @@ exports.put = function(options) {
     };
 
     var tempURL = options.resourceURL;
-    if (options.resourceId) {
-        tempURL = tempURL +'/'+options.resourceId;
+    if (options.id) {
+        tempURL = tempURL +'/'+options.id;
     }
 
     request.put({url:tempURL, headers:headers, body:JSON.stringify(options.body)}, function(error, response, body) {
