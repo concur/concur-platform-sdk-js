@@ -74,6 +74,7 @@ describe('Concur Receipt Tests', function(){
         concur.receipt.get({oauthToken:oauthToken, receiptId:receiptId})
         .then(function(data) {
             expect(data).to.be.ok;
+            expect(data.Items).to.be.undefined;
             done();
         })
         .fail(function(error) {
@@ -84,7 +85,7 @@ describe('Concur Receipt Tests', function(){
     it('should get a 204 response', function(done) {
         concur.receipt.delete({oauthToken:oauthToken, receiptId:receiptId})
         .then(function(data) {
-            expect(data.statusCode).to.equal(204);
+            expect(data).to.equal(204);
             done();
         })
         .fail(function(error) {

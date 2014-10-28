@@ -80,7 +80,7 @@ describe('Concur Quickexpense Test', function() {
         it('should get a single quickexpense', function(done) {
             var options = {
                 oauthToken:oauthToken,
-                quickexpenseId:quickexpenseId
+                id:quickexpenseId
             };
 
             concur.quickexpense.get(options)
@@ -107,7 +107,7 @@ describe('Concur Quickexpense Test', function() {
             var options = {
                 oauthToken:oauthToken,
                 contentType:'application/json',
-                quickexpenseId:quickexpenseId,
+                id:quickexpenseId,
                 body:quickexpenseJSON
             };
 
@@ -142,7 +142,7 @@ describe('Concur Quickexpense Test', function() {
         it('should contain response code 204', function(done) {
             var options = {
                 oauthToken:oauthToken,
-                quickexpenseId:quickexpenseId
+                id:quickexpenseId
             };
 
             concur.quickexpense.delete(options)
@@ -158,7 +158,7 @@ describe('Concur Quickexpense Test', function() {
         it('should contain response code 404 ', function(done) {
             var options = {
                 oauthToken:oauthToken,
-                quickexpenseId:12345
+                id:12345
             };
 
             concur.quickexpense.delete(options)
