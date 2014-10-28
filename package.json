@@ -1,6 +1,6 @@
 {
   "name": "concur-platform",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "The concur-platform-sdk-js",
   "main": "index.js",
   "scripts": {

@@ -16,7 +16,6 @@ describe('Concur Expense Group Configuration Test', function() {
 
       concur.expenseGroupConfiguration.get(options)
           .then(function(data) {
-            console.log(data.Items[0].Policies);
             expect(data.Items[0]).to.have.property('Name');
             expect(data.Items[0]).to.have.property('AttendeeListFormID');
             expect(data.Items[0]).to.have.property('AttendeeListFormName');

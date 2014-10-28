@@ -5,7 +5,8 @@ var getImage = require('./loadImageFromURL'),
 var serviceURL = utils.serviceURL,
     receiptImageURL = serviceURL + '/api/v3.0/expense/receiptimages',
     eReceiptURL = serviceURL + '/api/v3.0/ereceipt/receipts',
-    eReceiptWithImageURL = serviceURL + '/api/v3.0/common/receipts';
+    eReceiptWithImageURL = serviceURL + '/api/v3.0/common/receipts',
+    entryImageUrl = serviceURL + '/api/image/v1.0/expenseentry/';
 
 module.exports = {
     send: function(options) {
@@ -16,7 +17,13 @@ module.exports = {
             requestBody.url = eReceiptWithImageURL;
             requestBody.body = JSON.stringify(options.data);
             requestBody.error = "eReceipt with Image URL: " + eReceiptWithImageURL;
-        } else if (options.image) {
+        } else if(options.entryId) {
+            var tempURL = entryImageUrl;
+            tempURL = tempURL +'/'+options.entryId;
+            requestBody.body = options.image;
+            requestBody.url = tempURL;
+            requestBody.error = "Entry image URL: " + entryImageUrl;
+        }else if (options.image) {
             requestBody.url = receiptImageURL;
             requestBody.body = options.image;
             requestBody.error = "Receipt Image URL: " + receiptImageURL;

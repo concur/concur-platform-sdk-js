@@ -75,7 +75,6 @@ describe('Concur Report Tests', function() {
 
       concur.report.get(options)
           .then(function(data) {
-            console.log(data);
             expect(data).to.be.ok;
             done();
           })

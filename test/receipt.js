@@ -12,18 +12,35 @@ describe('Concur Receipt Tests', function(){
         fs.readFile('test/concurlogo.png', function(err, image) {
             if (!err) {
                 concur.receipt.send({oauthToken:oauthToken, image:image, contentType:'image/png'})
-                .then(function(imageId) {
-                    expect(imageId).to.be.ok;
-                    done();
-                })
-                .fail(function(error) {
-                    console.log("fail", error);
-                });
+                    .then(function(imageId) {
+                        expect(imageId).to.be.ok;
+                        done();
+                    })
+                    .fail(function(error) {
+                        console.log("fail", error);
+                    });
             } else {
                 console.log(err);
             }
         });
     });
+
+    //it('should send a valid image an expense entry', function(done) {
+    //    fs.readFile('test/concurlogo.png', function(err, image) {
+    //        if (!err) {
+    //            concur.receipt.send({oauthToken:oauthToken, image:image, entryId: 'nteT5xdDC4wjdKbPxU9JW0Z2nzZK1BGy3', contentType:'image/png'})
+    //            .then(function(imageId) {
+    //                expect(imageId).to.be.ok;
+    //                done();
+    //            })
+    //            .fail(function(error) {
+    //                console.log("fail", error);
+    //            });
+    //        } else {
+    //            console.log(err);
+    //        }
+    //    });
+    //});
 
     it('should upload the image supplied via URL', function(done) {
         options = {

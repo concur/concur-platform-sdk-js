@@ -11,9 +11,9 @@ exports.post = function(options) {
         'User-Agent':'Concur-platform-sdk-js'
     };
 
-    request.post({url:options.url, headers:headers, body:options.body}, function(error, response, body){
+    request.post({url:options.url, headers:headers, body:options.body}, function(error, response, body) {
         // Error with the actual request
-        if (error){
+        if (error) {
             return deferred.reject(error);
         }
 

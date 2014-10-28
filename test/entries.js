@@ -96,7 +96,6 @@ describe('Concur Entries Tests', function() {
 
       concur.entries.get(options)
           .then(function(data) {
-            console.log(data);
             expect(data).to.be.ok;
             done();
           })
