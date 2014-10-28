@@ -43,13 +43,13 @@ describe('Concur Entries Tests', function() {
       };
 
       concur.entries.send(options)
-          .then(function(data){
-            expect(data).to.be.ok;
-            done();
-          })
-          .fail(function (error) {
-            console.log('Unable to send entries with error: ', error);
-          });
+      .then(function(data){
+        expect(data).to.be.ok;
+        done();
+      })
+      .fail(function (error) {
+        console.log('Unable to send entries with error: ', error);
+      });
 
     });
 
