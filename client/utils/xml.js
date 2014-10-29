@@ -1,7 +1,7 @@
 var xml2js = require('xml2js');
 var _ = require('underscore');
 
-module.exports.getCleansedObjectFromXmlBody = function (xmlBody, callback){
+module.exports.getCleansedObjectFromXmlBody = function (xmlBody, callback) {
     if (!callback || typeof xmlBody !== "string" || xmlBody === ""){
         callback && callback("invalid input", null);
         return;
@@ -9,11 +9,11 @@ module.exports.getCleansedObjectFromXmlBody = function (xmlBody, callback){
 
     var cleanseXmlObject = function (obj){   
         // collapse unnecessary arrays since every level of XML is returned in an array
-        while (_.isArray(obj) && obj.length === 1){
+        while (_.isArray(obj) && obj.length === 1) {
             obj = obj[0];
         }
 
-        if (typeof obj === "object"){
+        if (typeof obj === "object") {
             _.keys(obj).forEach(function (item){
                 obj[item] = cleanseXmlObject(obj[item]);
             });

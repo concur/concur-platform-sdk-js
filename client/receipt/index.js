@@ -6,7 +6,9 @@ var serviceURL = utils.serviceURL,
     receiptImageURL = serviceURL + '/api/v3.0/expense/receiptimages',
     eReceiptURL = serviceURL + '/api/v3.0/ereceipt/receipts',
     eReceiptWithImageURL = serviceURL + '/api/v3.0/common/receipts',
-    entryImageUrl = serviceURL + '/api/image/v1.0/expenseentry/';
+    entryImageUrl = serviceURL + '/api/image/v1.0/expenseentry/',
+    paymentRequest = serviceURL + '/api/image/v1.0/invoice/',
+    reportImageUrl = serviceURL + '/api/image/v1.0/report/';
 
 module.exports = {
     send: function(options) {
@@ -23,7 +25,19 @@ module.exports = {
             requestBody.body = options.image || options.imageURL;
             requestBody.url = tempURL;
             requestBody.error = "Entry image URL: " + entryImageUrl;
-        }else if (options.image) {
+        } else if (options.requestId) {
+            var tempURL = paymentRequest;
+            tempURL = tempURL +'/'+options.requestId;
+            requestBody.body = options.image || options.imageURL;
+            requestBody.url = tempURL;
+            requestBody.error = "Payment Request Image URL " + paymentRequest;
+        } else if (options.reportId) {
+            var tempURL = reportImageUrl;
+            tempURL = tempURL +'/'+options.reportId;
+            requestBody.body = options.image || options.imageURL;
+            requestBody.url = tempURL;
+            requestBody.error = "Report Image URL " + reportImageUrl;
+        } else if (options.image) {
             requestBody.url = receiptImageURL;
             requestBody.body = options.image;
             requestBody.error = "Receipt Image URL: " + receiptImageURL;
