@@ -18,7 +18,7 @@ exports.post = function(options) {
         }
 
         // Non-200 HTTP response code
-        if (response.statusCode != 200){
+        if (response.statusCode > 399){
             return deferred.reject({'error':options.error+' returned HTTP status code '+response.statusCode, 'body':body});
         }
 

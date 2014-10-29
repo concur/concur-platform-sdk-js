@@ -8,7 +8,7 @@ exports.delete = function(options) {
 
     var headers = {
         'Authorization': 'Oauth '+options.oauthToken,
-        'Accept':'application/json',
+        'Accept':options.contentType || 'application/json',
         'User-Agent':'Concur-platform-sdk-js'
     };
 
@@ -42,8 +42,8 @@ exports.send = function(options) {
 
     var headers = {
         'Authorization' : 'OAuth '+options.oauthToken,
-        'Accept':'application/json',
-        'Content-Type':'application/json',
+        'Accept': options.contentType || 'application/json',
+        'Content-Type': options.contentType || 'application/json',
         'User-Agent':'Concur-platform-sdk-js'
     };
 

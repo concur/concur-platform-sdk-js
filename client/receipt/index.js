@@ -20,7 +20,7 @@ module.exports = {
         } else if(options.entryId) {
             var tempURL = entryImageUrl;
             tempURL = tempURL +'/'+options.entryId;
-            requestBody.body = options.image;
+            requestBody.body = options.image || options.imageURL;
             requestBody.url = tempURL;
             requestBody.error = "Entry image URL: " + entryImageUrl;
         }else if (options.image) {

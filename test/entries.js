@@ -1,6 +1,7 @@
 var concur = require('../'),
     config = require('config'),
-    expect = require('chai').expect;
+    expect = require('chai').expect,
+    fs = require('fs');
 
 
 var oauthToken = config.get('oauthToken');
@@ -34,7 +35,7 @@ describe('Concur Entries Tests', function() {
         'VendorDescription': 'Drive myself',
         'VendorListItemID': 'ven list ID',
         'reportid': '98877EEAF75F4F28BCCA'
-      }
+      };
 
       var options = {
         oauthToken:oauthToken,
@@ -50,7 +51,6 @@ describe('Concur Entries Tests', function() {
       .fail(function (error) {
         console.log('Unable to send entries with error: ', error);
       });
-
     });
 
     it('should return a 400 bad request', function(done) {

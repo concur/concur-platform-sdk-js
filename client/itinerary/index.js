@@ -1,5 +1,6 @@
 var request = require('request'),
     utils = require('../utils/utils.js'),
+    xml = require('../utils/xml'),
     parseString = require('xml2js').parseString,
     Q = require('q');
 
@@ -14,7 +15,6 @@ module.exports = {
             'Accept' : 'application/json',
             'User-Agent':'Concur-platform-sdk-js'
         };
-
 
         var itinURL = itineraryURL;
         if (options.itineraryId) {
@@ -33,8 +33,12 @@ module.exports = {
             }
 
             if (options.itineraryId) {
-                parseString(body, function (err, result) {
-                    deferred.resolve(result);
+                xml.getCleansedObjectFromXmlBody(body, function (err, result) {
+                    if (err){
+                        deferred.resolve(err);
+                    } else {
+                        deferred.resolve(result);
+                    }
                 });
             } else {
                 var bodyJSON = JSON.parse(body);
