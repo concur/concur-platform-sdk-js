@@ -1,4 +1,5 @@
-var request = require('request');
+var request = require('request'),
+    xml = require('./xml'),
     Q = require('q');
 
 exports.serviceURL = "https://www.concursolutions.com";
@@ -93,12 +94,22 @@ exports.get = function(options) {
             return deferred.reject({'error':'Auth URL ('+tempURL+') returned HTTP status code '+response.statusCode});
         }
 
-        var bodyJSON = JSON.parse(body);
+        var parsedBody;
+        if (options.contentType) {
+            xml.getCleansedObjectFromXmlBody(body, function (err, result) {
+                if (err){
+                    parsedBody = err;
+                } else {
+                    parsedBody = result;
+                }
+            });
+        } else {
+            parsedBody = JSON.parse(body);
+        }
 
         // 200, but Error in token payload
-        if (bodyJSON.Error) return deferred.reject({'error':bodyJSON.Message});
-
-        deferred.resolve(bodyJSON);
+        if (parsedBody.Error) return deferred.reject({'error':parsedBody.Message});
+        deferred.resolve(parsedBody);
     });
     return deferred.promise;
 };

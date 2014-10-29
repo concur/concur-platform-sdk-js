@@ -23,6 +23,7 @@ exports.reportDigests = require('./client/reportDigests');
 exports.requests = require('./client/requests');
 exports.salesTaxValidationRequest = require('./client/salesTaxValidationRequest');
 exports.suppliers = require('./client/suppliers');
+exports.travelProfile = require('./client/travelProfile');
 exports.user = require('./client/user');
 exports.utils = require('./client/utils');
 exports.vendors = require('./client/vendors');
