@@ -64,6 +64,104 @@ for your registered partner application.
         // error will contain the error message returned
     });
 
+### Entries
+
+This is for the Expense [Entries API](https://www.concursolutions.com/api/docs/index.html#!/Entries). Entries belong
+to an Expense Report.
+
+#### Usage
+
+##### POST
+
+    var entry = {
+        'Comment': 'Test Mileage Entry',
+        'Description': 'Client Meeting',
+        'ExchangeRate': '1.234',
+        'ExpenseTypeCode': 'MILEG',
+        'TransactionDate': '2014-10-27',
+        'reportid': '98877EEAF75F4F28BCCA'
+    };
+
+    var options = {
+        oauthToken:oauthToken,
+        contentType:'application/json',
+        body:entry
+    };
+
+    concur.entries.send(options)
+    .then(function(data){
+        // In data will be the entry ID & URL to the entry
+    })
+    .fail(function (error) {
+        // Error will contian the error returned by the server
+    });
+
+##### GET
+
+    //This will contain a list of expense entries
+    var options = {
+        oauthToken:oauthToken
+    };
+
+    concur.entries.get(options)
+    .then(function(data) {
+        //Data will contain a list of entries
+    })
+    .fail(function (error) {
+        // Error will contian the error returned by the server
+    });
+
+    //This will contain a list of expense entries
+    var options = {
+        oauthToken:oauthToken,
+        id:entriesId
+    };
+
+    concur.entries.get(options)
+    .then(function(data) {
+        //Data will contain an entry
+    })
+    .fail(function (error) {
+        // Error will contain the error returned by the server
+    });
+
+##### PUT
+
+    //This will update the entry given by the entryId, and you can use any field support by entries from the link above.
+    var entry = {
+        'Comment': 'Test put',
+    };
+
+    var options = {
+        oauthToken:oauthToken,
+        contentType:'application/json',
+        id:entryId,
+    };
+
+    concur.entries.put(options)
+    .then(function(data){
+        //Contains the response code 204, for a successful resource update
+    })
+    .fail(function (error) {
+        // Error will contain the error returned by the server
+    });
+
+##### DELETE
+
+    //This will delete the entry given an ID.
+    var options = {
+        oauthToken:oauthToken,
+        id:entryId
+    };
+
+    concur.entries.delete(options)
+    .then(function(data) {
+        //Contains the response code 204, for a successful resource update
+    })
+    .fail(function (error) {
+        //Contains the error returned
+    });
+
 ### Quick Expenses
 
 Enables the client to interact with the [quick expense](https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses) web service.

@@ -78,14 +78,14 @@ describe('Concur Entries Tests', function() {
       };
 
       concur.entries.get(options)
-          .then(function(data) {
-            entriesId = data.Items[0].ID;
-            expect(data).to.be.ok;
-            done();
-          })
-          .fail(function (error) {
-            console.log('Failed to get the list of entries with error: ', error);
-          });
+      .then(function(data) {
+        entriesId = data.Items[0].ID;
+        expect(data).to.be.ok;
+        done();
+      })
+      .fail(function (error) {
+        console.log('Failed to get the list of entries with error: ', error);
+      });
     });
 
     it('should get an entry', function(done) {
@@ -116,12 +116,12 @@ describe('Concur Entries Tests', function() {
       };
 
       concur.entries.put(options)
-          .then(function(data){})
-          .fail(function (error) {
-            expect(error.Message).to.contain('No HTTP resource was found that matches the request URI');
-            expect(error.statusCode).to.be.equal(404);
-            done();
-          });
+      .then(function(data){})
+      .fail(function (error) {
+        expect(error.Message).to.contain('No HTTP resource was found that matches the request URI');
+        expect(error.statusCode).to.be.equal(404);
+        done();
+      });
     });
   });
 });
