@@ -22,7 +22,7 @@ module.exports.getCleansedObjectFromXmlBody = function (xmlBody, callback) {
         return obj;
     };
 
-    xml2js.parseString (xmlBody, function (err, result){
+    xml2js.parseString (xmlBody, function (err, result) {
         callback(err, !err && cleanseXmlObject(result));
     });
 

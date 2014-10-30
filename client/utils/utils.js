@@ -8,7 +8,7 @@ exports.delete = function(options) {
     var deferred = Q.defer();
 
     var headers = {
-        'Authorization': 'Oauth '+options.oauthToken,
+        'Authorization': 'Oauth '+ options.oauthToken || options.token || options.oAuthToken,
         'Accept':options.contentType || 'application/json',
         'User-Agent':'Concur-platform-sdk-js'
     };
@@ -42,7 +42,7 @@ exports.send = function(options) {
     var deferred = Q.defer();
 
     var headers = {
-        'Authorization' : 'OAuth '+options.oauthToken,
+        'Authorization' : 'OAuth '+ options.oauthToken,
         'Accept': options.contentType || 'application/json',
         'Content-Type': options.contentType || 'application/json',
         'User-Agent':'Concur-platform-sdk-js'
@@ -73,7 +73,7 @@ exports.get = function(options) {
     var deferred = Q.defer();
 
     var headers = {
-        'Authorization' : 'OAuth ' + options.oauthToken,
+        'Authorization' : 'OAuth ' + options.oauthToken || options.token || options.oAuthToken,
         'Accept' : 'application/json',
         'User-Agent':'Concur-platform-sdk-js'
     };
@@ -118,7 +118,7 @@ exports.put = function(options) {
     var deferred = Q.defer();
 
     var headers = {
-        'Authorization' : 'OAuth '+options.oauthToken,
+        'Authorization' : 'OAuth '+ options.oauthToken || options.token || options.oAuthToken,
         'Accept':'application/json',
         'Content-Type':'application/json',
         'User-Agent':'Concur-platform-sdk-js'
