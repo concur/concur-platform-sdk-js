@@ -2,6 +2,7 @@ Concur SDK for JavaScript
 ==============
 
 JavaScript SDK for the [Concur Platform](http://developer.concur.com). For more information on the set of platform services, see the [Web services overview](https://developer.concur.com/get-started/webservices-overview) document on the developer portal.
+Register for a [developer Sandbox here](https://developer.concur.com/register).
 
 [![NPM](https://nodei.co/npm/concur-platform.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/concur-platform/)
 
@@ -73,13 +74,14 @@ to an Expense Report.
 
 ##### POST
 
+    //This will post an Expense Entry to a given ReportID
     var entry = {
         'Comment': 'Test Mileage Entry',
         'Description': 'Client Meeting',
         'ExchangeRate': '1.234',
         'ExpenseTypeCode': 'MILEG',
         'TransactionDate': '2014-10-27',
-        'reportid': '98877EEAF75F4F28BCCA'
+        'reportid': 'REPORTID'
     };
 
     var options = {

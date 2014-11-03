@@ -6,6 +6,10 @@ module.exports = {
   get: function (options) {
     options.resourceURL = url;
     options.contentType = 'application/xml';
-    return utils.get(options);
+    var travelProfile = utils.get(options);
+    travelProfile.then(function(user) {
+      delete user.ProfileResponse.$;
+    });
+    return travelProfile;
   }
 };

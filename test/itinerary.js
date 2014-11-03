@@ -32,7 +32,7 @@ describe('Concur Itinerary Tests', function(){
         this.timeout(10000);
         var options = {
             oauthToken:oauthToken
-        }
+        };
         concur.itinerary.get(options)
         .then(function(trips) {
             expect(trips).to.be.ok;
@@ -52,7 +52,7 @@ describe('Concur Itinerary Tests', function(){
         };
         concur.itinerary.get(options)
         .then(function(trip) {
-            expect(trip.Itinerary.TripId[0]).to.equal(itineraryid);
+            expect(trip.Itinerary.TripId).to.equal(itineraryid);
             done();
         })
         .fail(function(error) {
@@ -68,7 +68,7 @@ describe('Concur Itinerary Tests', function(){
         };
         concur.itinerary.get(options)
             .then(function(trip) {
-                expect(trip.Itinerary.TripId[0]).to.equal(itineraryid);
+                expect(trip.Itinerary.TripId).to.equal(itineraryid);
                 done();
             })
             .fail(function(error) {

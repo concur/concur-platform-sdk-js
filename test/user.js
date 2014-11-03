@@ -18,7 +18,7 @@ describe('Concur User API Tests', function(){
             done();
         })
         .fail(function(error) {
-            console.log("Getting an OAuth token failed: ", error);
+            console.log("Getting the User profile failed: ", error);
         });
     });
 
@@ -34,7 +34,7 @@ describe('Concur User API Tests', function(){
                 done();
             })
             .fail(function(error) {
-                console.log("Getting an OAuth token failed: ", error);
+                console.log("Getting the User profile failed: ", error);
             });
     });
 });

@@ -1,6 +1,4 @@
-var request = require('request'),
-    utils = require('../utils/utils.js'),
-    Q = require('q');
+var utils = require('../utils/utils.js');
 
 var url = utils.serviceURL + '/api/user/v1.0/User/';
 

@@ -26,17 +26,17 @@ module.exports = {
             requestBody.url = tempURL;
             requestBody.error = "Entry image URL: " + entryImageUrl;
         } else if (options.requestId) {
-            var tempURL = paymentRequest;
-            tempURL = tempURL +'/'+options.requestId;
+            var tempPaymentRequestURL = paymentRequest;
+            tempPaymentRequestURL = tempPaymentRequestURL +'/'+options.requestId;
             requestBody.body = options.image || options.imageURL;
-            requestBody.url = tempURL;
-            requestBody.error = "Payment Request Image URL " + paymentRequest;
+            requestBody.url = tempPaymentRequestURL;
+            requestBody.error = "Payment Request Image URL " + tempPaymentRequestURL;
         } else if (options.reportId) {
-            var tempURL = reportImageUrl;
-            tempURL = tempURL +'/'+options.reportId;
+            var tempReceiptURL = reportImageUrl;
+            tempReceiptURL = tempReceiptURL +'/'+options.reportId;
             requestBody.body = options.image || options.imageURL;
-            requestBody.url = tempURL;
-            requestBody.error = "Report Image URL " + reportImageUrl;
+            requestBody.url = tempReceiptURL;
+            requestBody.error = "Report Image URL " + tempReceiptURL;
         } else if (options.image) {
             requestBody.url = receiptImageURL;
             requestBody.body = options.image;

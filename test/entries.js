@@ -1,7 +1,6 @@
 var concur = require('../'),
     config = require('config'),
-    expect = require('chai').expect,
-    fs = require('fs');
+    expect = require('chai').expect;
 
 
 var oauthToken = config.get('oauthToken');
@@ -15,25 +14,11 @@ describe('Concur Entries Tests', function() {
       var entry = {
         'Comment': 'Test Mileage Entry',
         'Description': 'Client Meeting',
-        'ExchangeRate': '1.234',
         'ExpenseTypeCode': 'MILEG',
         'IsBillable': 'true',
         'IsPersonal': 'false',
-        'Journey': {
-          'BusinessDistance': '100',
-          'EndLocation': 'Bellevue',
-          'NumberOfPassengers': '3',
-          'OdometerEnd': '22222',
-          'OdometerStart': '11111',
-          'PersonalDistance': '0',
-          'StartLocation': 'Seattle',
-          'UnitOfMeasure': 'M',
-          'VehicleID': 'vid'
-        },
-        'TaxReceiptType': 'T',
         'TransactionDate': '2014-10-27',
         'VendorDescription': 'Drive myself',
-        'VendorListItemID': 'ven list ID',
         'reportid': '98877EEAF75F4F28BCCA'
       };
 

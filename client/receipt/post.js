@@ -28,8 +28,8 @@ exports.post = function(options) {
         if (bodyJSON.Message) return deferred.reject({'error':bodyJSON.Message});
 
         // parse and map receipt ID
-        if (bodyJSON.ID) {
-            deferred.resolve(bodyJSON.ID);
+        if (bodyJSON.ID || bodyJSON.Id) {
+            deferred.resolve(bodyJSON.ID || bodyJSON.Id);
         } else {
             deferred.resolve(bodyJSON.ReceiptID);
         }
