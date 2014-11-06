@@ -16,104 +16,125 @@ All platform services are exposed via a root module which can be imported using 
 
     var concur = require('concur-platform');
 
-**Table of Contents**
+##Table of Contents
 
-  - [Platform Services](#platform-services)
-    - [OAuth](#oauth)
-        - [Native Flow](#native-flow)
-        - [AppCenter Flow](#appcenter-flow)
-    - [Allocations](#allocations)
-        - [GET](#get-allocations)
-    - [Attendees](#attendees)
-        - [SEND](#post-attendees)
-        - [GET](#get-attendees)
-        - [PUT](#put-attendees)
-        - [DELETE](#delete-attendees)
-    - [AttendeeTypes](#attendeetypes)
-        - [SEND](#post-attendeetypes)
-        - [GET](#get-attendeetypes)
-        - [PUT](#put-attendeetypes)
-        - [DELETE](#delete-attendeetypes)
-    - [ConnectionRequests](#connectionrequests)
-        - [SEND](#post-connectionrequests)
-        - [GET](#get-connectionrequests)
-        - [PUT](#put-connectionrequests)
-        - [DELETE](#delete-connectionrequests)
-    - [DigitalTaxInvoices](#digitaltaxinvoices)
-        - [GET](#get-digitaltaxinvoices)
-        - [PUT](#put-digitaltaxinvoices)
-    - [Entries](#entries)
-        - [SEND](#post)
-        - [GET](#get-entries)
-        - [PUT](#put-entries)
-        - [DELETE](#delete-entries)
-    - [ExchangeRates](#exchangerates)
-        - [GET](#get-exchangerates)
-    - [ExpenseGroupConfigurations](#expensegroupconfigurations)
-        - [GET](#get-expensegroupconfigurations)
-    - [Itemizations](#itemizations)
-        - [SEND](#post-itemizations)
-        - [GET](#get-itemizations)
-    - [Itinerary](#itinerary)
-        - [SEND](#post-itinerary)
-        - [GET](#get-itinerary)
-    - [LatestBookings](#latestbookings)
-        - [GET](#get-latestbookings)
-    - [ListItems](#listitems)
-        - [SEND](#post-listitems)
-        - [GET](#get-listitems)
-        - [PUT](#put-listitems)
-        - [DELETE](#delete-listitems)
-    - [Lists](#lists)
-        - [SEND](#post-lists)
-        - [GET](#get-lists)
-        - [PUT](#put-lists)
-    - [Locations](#locations)
-        - [GET](#get-locations)
-    - [Opportunities](#opportunities)
-        - [GET](#get-opportunities)
-    - [PurchaseOrderReceipts](#purchaseorderreceipts)
-        - [PUT](#put-purchaseorderreceipts)
-    - [PurchaseOrders](#purchaseorders)
-        - [SEND](#post-purchaseorders)
-        - [PUT](#put-purchaseorders)
-        - [DELETE](#delete-purchaseorders)
-    - [Quick Expenses](#quick-expenses)
-        - [SEND](#post-quick-expenses)
-        - [GET](#get-quick-expenses)
-        - [PUT](#put-quick-expenses)
-        - [DELETE](#delete-quick-expenses)
-    - [Receipt](#receipt)
-        - [SEND](#post-receipts)
-        - [GET](#get-receipts)
-        - [DELETE](#delete-receipts)
-    - [ReportDigests](#reportdigests)
-        - [GET](#get-reportdigests)
-    - [Reports](#reports)
-        - [SEND](#post-reports)
-        - [GET](#get-reports)
-        - [PUT](#put-reports)
-    - [Requests](#requests)
-        - [GET](#get-requests)
-    - [SalesTaxValidationRequests](#salestaxvalidationrequests)
-        - [GET](#get-salestaxvalidationrequests)
-        - [PUT](#put-salestaxvalidationrequests)
-        - [DELETE](#delete-salestaxvalidationrequests)
-    - [Suppliers](#suppliers)
-        - [GET](#get-suppliers)
-    - [TravelProfile](#travelprofile)
-        - [GET](#get-travelprofile)
-    - [User](#user)
-        - [SEND](#post-user)
-        - [GET](#get-user)
-    - [Vendors](#vendors)
-        - [SEND](#post-vendors)
-        - [GET](#get-vendors)
-        - [PUT](#put-vendors)
-        - [DELETE](#delete-vendors)
-  - [Tests](#tests)
-  - [Promises](#promises)
-  - [License](#license)
+###Platform Services
+
+####Common
+
+- [OAuth](#oauth)
+    - [Native Flow](#native-flow)
+    - [AppCenter Flow](#appcenter-flow)
+- [ConnectionRequests](#connectionrequests)
+    - [SEND](#post-connectionrequests)
+    - [GET](#get-connectionrequests)
+    - [PUT](#put-connectionrequests)
+    - [DELETE](#delete-connectionrequests)
+- [Locations](#locations)
+    - [GET](#get-locations)
+- [Suppliers](#suppliers)
+    - [GET](#get-suppliers)
+- [User](#user)
+    - [SEND](#post-user)
+    - [GET](#get-user)
+
+####Expense
+
+- [Allocations](#allocations)
+    - [GET](#get-allocations)
+- [Attendees](#attendees)
+    - [SEND](#post-attendees)
+    - [GET](#get-attendees)
+    - [PUT](#put-attendees)
+    - [DELETE](#delete-attendees)
+- [AttendeeTypes](#attendeetypes)
+    - [SEND](#post-attendeetypes)
+    - [GET](#get-attendeetypes)
+    - [PUT](#put-attendeetypes)
+    - [DELETE](#delete-attendeetypes)
+- [DigitalTaxInvoices](#digitaltaxinvoices)
+    - [GET](#get-digitaltaxinvoices)
+    - [PUT](#put-digitaltaxinvoices)
+- [Entries](#entries)
+    - [SEND](#post)
+    - [GET](#get-entries)
+    - [PUT](#put-entries)
+    - [DELETE](#delete-entries)
+- [ExchangeRates](#exchangerates)
+    - [GET](#get-exchangerates)
+- [ExpenseGroupConfigurations](#expensegroupconfigurations)
+    - [GET](#get-expensegroupconfigurations)
+- [Itemizations](#itemizations)
+    - [SEND](#post-itemizations)
+    - [GET](#get-itemizations)
+- [ListItems](#listitems)
+    - [SEND](#post-listitems)
+    - [GET](#get-listitems)
+    - [PUT](#put-listitems)
+    - [DELETE](#delete-listitems)
+- [Lists](#lists)
+    - [SEND](#post-lists)
+    - [GET](#get-lists)
+    - [PUT](#put-lists)
+- [Quick Expenses](#quick-expenses)
+    - [SEND](#post-quick-expenses)
+    - [GET](#get-quick-expenses)
+    - [PUT](#put-quick-expenses)
+    - [DELETE](#delete-quick-expenses)
+- [Receipt](#receipt)
+    - [SEND](#post-receipts)
+    - [GET](#get-receipts)
+    - [DELETE](#delete-receipts)
+- [ReportDigests](#reportdigests)
+    - [GET](#get-reportdigests)
+- [Reports](#reports)
+    - [SEND](#post-reports)
+    - [GET](#get-reports)
+    - [PUT](#put-reports)
+
+####Insights
+
+- [LatestBookings](#latestbookings)
+    - [GET](#get-latestbookings)
+- [Opportunities](#opportunities)
+    - [GET](#get-opportunities)
+
+####Invoice
+
+- [PurchaseOrderReceipts](#purchaseorderreceipts)
+    - [PUT](#put-purchaseorderreceipts)
+- [PurchaseOrders](#purchaseorders)
+    - [SEND](#post-purchaseorders)
+    - [PUT](#put-purchaseorders)
+    - [DELETE](#delete-purchaseorders)
+- [SalesTaxValidationRequests](#salestaxvalidationrequests)
+    - [GET](#get-salestaxvalidationrequests)
+    - [PUT](#put-salestaxvalidationrequests)
+    - [DELETE](#delete-salestaxvalidationrequests)
+- [Vendors](#vendors)
+    - [SEND](#post-vendors)
+    - [GET](#get-vendors)
+    - [PUT](#put-vendors)
+    - [DELETE](#delete-vendors)
+
+####Travel
+
+- [Itinerary](#itinerary)
+    - [SEND](#post-itinerary)
+    - [GET](#get-itinerary)
+- [TravelProfile](#travelprofile)
+    - [GET](#get-travelprofile)
+
+####Travel Request
+
+- [Requests](#requests)
+    - [GET](#get-requests)
+
+####Other
+
+- [Tests](#tests)
+- [Promises](#promises)
+- [License](#license)
 
 ## Platform Services
 
@@ -164,7 +185,7 @@ for your registered partner application.
 
 ###Allocations
 
-This is for the Expense [Allocations API](https://www.concursolutions.com/api/docs/index.html#!/Allocations)
+Used for getting a list of [Allocations](https://www.concursolutions.com/api/docs/index.html#!/Allocations) on an Expense Report.
 
 #####GET Allocations
 
@@ -198,7 +219,7 @@ This is for the Expense [Allocations API](https://www.concursolutions.com/api/do
 
 ###Attendees
 
-This is for the Expense [Attendees API](https://www.concursolutions.com/api/docs/index.html#!/Attendees)
+Used for adding, getting, updating or deleting [Attendees](https://www.concursolutions.com/api/docs/index.html#!/Attendees) on a users or shared list.
 
 #####POST Attendees
 
@@ -276,7 +297,8 @@ This is for the Expense [Attendees API](https://www.concursolutions.com/api/docs
 
 ###AttendeeTypes
 
-This is for the Expense [AttendeeTypes API](https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes)
+Used for adding, getting, updating or deleting [AttendeeTypes](https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes)
+for a company. AttendeeTypes are used in the Attendees API to define the type of attendee you want to add.
 
 #####POST AttendeeTypes
 
@@ -354,7 +376,8 @@ This is for the Expense [AttendeeTypes API](https://www.concursolutions.com/api/
 
 ###ConnectionRequests
 
-This is for the Expense [ConnectionRequests API](https://www.concursolutions.com/api/docs/index.html#!/ConnectionRequests)
+Used to interact with [ConnectionRequests](https://www.concursolutions.com/api/docs/index.html#!/ConnectionRequests) from
+the Auto-Connect listing in Concur AppCenter. Given a supplier ID it will match all available ConnectionRequests.
 
 #####POST ConnectionRequests
 
@@ -432,7 +455,7 @@ This is for the Expense [ConnectionRequests API](https://www.concursolutions.com
 
 ###DigitalTaxInvoices
 
-This is for the Expense [DigitalTaxInvoices API](https://www.concursolutions.com/api/docs/index.html#!/DigitalTaxInvoices)
+Returns all [Digital Tax Invoices](https://www.concursolutions.com/api/docs/index.html#!/DigitalTaxInvoices) that can be validated by the user based on the search criteria. Also given a digital tax invoice ID you can update them.
 
 #####GET DigitalTaxInvoices
 
@@ -481,8 +504,7 @@ This is for the Expense [DigitalTaxInvoices API](https://www.concursolutions.com
 
 ### Entries
 
-This is for the Expense [Entries API](https://www.concursolutions.com/api/docs/index.html#!/Entries). Entries belong
-to [Expense Report.](#get-reports)
+Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#!/Entries). which belong to an [Expense Report.](#get-reports)
 
 #####POST
 
@@ -578,7 +600,7 @@ to [Expense Report.](#get-reports)
 
 ###ExchangeRates
 
-This is for the [ExchangeRates API](https://www.concursolutions.com/api/docs/index.html#!/ExchangeRates)
+Retrieve [Exchange Rate](https://www.concursolutions.com/api/docs/index.html#!/ExchangeRates) between two currencies on a given date.
 
 #####GET ExchangeRates
 
@@ -597,7 +619,7 @@ This is for the [ExchangeRates API](https://www.concursolutions.com/api/docs/ind
 
 ###ExpenseGroupConfigurations
 
-This is for the [ExpenseGroupConfigurations API](https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations)
+Get an [Expense Group Configurations](https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations) owned by the user based on the search criteria.
 
 #####GET ExpenseGroupConfigurations
 
@@ -631,7 +653,7 @@ This is for the [ExpenseGroupConfigurations API](https://www.concursolutions.com
 
 ###Itemizations
 
-This is for the Expense [Itemizations API](https://www.concursolutions.com/api/docs/index.html#!/Itemizations)
+Returns all expense [Itemizations](https://www.concursolutions.com/api/docs/index.html#!/Itemizations) owned by the user. Also allows you to add new itemizations to an existing [report](#get-reports).
 
 #####POST Itemizations
 
@@ -679,7 +701,8 @@ This is for the Expense [Itemizations API](https://www.concursolutions.com/api/d
 
 ###Itinerary
 
-This is for the Travel [Itinerary API](https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource)
+The [Itineraries](https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource) in Concur Travel, also referred to as Trips. Can contain multiple bookings.
+[Itineraries](https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource) will allow you to post new trips or get existing trips for a user.
 
 #####POST Itinerary
 
@@ -727,7 +750,7 @@ This is for the Travel [Itinerary API](https://developer.concur.com/itinerary-tm
 
 ###LatestBookings
 
-This is for the Insight [LatestBookings API](https://www.concursolutions.com/api/docs/index.html#!/LatestBookings)
+Get the [Latest booking](https://www.concursolutions.com/api/docs/index.html#!/LatestBookings) for hotel and air booking for a particular user.
 
 #####GET LatestBookings
 
@@ -744,9 +767,74 @@ This is for the Insight [LatestBookings API](https://www.concursolutions.com/api
        // Error will contain the error returned.
      });
 
+###Lists
+
+Returns the [Lists](https://www.concursolutions.com/api/docs/index.html#!/Lists) available to the oauth token used. Also allows you to add and updating existing lists. Lists are a grouping of related items.
+For example a School has departments and those could be a list, and the courses under departments are the list items.
+
+#####POST Lists
+
+     var options = {
+       oauthToken:oauthToken
+     };
+
+     concur.lists.send(options)
+     .then(function(data) {
+       // Data will contain the Lists
+     })
+     .fail(function(error) {
+       // Error will contain the error returned.
+     });
+
+#####GET Lists
+
+     //This will contain a list of Lists
+     var options = {
+       oauthToken:oauthToken
+     };
+
+     concur.lists.get(options)
+     .then(function(data) {
+       // Data will contain the Lists
+     })
+     .fail(function(error) {
+       // Error will contain the error returned.
+     });
+
+
+     //This will contain a single List
+     var options = {
+       oauthToken:oauthToken
+       id:ListsId
+     };
+
+     concur.lists.get(options)
+     .then(function(data) {
+       // Data will contain the Lists
+     })
+     .fail(function(error) {
+       // Error will contain the error returned.
+     });
+
+#####PUT Lists
+
+     var options = {
+       oauthToken:oauthToken,
+       id:listID
+     };
+
+     concur.lists.put(options)
+     .then(function(data) {
+       // Data will contain the Lists
+     })
+     .fail(function(error) {
+       // Error will contain the error returned.
+     });
+
+
 ###ListItems
 
-This is for the [ListItems API](https://www.concursolutions.com/api/docs/index.html#!/ListItems)
+Returns all the [ListItems](https://www.concursolutions.com/api/docs/index.html#!/ListItems) for a given list. Also allows you to add, update and delete existing list items.
 
 #####POST ListItems
 
@@ -822,72 +910,9 @@ This is for the [ListItems API](https://www.concursolutions.com/api/docs/index.h
        // Error will contain the error returned.
      });
 
-###Lists
-
-This is for the [Lists API](https://www.concursolutions.com/api/docs/index.html#!/Lists)
-
-#####POST Lists
-
-     var options = {
-       oauthToken:oauthToken
-     };
-
-     concur.lists.send(options)
-     .then(function(data) {
-       // Data will contain the Lists
-     })
-     .fail(function(error) {
-       // Error will contain the error returned.
-     });
-
-#####GET Lists
-
-     //This will contain a list of Lists
-     var options = {
-       oauthToken:oauthToken
-     };
-
-     concur.lists.get(options)
-     .then(function(data) {
-       // Data will contain the Lists
-     })
-     .fail(function(error) {
-       // Error will contain the error returned.
-     });
-
-
-     //This will contain a single List
-     var options = {
-       oauthToken:oauthToken
-       id:ListsId
-     };
-
-     concur.lists.get(options)
-     .then(function(data) {
-       // Data will contain the Lists
-     })
-     .fail(function(error) {
-       // Error will contain the error returned.
-     });
-
-#####PUT Lists
-
-     var options = {
-       oauthToken:oauthToken,
-       id:listID
-     };
-
-     concur.lists.put(options)
-     .then(function(data) {
-       // Data will contain the Lists
-     })
-     .fail(function(error) {
-       // Error will contain the error returned.
-     });
-
 ###Locations
 
-This is for the Expense [Locations API](https://www.concursolutions.com/api/docs/index.html#!/Locations)
+Return details based on the search criteria for all [Locations](https://www.concursolutions.com/api/docs/index.html#!/Locations) for a company.
 
 #####GET Locations
 
@@ -940,7 +965,7 @@ This is for the Insight [Opportunities API](https://www.concursolutions.com/api/
 
 ###PurchaseOrderReceipts
 
-This is for the Invoice [PurchaseOrderReceipts API](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrderReceipts)
+Updates [Purchase Order](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrderReceipts) line item with receipt information and returns status of updation.
 
 #####PUT PurchaseOrderReceipts
 
@@ -958,7 +983,7 @@ This is for the Invoice [PurchaseOrderReceipts API](https://www.concursolutions.
 
 ###PurchaseOrders
 
-This is for the Invoice [PurchaseOrders API](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrders)
+Gets an existing [PurchaseOrder](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrders). You can also create and update an existing purchase order and returns the status of the request.
 
 #####POST PurchaseOrders
 
@@ -1004,7 +1029,7 @@ This is for the Invoice [PurchaseOrders API](https://www.concursolutions.com/api
 
 ### Quick Expenses
 
-This is for the [quick expense](https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses) web service.
+Returns all  [quick expense](https://www.concursolutions.com/api/docs/index.html#!/QuickExpenses)  owned by the user. Allows you to create, update and delete existing quick expenses for the user.
 
 ##### POST Quick Expenses
 
@@ -1101,7 +1126,9 @@ This is for the [quick expense](https://www.concursolutions.com/api/docs/index.h
 
 ### Receipt
 
-Enables the client to interact with the [receipt](https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages) and [eReceipt](https://developer.concur.com/api-documentation/more-resources/draft-documentation/e-receipt-service) Web services.
+Enables the client to interact with the [receipt](https://www.concursolutions.com/api/docs/index.html#!/ReceiptImages) and
+[eReceipt](https://developer.concur.com/api-documentation/more-resources/draft-documentation/e-receipt-service) Web services. Using this in the
+SDK will also allow you to add receipts to any resource in Concur that allows receipts. For example entries and reports.
 
 #####POST Receipts
 
@@ -1215,7 +1242,7 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
 
 ###ReportDigests
 
-This is for the Expense [ReportDigests API](https://www.concursolutions.com/api/docs/index.html#!/ReportDigests)
+Returns all [ReportDigests](https://www.concursolutions.com/api/docs/index.html#!/ReportDigests) owned by the user based on the search criteria.
 
 #####GET ReportDigests
 
@@ -1249,7 +1276,7 @@ This is for the Expense [ReportDigests API](https://www.concursolutions.com/api/
 
 ###Reports
 
-This is for the Expense [Reports API](https://www.concursolutions.com/api/docs/index.html#!/Reports)
+This is for Expense [Reports](https://www.concursolutions.com/api/docs/index.html#!/Reports). Allows you to add or update report fields such as Name, comment, custom fields, org unit and policy.
 
 #####POST Reports
 
@@ -1347,7 +1374,7 @@ This is for the [Travel Requests API](https://www.concursolutions.com/api/docs/i
 
 ###SalesTaxValidationRequests
 
-This is for the Invoice [SalesTaxValidationRequests API](https://www.concursolutions.com/api/docs/index.html#!/SalesTaxValidationRequests)
+Retrieves invoices for calculating tax, filtered based on input params. [SalesTaxValidationRequests API](https://www.concursolutions.com/api/docs/index.html#!/SalesTaxValidationRequests)
 
 #####GET SalesTaxValidationRequests
 
@@ -1409,7 +1436,7 @@ This is for the Invoice [SalesTaxValidationRequests API](https://www.concursolut
 
 ###Suppliers
 
-This is for the [Suppliers API](https://www.concursolutions.com/api/docs/index.html#!/Suppliers)
+Returns all [Suppliers API](https://www.concursolutions.com/api/docs/index.html#!/Suppliers) based on the search criteria.
 
 #####GET Suppliers
 
@@ -1443,7 +1470,7 @@ This is for the [Suppliers API](https://www.concursolutions.com/api/docs/index.h
 
 ###TravelProfile
 
-This is for the [TravelProfile API.](https://developer.concur.com/travel-profile/travel-profile-resource/travel-profile-resource-get)
+This is for the Concur [TravelProfile.](https://developer.concur.com/travel-profile/travel-profile-resource/travel-profile-resource-get). Which includes traveler preferences.
 
 #####GET TravelProfile
 
@@ -1463,7 +1490,7 @@ This is for the [TravelProfile API.](https://developer.concur.com/travel-profile
 
 ###User
 
-This is for the [User API](https://developer.concur.com/api-documentation/web-services/user) Web service.
+This is for the Concur [User](https://developer.concur.com/api-documentation/web-services/user) Profile. Which includes what Concur products the user has, and what groups the user is associated with inside their company.
 
 #####POST User
 
@@ -1496,7 +1523,7 @@ This is for the [User API](https://developer.concur.com/api-documentation/web-se
 
 ###Vendors
 
-This is for the Invoice [Vendors API](https://www.concursolutions.com/api/docs/index.html#!/Vendors)
+Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#!/Vendors) Allows you to create, update and deleting existing vendors avilable to the oauth token. 
 
 #####POST Vendors
 
