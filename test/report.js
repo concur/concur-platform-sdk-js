@@ -23,7 +23,8 @@ describe('Concur Report Tests', function() {
 
       concur.reports.send(options)
       .then(function(data){
-        expect(data).to.be.ok;
+        expect(data).to.have.property('ID');
+        expect(data).to.have.property('URI');
         done();
       })
       .fail(function (error) {
@@ -40,15 +41,12 @@ describe('Concur Report Tests', function() {
       };
 
       concur.reports.send(options)
-      .then(function(data){})
       .fail(function (error) {
         expect(error.error).to.contain('400');
         done();
       });
     });
   });
-
-  var reportId;
 
   describe('#get', function() {
     it('should get a list of reports', function(done) {
@@ -59,7 +57,8 @@ describe('Concur Report Tests', function() {
       concur.reports.get(options)
       .then(function(data) {
         reportId = data.Items[0].ID;
-        expect(data).to.be.ok;
+        expect(data).to.have.property('Items');
+        expect(data).to.have.property('NextPage');
         done();
       })
       .fail(function (error) {
@@ -75,7 +74,9 @@ describe('Concur Report Tests', function() {
 
       concur.reports.get(options)
           .then(function(data) {
-            expect(data).to.be.ok;
+            expect(data).to.have.property('CurrencyCode');
+            expect(data).to.have.property('Name');
+            expect(data).to.have.property('ID');
             done();
           })
           .fail(function (error) {
@@ -95,12 +96,11 @@ describe('Concur Report Tests', function() {
       };
 
       concur.reports.put(options)
-          .then(function(data){})
-          .fail(function (error) {
-            expect(error.Message).to.contain('No HTTP resource was found that matches the request URI');
-            expect(error.statusCode).to.be.equal(404);
-            done();
-          });
+      .fail(function (error) {
+        expect(error.Message).to.contain('No HTTP resource was found that matches the request URI');
+        expect(error.statusCode).to.be.equal(404);
+        done();
+      });
     });
   });
 });

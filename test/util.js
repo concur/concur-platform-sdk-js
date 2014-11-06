@@ -1,6 +1,4 @@
 var concur = require('../'),
-    config = require('config'),
-    expect = require('chai').expect,
     assert = require('chai').assert;
 
 var testXml = '<?xml version="1.0"?>'+
@@ -122,9 +120,6 @@ var expectedResults = '{"Itinerary":{'+
                 '}';
 
 describe('Concur Utility XML Tests', function(){
-
-    var itineraryid;
-
     it('should parse the xml correctly', function(done) {
         concur.utils.xml.getCleansedObjectFromXmlBody(testXml, function (err, result) {
             if (err){

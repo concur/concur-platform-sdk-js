@@ -16,7 +16,7 @@ describe('Concur Itinerary Tests', function(){
             if (!err) {
                 concur.itinerary.send({oauthToken:oauthToken, contentType:'application/xml', body:body})
                     .then(function(trip) {
-                        expect(trip).to.be.ok;
+                        expect(trip.Itinerary).to.have.property('id');
                         done();
                     })
                     .fail(function(error) {
@@ -35,7 +35,12 @@ describe('Concur Itinerary Tests', function(){
         };
         concur.itinerary.get(options)
         .then(function(trips) {
-            expect(trips).to.be.ok;
+            expect(trips[0]).to.have.property('UserLoginId');
+            expect(trips[0]).to.have.property('TripId');
+            expect(trips[0]).to.have.property('id');
+            expect(trips[0]).to.have.property('TripName');
+            expect(trips[0]).to.have.property('StartDateLocal');
+            expect(trips[0]).to.have.property('EndDateLocal');
             itineraryid = trips[0].TripId;
             done();
         })

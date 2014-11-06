@@ -1,7 +1,6 @@
 var request = require('request'),
     utils = require('../utils/utils.js'),
     xml = require('../utils/xml'),
-    parseString = require('xml2js').parseString,
     Q = require('q');
 
 var itineraryURL = utils.serviceURL + '/api/travel/trip/v1.1';
@@ -72,8 +71,13 @@ module.exports = {
                 return deferred.reject({'error':'Itinerary URL ('+itineraryURL+') returned HTTP status code '+response.statusCode});
             }
 
-            parseString(body, function (err, result) {
-                deferred.resolve(result);
+            xml.getCleansedObjectFromXmlBody(body, function (err, result) {
+                if (err){
+                    deferred.resolve(err);
+                } else {
+                    delete result.Itinerary.$;
+                    deferred.resolve(result);
+                }
             });
         });
         return deferred.promise;

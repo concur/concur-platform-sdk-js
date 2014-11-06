@@ -7,19 +7,17 @@ var oauthToken = config.get('oauthToken');
 
 describe('Concur Entries Tests', function() {
   this.timeout(10000);
-  var entryId;
 
   describe('#post', function() {
     it('should send a valid entry to the entries list', function(done) {
       var entry = {
-        'Comment': 'Test Mileage Entry',
-        'Description': 'Client Meeting',
-        'ExpenseTypeCode': 'MILEG',
-        'IsBillable': 'true',
-        'IsPersonal': 'false',
-        'TransactionDate': '2014-10-27',
-        'VendorDescription': 'Drive myself',
-        'reportid': '98877EEAF75F4F28BCCA'
+        "Comment": "Client Library Test",
+        "ExpenseTypeCode": "AIRFR",
+        "ReportID": "85A115024B9F4741B555",
+        "TransactionAmount": "42.00",
+        "TransactionDate": '2014-10-29T00:00:00',
+        "TransactionCurrencyCode":'USD',
+        "PaymentTypeID":'ngLqMhm1rUlu$p$peX$saN9aco4wfcU'
       };
 
       var options = {
@@ -30,7 +28,8 @@ describe('Concur Entries Tests', function() {
 
       concur.entries.send(options)
       .then(function(data){
-        expect(data).to.be.ok;
+        expect(data).to.have.property('ID');
+        expect(data).to.have.property('URI');
         done();
       })
       .fail(function (error) {
@@ -46,7 +45,6 @@ describe('Concur Entries Tests', function() {
       };
 
       concur.entries.send(options)
-      .then(function(data){})
       .fail(function (error) {
         expect(error.error).to.contain('400');
         done();
@@ -65,7 +63,8 @@ describe('Concur Entries Tests', function() {
       concur.entries.get(options)
       .then(function(data) {
         entriesId = data.Items[0].ID;
-        expect(data).to.be.ok;
+        expect(data).to.have.property('Items');
+        expect(data).to.have.property('NextPage');
         done();
       })
       .fail(function (error) {
@@ -81,7 +80,7 @@ describe('Concur Entries Tests', function() {
 
       concur.entries.get(options)
           .then(function(data) {
-            expect(data).to.be.ok;
+            expect(data).to.have.property('ID');
             done();
           })
           .fail(function (error) {
@@ -101,7 +100,6 @@ describe('Concur Entries Tests', function() {
       };
 
       concur.entries.put(options)
-      .then(function(data){})
       .fail(function (error) {
         expect(error.Message).to.contain('No HTTP resource was found that matches the request URI');
         expect(error.statusCode).to.be.equal(404);

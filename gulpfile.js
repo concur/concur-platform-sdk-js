@@ -15,10 +15,12 @@ gulp.task('mocha', function () {
     .pipe(mocha({ reporter: 'list' }));
 });
 
-gulp.task('bump', function () {
-  return gulp.src(['./package.json'])
-    .pipe(bump())
+gulp.task('bump', function(){
+  gulp.src('./package.json')
+    .pipe(bump({type:'patch'}))
     .pipe(gulp.dest('./'));
 });
+
+gulp.task('build', ['jshint', 'mocha', 'bump']);
 
 gulp.task('test', ['jshint', 'mocha']);

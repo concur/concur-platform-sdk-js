@@ -31,7 +31,6 @@ describe('Concur Quickexpense Test', function() {
 
             concur.quickexpenses.send(options)
             .then(function(data){
-                expect(data).to.be.ok;
                 expect(data).to.have.property('ID');
                 expect(data).to.have.property('URI');
                 done();
@@ -49,7 +48,6 @@ describe('Concur Quickexpense Test', function() {
             };
 
             concur.quickexpenses.send(options)
-            .then(function(data){})
             .fail(function (error) {
                 expect(error.error).to.contain('400');
                 done();
@@ -129,7 +127,6 @@ describe('Concur Quickexpense Test', function() {
             };
 
             concur.quickexpenses.put(options)
-            .then(function(data){})
             .fail(function (error) {
                 expect(error.Message).to.contain('No HTTP resource was found that matches the request URI');
                 expect(error.statusCode).to.be.equal(404);
@@ -162,7 +159,6 @@ describe('Concur Quickexpense Test', function() {
             };
 
             concur.quickexpenses.delete(options)
-            .then(function(data) {})
             .fail(function (error) {
                 expect(error.Message).to.be.equal('A resource with the specified ID could not be found.');
                 expect(error.statusCode).to.be.equal(404);

@@ -1,11 +1,12 @@
 var expect = require('chai').expect,
+    assert = require('chai').assert,
     concur = require('../'),
     config = require('config'),
     fs = require('fs');
 
 
 var oauthToken = config.get('oauthToken');
-var webserviceAdminoauthToken = config.get('webserviceAdminoauthToken');
+//var webserviceAdminoauthToken = config.get('webserviceAdminoauthToken');
 
 describe('Concur Receipt Tests', function(){
     this.timeout(10000);
@@ -16,7 +17,7 @@ describe('Concur Receipt Tests', function(){
                                      image:image,
                                      contentType:'image/png'})
                 .then(function(imageId) {
-                    expect(imageId).to.be.ok;
+                    assert.isNotNull(imageId, 'imageId was null!');
                     done();
                 })
                 .fail(function(error) {
@@ -36,8 +37,8 @@ describe('Concur Receipt Tests', function(){
                                      entryId: 'nh77KFKMzm$pqN$sBbHva8SJUsUGUtLyhwP',
                                      contentType:'image/png'})
                 .then(function(imageId) {
-                    expect(imageId).to.be.ok;
-                    done();
+                      assert.isNotNull(imageId, 'imageId was null!');
+                      done();
                 })
                 .fail(function(error) {
                     console.log("fail", error);
@@ -56,7 +57,7 @@ describe('Concur Receipt Tests', function(){
                                      reportId: '85A115024B9F4741B555',
                                      contentType:'image/png'})
                 .then(function(imageId) {
-                    expect(imageId).to.be.ok;
+                    assert.isNotNull(imageId, 'imageId was null!');
                     done();
                 })
                 .fail(function(error) {
@@ -104,9 +105,10 @@ describe('Concur Receipt Tests', function(){
     it('should get a list of receipts', function(done) {
        concur.receipt.get({oauthToken:oauthToken})
        .then(function(data) {
-           receiptId = data.Items[0].ID;
-           expect(data).to.be.ok;
-           done();
+         receiptId = data.Items[0].ID;
+         expect(data).to.have.property('Items');
+         expect(data).to.have.property('NextPage');
+         done();
        })
        .fail(function(error) {
            console.log('Error images not returned: ', error);
@@ -116,8 +118,7 @@ describe('Concur Receipt Tests', function(){
     it('should get a single receipt', function(done) {
         concur.receipt.get({oauthToken:oauthToken, receiptId:receiptId})
         .then(function(data) {
-            expect(data).to.be.ok;
-            expect(data.Items).to.be.undefined;
+            expect(data).to.have.property('ID');
             done();
         })
         .fail(function(error) {
@@ -132,7 +133,7 @@ describe('Concur Receipt Tests', function(){
             done();
         })
         .fail(function(error) {
-            console.log('Error image not deleted: ', error)
+            console.log('Error image not deleted: ', error);
         });
     });
 });

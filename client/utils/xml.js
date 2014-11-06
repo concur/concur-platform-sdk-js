@@ -1,6 +1,8 @@
 var xml2js = require('xml2js');
 var _ = require('underscore');
 
+/* jshint -W030 */
+
 module.exports.getCleansedObjectFromXmlBody = function (xmlBody, callback) {
     if (!callback || typeof xmlBody !== "string" || xmlBody === ""){
         callback && callback("invalid input", null);
