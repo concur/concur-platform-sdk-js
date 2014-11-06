@@ -21,7 +21,7 @@ describe('Concur Report Tests', function() {
         body:report
       };
 
-      concur.report.send(options)
+      concur.reports.send(options)
       .then(function(data){
         expect(data).to.be.ok;
         done();
@@ -39,7 +39,7 @@ describe('Concur Report Tests', function() {
         body:{}
       };
 
-      concur.report.send(options)
+      concur.reports.send(options)
       .then(function(data){})
       .fail(function (error) {
         expect(error.error).to.contain('400');
@@ -56,7 +56,7 @@ describe('Concur Report Tests', function() {
         oauthToken:oauthToken
       };
 
-      concur.report.get(options)
+      concur.reports.get(options)
       .then(function(data) {
         reportId = data.Items[0].ID;
         expect(data).to.be.ok;
@@ -73,7 +73,7 @@ describe('Concur Report Tests', function() {
         id:reportId
       };
 
-      concur.report.get(options)
+      concur.reports.get(options)
           .then(function(data) {
             expect(data).to.be.ok;
             done();
@@ -94,7 +94,7 @@ describe('Concur Report Tests', function() {
         body:{}
       };
 
-      concur.report.put(options)
+      concur.reports.put(options)
           .then(function(data){})
           .fail(function (error) {
             expect(error.Message).to.contain('No HTTP resource was found that matches the request URI');

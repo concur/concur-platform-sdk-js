@@ -29,7 +29,7 @@ describe('Concur Quickexpense Test', function() {
                 body:quickexpenseJSON
             };
 
-            concur.quickexpense.send(options)
+            concur.quickexpenses.send(options)
             .then(function(data){
                 expect(data).to.be.ok;
                 expect(data).to.have.property('ID');
@@ -48,7 +48,7 @@ describe('Concur Quickexpense Test', function() {
                 body:{}
             };
 
-            concur.quickexpense.send(options)
+            concur.quickexpenses.send(options)
             .then(function(data){})
             .fail(function (error) {
                 expect(error.error).to.contain('400');
@@ -63,7 +63,7 @@ describe('Concur Quickexpense Test', function() {
                 oauthToken:oauthToken
             };
 
-            concur.quickexpense.get(options)
+            concur.quickexpenses.get(options)
             .then(function(data) {
                 quickexpenseId = data.Items[0].ID;
                 expect(data.Items[0]).to.have.property('TransactionAmount');
@@ -83,7 +83,7 @@ describe('Concur Quickexpense Test', function() {
                 id:quickexpenseId
             };
 
-            concur.quickexpense.get(options)
+            concur.quickexpenses.get(options)
             .then(function(data) {
                 expect(data).to.have.property('TransactionAmount');
                 expect(data).to.have.property('TransactionDate');
@@ -111,7 +111,7 @@ describe('Concur Quickexpense Test', function() {
                 body:quickexpenseJSON
             };
 
-            concur.quickexpense.put(options)
+            concur.quickexpenses.put(options)
             .then(function(data){
                 expect(data).to.be.equal(204);
                 done();
@@ -128,7 +128,7 @@ describe('Concur Quickexpense Test', function() {
                 body:{}
             };
 
-            concur.quickexpense.put(options)
+            concur.quickexpenses.put(options)
             .then(function(data){})
             .fail(function (error) {
                 expect(error.Message).to.contain('No HTTP resource was found that matches the request URI');
@@ -145,7 +145,7 @@ describe('Concur Quickexpense Test', function() {
                 id:quickexpenseId
             };
 
-            concur.quickexpense.delete(options)
+            concur.quickexpenses.delete(options)
             .then(function(data) {
                 expect(data).to.be.equal(204);
                 done();
@@ -161,7 +161,7 @@ describe('Concur Quickexpense Test', function() {
                 id:12345
             };
 
-            concur.quickexpense.delete(options)
+            concur.quickexpenses.delete(options)
             .then(function(data) {})
             .fail(function (error) {
                 expect(error.Message).to.be.equal('A resource with the specified ID could not be found.');

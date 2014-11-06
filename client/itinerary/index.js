@@ -17,8 +17,8 @@ module.exports = {
         };
 
         var itinURL = itineraryURL;
-        if (options.itineraryId) {
-            itinURL =  itinURL + '/'+options.itineraryId;
+        if (options.id) {
+            itinURL =  itinURL + '/'+options.id;
         }
 
         request({url:itinURL, headers:headers}, function(error, response, body) {
@@ -32,7 +32,7 @@ module.exports = {
                 return deferred.reject({'error':'Itinerary URL ('+itineraryURL+') returned HTTP status code '+response.statusCode});
             }
 
-            if (options.itineraryId) {
+            if (options.id) {
                 xml.getCleansedObjectFromXmlBody(body, function (err, result) {
                     if (err){
                         deferred.resolve(err);

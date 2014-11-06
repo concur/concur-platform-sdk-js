@@ -48,7 +48,7 @@ describe('Concur Itinerary Tests', function(){
         this.timeout(10000);
         var options = {
             oauthToken:oauthToken,
-            itineraryId:itineraryid
+            id:itineraryid
         };
         concur.itinerary.get(options)
         .then(function(trip) {
@@ -64,7 +64,7 @@ describe('Concur Itinerary Tests', function(){
         this.timeout(10000);
         var options = {
             oauthToken:oauthToken,
-            itineraryId:itineraryid
+            id:itineraryid
         };
         concur.itinerary.get(options)
             .then(function(trip) {

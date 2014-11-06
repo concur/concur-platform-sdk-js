@@ -14,7 +14,7 @@ describe('Concur Expense Group Configuration Test', function() {
         oauthToken:oauthToken
       };
 
-      concur.expenseGroupConfiguration.get(options)
+      concur.expenseGroupConfigurations.get(options)
           .then(function(data) {
             expect(data.Items[0]).to.have.property('Name');
             expect(data.Items[0]).to.have.property('AttendeeListFormID');
