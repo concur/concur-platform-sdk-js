@@ -26,109 +26,111 @@ All platform services are exposed via a root module which can be imported using 
     - [Native Flow](#native-flow)
     - [AppCenter Flow](#appcenter-flow)
 - [ConnectionRequests](#connectionrequests)
-    - [SEND](#post-connectionrequests)
-    - [GET](#get-connectionrequests)
-    - [PUT](#put-connectionrequests)
-    - [DELETE](#delete-connectionrequests)
+    - [Create a connection request for a given supplier ID](#post-connectionrequests)
+    - [Get connection request/s for a supplier ID](#get-connectionrequests)
+    - [Update an existing connection request](#put-connectionrequests)
+    - [Delete an exsiting connection request](#delete-connectionrequests)
 - [Locations](#locations)
-    - [GET](#get-locations)
+    - [Get location details based on search criteria for a company](#get-locations)
 - [Suppliers](#suppliers)
-    - [GET](#get-suppliers)
+    - [Get all suppliers based on search criteria](#get-suppliers)
 - [User](#user)
-    - [SEND](#post-user)
-    - [GET](#get-user)
+    - [Create a new user employee profile form](#post-user)
+    - [Get existing users employee profile form](#get-user)
 
 ####Expense
 
 - [Allocations](#allocations)
-    - [GET](#get-allocations)
+    - [Get existing allocations on an expense report](#get-allocations)
 - [Attendees](#attendees)
-    - [SEND](#post-attendees)
-    - [GET](#get-attendees)
-    - [PUT](#put-attendees)
-    - [DELETE](#delete-attendees)
+    - [Create attendees on the shared or private list](#post-attendees)
+    - [Get existing attendees for the user/share list](#get-attendees)
+    - [Update an existing attendee](#put-attendees)
+    - [Delete an existing attendee](#delete-attendees)
 - [AttendeeTypes](#attendeetypes)
-    - [SEND](#post-attendeetypes)
-    - [GET](#get-attendeetypes)
-    - [PUT](#put-attendeetypes)
-    - [DELETE](#delete-attendeetypes)
+    - [Create an attendee type for use in attendees](#post-attendeetypes)
+    - [Get attendee type/s for a user](#get-attendeetypes)
+    - [Update an attendee type](#put-attendeetypes)
+    - [Delete an attendee type](#delete-attendeetypes)
 - [DigitalTaxInvoices](#digitaltaxinvoices)
-    - [GET](#get-digitaltaxinvoices)
-    - [PUT](#put-digitaltaxinvoices)
+    - [Get all digital tax invoices by search criteria](#get-digitaltaxinvoices)
+    - [Update an existing digital tax invoice by ID](#put-digitaltaxinvoices)
 - [Entries](#entries)
-    - [SEND](#post)
-    - [GET](#get-entries)
-    - [PUT](#put-entries)
-    - [DELETE](#delete-entries)
+    - [Create a new expense entry for an expense report](#post)
+    - [Get all entries on an expense report](#get-entries)
+    - [Update an expense entry on an expense report](#put-entries)
+    - [Delete an expense entry](#delete-entries)
 - [ExchangeRates](#exchangerates)
-    - [GET](#get-exchangerates)
+    - [Get the exchange rate between two currencies by date](#get-exchangerates)
 - [ExpenseGroupConfigurations](#expensegroupconfigurations)
-    - [GET](#get-expensegroupconfigurations)
+    - [Get the Expense Group Configuration for the user/company. Contains info for entries, quick expense, report etc.](#get-expensegroupconfigurations)
 - [Itemizations](#itemizations)
-    - [SEND](#post-itemizations)
-    - [GET](#get-itemizations)
+    - [Create an itemization for a report](#post-itemizations)
+    - [Get itemization/s for a user](#get-itemizations)
 - [ListItems](#listitems)
-    - [SEND](#post-listitems)
-    - [GET](#get-listitems)
-    - [PUT](#put-listitems)
-    - [DELETE](#delete-listitems)
+    - [Create a list item](#post-listitems)
+    - [Get ListItem/s](#get-listitems)
+    - [Update a ListItem](#put-listitems)
+    - [Delete a ListItem](#delete-listitems)
 - [Lists](#lists)
-    - [SEND](#post-lists)
-    - [GET](#get-lists)
-    - [PUT](#put-lists)
+    - [Create a List](#post-lists)
+    - [Get List/s](#get-lists)
+    - [Update a List](#put-lists)
 - [Quick Expenses](#quick-expenses)
-    - [SEND](#post-quick-expenses)
-    - [GET](#get-quick-expenses)
-    - [PUT](#put-quick-expenses)
-    - [DELETE](#delete-quick-expenses)
+    - [Add Quick Expense to user](#post-quick-expenses)
+    - [Get Quick Expense/s for user](#get-quick-expenses)
+    - [Update Quick Expense for user](#put-quick-expenses)
+    - [Delete](#delete-quick-expenses)
 - [Receipt](#receipt)
-    - [SEND](#post-receipts)
-    - [GET](#get-receipts)
-    - [DELETE](#delete-receipts)
+    - [Add Receipt to Receipt Store](#post-receipts)
+    - [Add Receipt to Report](#post-receipts)
+    - [Add Receipt to Report Entry](#post-receipts)
+    - [Get Receipt/s from Receipt Store](#get-receipts)
+    - [Delete a Receipt from Receipt Store](#delete-receipts)
 - [ReportDigests](#reportdigests)
-    - [GET](#get-reportdigests)
+    - [Get avilable Report Digests](#get-reportdigests)
 - [Reports](#reports)
-    - [SEND](#post-reports)
-    - [GET](#get-reports)
-    - [PUT](#put-reports)
+    - [Add a new Report to a user](#post-reports)
+    - [Get reports avilable to user](#get-reports)
+    - [Update existing report on user](#put-reports)
 
 ####Insights
 
 - [LatestBookings](#latestbookings)
-    - [GET](#get-latestbookings)
+    - [Get latest Hotel/Air Booking for a User](#get-latestbookings)
 - [Opportunities](#opportunities)
-    - [GET](#get-opportunities)
+    - [Get avilable opportunities for a user](#get-opportunities)
 
 ####Invoice
 
 - [PurchaseOrderReceipts](#purchaseorderreceipts)
-    - [PUT](#put-purchaseorderreceipts)
+    - [Update a purchase order receipt](#put-purchaseorderreceipts)
 - [PurchaseOrders](#purchaseorders)
-    - [SEND](#post-purchaseorders)
-    - [PUT](#put-purchaseorders)
-    - [DELETE](#delete-purchaseorders)
+    - [Create a purchase order](#post-purchaseorders)
+    - [Update a purchase order](#put-purchaseorders)
+    - [Delete a purchase order](#delete-purchaseorders)
 - [SalesTaxValidationRequests](#salestaxvalidationrequests)
     - [GET](#get-salestaxvalidationrequests)
     - [PUT](#put-salestaxvalidationrequests)
     - [DELETE](#delete-salestaxvalidationrequests)
 - [Vendors](#vendors)
-    - [SEND](#post-vendors)
-    - [GET](#get-vendors)
-    - [PUT](#put-vendors)
-    - [DELETE](#delete-vendors)
+    - [Create a vendor for use in Invoice](#post-vendors)
+    - [Get existing vendors](#get-vendors)
+    - [Update a vendor](#put-vendors)
+    - [Deletes a vendor](#delete-vendors)
 
 ####Travel
 
 - [Itinerary](#itinerary)
-    - [SEND](#post-itinerary)
-    - [GET](#get-itinerary)
+    - [Create a trip for a user](#post-itinerary)
+    - [Get trip/s for a given user](#get-itinerary)
 - [TravelProfile](#travelprofile)
-    - [GET](#get-travelprofile)
+    - [Get the users travel profile, which includes travel preferences](#get-travelprofile)
 
 ####Travel Request
 
 - [Requests](#requests)
-    - [GET](#get-requests)
+    - [Get travel requests for a user](#get-requests)
 
 ####Other
 
@@ -834,7 +836,7 @@ For example a School has departments and those could be a list, and the courses 
 
 ###ListItems
 
-Returns all the [ListItems](https://www.concursolutions.com/api/docs/index.html#!/ListItems) for a given list. Also allows you to add, update and delete existing list items.
+Returns all the [ListItems](https://www.concursolutions.com/api/docs/index.html#!/ListItems) for a given list. Also allows you to add, update and delete existing list items. These are children of [list](#get-lists).
 
 #####POST ListItems
 
@@ -946,7 +948,9 @@ Return details based on the search criteria for all [Locations](https://www.conc
 
 ###Opportunities
 
-This is for the Insight [Opportunities API](https://www.concursolutions.com/api/docs/index.html#!/Opportunities)
+Gets a collection of [Opportunities API](https://www.concursolutions.com/api/docs/index.html#!/Opportunities) for a specified trip or for all trips that fall within a date range.
+Specify values for fromUtc and toUtc to get [Opportunities API](https://www.concursolutions.com/api/docs/index.html#!/Opportunities) for a range of trips. Specify only tripId to get opportunities for a single trip.
+Specify OpportunityType to filter results by the specified opportunity types.
 
 #####GET Opportunities
 
@@ -1523,7 +1527,7 @@ This is for the Concur [User](https://developer.concur.com/api-documentation/web
 
 ###Vendors
 
-Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#!/Vendors) Allows you to create, update and deleting existing vendors avilable to the oauth token. 
+Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#!/Vendors) Allows you to create, update and deleting existing vendors avilable to the oauth token.
 
 #####POST Vendors
 
@@ -1603,7 +1607,7 @@ To run the client SDK tests, create a default.json file in the config folder whi
 
     npm test
 
-The test will upload the concur logo to the expense receipt store associated with the OAuth token. It will also upload an E-Receipt to the associated user account. 
+The test will upload the concur logo to the expense receipt store associated with the OAuth token. It will also upload an E-Receipt to the associated user account.
 
 ## Promises
 In order to simplify the asynchronous nature of the platform Web service calls, the client SDK has made use of the Q promises library. More information can be found on the [project's GitHub site](https://github.com/kriskowal/q).
