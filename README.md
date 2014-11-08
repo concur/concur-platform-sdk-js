@@ -606,18 +606,22 @@ Retrieve [Exchange Rate](https://www.concursolutions.com/api/docs/index.html#!/E
 
 #####GET ExchangeRates
 
-     //This will contain a list of ExchangeRates
-     var options = {
-       oauthToken:oauthToken
-     };
+    var options = {
+        oauthToken:oauthToken,
+        queryParameters: {
+            fromCurrency:'USD',
+            toCurrency:'EUR',
+            forDate:'2014-10-31'
+        }
+    };
 
-     concur.exchangeRates.get(options)
-     .then(function(data) {
-       // Data will contain the ExchangeRates
-     })
-     .fail(function(error) {
-       // Error will contain the error returned.
-     });
+    concur.exchangeRates.get(options)
+    .then(function(data) {
+        //Contains the exchange rate
+    })
+    .fail(function (error) {
+        //Contains the error
+    });
 
 ###ExpenseGroupConfigurations
 
@@ -1324,6 +1328,22 @@ This is for Expense [Reports](https://www.concursolutions.com/api/docs/index.htm
      })
      .fail(function(error) {
        // Error will contain the error returned.
+     });
+
+     //This will contain reports that are not  submitted
+     var options = {
+        oauthToken:oauthToken,
+        queryParameters: {
+            approvalStatusCode:'A_NOTF'
+        }
+     };
+
+     concur.reports.get(options)
+     .then(function(data) {
+        //data will contain the reports
+     })
+     .fail(function (error) {
+        // Error will contain the error returned.
      });
 
 #####PUT Reports

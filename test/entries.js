@@ -21,9 +21,9 @@ describe('Concur Entries Tests', function() {
       };
 
       var options = {
-        oauthToken:oauthToken,
-        contentType:'application/json',
-        body:entry
+        oauthToken: oauthToken,
+        contentType: 'application/json',
+        body: entry
       };
 
       concur.entries.send(options)

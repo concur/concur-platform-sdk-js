@@ -1,5 +1,6 @@
 var concur = require('../'),
     config = require('config'),
+    _ = require('underscore');
     expect = require('chai').expect;
 
 
@@ -66,6 +67,26 @@ describe('Concur Report Tests', function() {
       });
     });
 
+    it('should get reports that have not been submitted', function(done) {
+      var options = {
+        oauthToken:oauthToken,
+        queryParameters: {
+          approvalStatusCode:'A_NOTF'
+        }
+      };
+
+      concur.reports.get(options)
+      .then(function(data) {
+        _.each(data.Items, function(report) {
+          expect(report.ApprovalStatusCode).to.be.equal('A_NOTF');
+        });
+        done();
+      })
+      .fail(function (error) {
+        console.log('Failed to get the list of reports with error: ', error);
+      });
+    });
+
     it('should get a of report', function(done) {
       var options = {
         oauthToken:oauthToken,
@@ -73,15 +94,15 @@ describe('Concur Report Tests', function() {
       };
 
       concur.reports.get(options)
-          .then(function(data) {
-            expect(data).to.have.property('CurrencyCode');
-            expect(data).to.have.property('Name');
-            expect(data).to.have.property('ID');
-            done();
-          })
-          .fail(function (error) {
-            console.log('Failed to get the list of reports with error: ', error);
-          });
+      .then(function(data) {
+        expect(data).to.have.property('CurrencyCode');
+        expect(data).to.have.property('Name');
+        expect(data).to.have.property('ID');
+        done();
+      })
+      .fail(function (error) {
+        console.log('Failed to get the list of reports with error: ', error);
+      });
     });
 
   });

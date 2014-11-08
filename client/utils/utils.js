@@ -83,7 +83,7 @@ exports.get = function(options) {
         tempURL = tempURL +'/'+options.id;
     }
 
-    request({url:tempURL, headers:headers}, function(error, response, body) {
+    request({url:tempURL, qs:options.queryParameters, headers:headers}, function(error, response, body) {
         // Error with the actual request
         if (error) {
             return deferred.reject(error);
