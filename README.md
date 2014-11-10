@@ -134,7 +134,7 @@ All platform services are exposed via a root module which can be imported using 
 
 ####Other
 
-- [FAQ](#FAQ)
+- [FAQ](#faq)
     - [OAuth Help](#oauth-help)
     - [Query parameters](#query-parameters)
     - [Find an issue?](#issues)
