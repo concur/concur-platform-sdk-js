@@ -1621,6 +1621,22 @@ Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
+
+## FAQ
+
+####OAuth Help
+
+How do I use Concur's Oauth? Check out the [passport for Concur](https://github.com/concur/passport-concur). Or just use
+npm install passport-concur.
+
+####Query parameters
+
+Help! This API supports query parameters, how do I use it? Check out the [ExchangeRates API example](#exchangerates)
+
+####Bug
+
+There is a bug in the SDK! Feel free to log an [issue](https://github.com/concur/concur-platform-sdk-js/issues)
+
 ## Tests
 
 To run the client SDK tests, create a default.json file in the config folder which contains the credentials of the Concur account to test with. Template.json can be used as a template. Then, run the following:
