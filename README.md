@@ -134,6 +134,10 @@ All platform services are exposed via a root module which can be imported using 
 
 ####Other
 
+- [FAQ](#FAQ)
+    - [OAuth Help](#oauth-help)
+    - [Query parameters](#query-parameters)
+    - [Find an issue?](#issues)
 - [Tests](#tests)
 - [Promises](#promises)
 - [License](#license)
@@ -1631,11 +1635,11 @@ npm install passport-concur.
 
 ####Query parameters
 
-Help! This API supports query parameters, how do I use it? Check out the [ExchangeRates API example](#exchangerates)
+Help! This API supports query parameters, how do I use it? Check out the [ExchangeRates API example.](#exchangerates)
 
-####Bug
+####Issues
 
-There is a bug in the SDK! Feel free to log an [issue](https://github.com/concur/concur-platform-sdk-js/issues)
+There is a bug in the SDK! Feel free to log an [issue.](https://github.com/concur/concur-platform-sdk-js/issues)
 
 ## Tests
 
