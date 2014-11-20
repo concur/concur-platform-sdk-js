@@ -2,7 +2,7 @@ var request = require('request'),
     xml = require('./xml'),
     Q = require('q');
 
-exports.serviceURL = "https://www.concursolutions.com";
+exports.serviceURL = process.env.CONCUR_BASE_URI || "https://www.concursolutions.com";
 
 exports.delete = function(options) {
     var deferred = Q.defer();

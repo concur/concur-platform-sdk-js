@@ -11,9 +11,6 @@ module.exports = {
         return utils.get(options);
     },
     send: function(options) {
-        if (options.quickexpenseId) {
-            options.id = options.quickexpenseId;
-        }
         options.resourceURL = url;
         return utils.send(options);
     },

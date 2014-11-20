@@ -553,7 +553,7 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
         // Error will contian the error returned by the server
     });
 
-    //This will contain a list of expense entries
+    //This will contain an expense entry
     var options = {
         oauthToken:oauthToken,
         id:entriesId
@@ -597,6 +597,105 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
     };
 
     concur.entries.delete(options)
+    .then(function(data) {
+        //Contains the response code 204, for a successful resource update
+    })
+    .fail(function (error) {
+        //Contains the error returned
+    });
+
+### EntryAttendeeAssociations
+
+Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#!/EntryAttendeeAssociations).
+
+#####POST EntryAttendeeAssociations
+
+    //This will post an Expense Entry to a given ReportID
+    var entryAttendee = {
+      "Amount": "Decimal?",
+      "AssociatedAttendeeCount": "Int32?",
+      "AttendeeID": "string",
+      "Custom1": "string",
+      "Custom2": "string",
+      "Custom3": "string",
+      "Custom4": "string",
+      "Custom5": "string",
+      "EntryID": "string"
+    }
+
+    var options = {
+        oauthToken:oauthToken,
+        contentType:'application/json',
+        body:entryAttendee
+    };
+
+    concur.entryAttendeeAssociations.send(options)
+    .then(function(data){
+        // In data will be the entry ID & URL to the entry
+    })
+    .fail(function (error) {
+        // Error will contian the error returned by the server
+    });
+
+#####GET EntryAttendeeAssociations
+
+    //This will contain a list of expense entries
+    var options = {
+        oauthToken:oauthToken
+    };
+
+    concur.entryAttendeeAssociations.get(options)
+    .then(function(data) {
+        //Data will contain a list of entries
+    })
+    .fail(function (error) {
+        // Error will contian the error returned by the server
+    });
+
+    //This will contain an entry attendee associations
+    var options = {
+        oauthToken:oauthToken,
+        id:entryAttendeeAssociationId
+    };
+
+    concur.entryAttendeeAssociations.get(options)
+    .then(function(data) {
+        //Data will contain an entry
+    })
+    .fail(function (error) {
+        // Error will contain the error returned by the server
+    });
+
+#####PUT EntryAttendeeAssociations
+
+    //This will update the entry given by the entryAttendeeAssociationId.
+    var entry = {
+        'Comment': 'Test put',
+    };
+
+    var options = {
+        oauthToken:oauthToken,
+        contentType:'application/json',
+        id:entryAttendeeAssociationId,
+    };
+
+    concur.entryAttendeeAssociations.put(options)
+    .then(function(data){
+        //Contains the response code 204, for a successful resource update
+    })
+    .fail(function (error) {
+        // Error will contain the error returned by the server
+    });
+
+#####DELETE EntryAttendeeAssociations
+
+    //This will delete the entryAttendeeAssociation given an ID.
+    var options = {
+        oauthToken:oauthToken,
+        id:entryAttendeeAssociationId
+    };
+
+    concur.entryAttendeeAssociations.delete(options)
     .then(function(data) {
         //Contains the response code 204, for a successful resource update
     })
@@ -977,7 +1076,7 @@ Specify OpportunityType to filter results by the specified opportunity types.
 
 ###PurchaseOrderReceipts
 
-Updates [Purchase Order](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrderReceipts) line item with receipt information and returns status of updation.
+Updates [Purchase Order](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrderReceipts) line item with receipt information and returns status of the request.
 
 #####PUT PurchaseOrderReceipts
 
@@ -1551,7 +1650,7 @@ This is for the Concur [User](https://developer.concur.com/api-documentation/web
 
 ###Vendors
 
-Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#!/Vendors) Allows you to create, update and deleting existing vendors avilable to the oauth token.
+Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#!/Vendors) Allows you to create, update and deleting existing vendors available to the oauth token.
 
 #####POST Vendors
 
