@@ -60,8 +60,6 @@ All platform services are exposed via a root module which can be imported using 
     - [Get all entries on an expense report](#get-entries)
     - [Update an expense entry on an expense report](#put-entries)
     - [Delete an expense entry](#delete-entries)
-- [ExchangeRates](#exchangerates)
-    - [Get the exchange rate between two currencies by date](#get-exchangerates)
 - [ExpenseGroupConfigurations](#expensegroupconfigurations)
     - [Get the Expense Group Configuration for the user/company. Contains info for entries, quick expense, report etc.](#get-expensegroupconfigurations)
 - [Itemizations](#itemizations)
