@@ -703,29 +703,6 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
         //Contains the error returned
     });
 
-###ExchangeRates
-
-Retrieve [Exchange Rate](https://www.concursolutions.com/api/docs/index.html#!/ExchangeRates) between two currencies on a given date.
-
-#####GET ExchangeRates
-
-    var options = {
-        oauthToken:oauthToken,
-        queryParameters: {
-            fromCurrency:'USD',
-            toCurrency:'EUR',
-            forDate:'2014-10-31'
-        }
-    };
-
-    concur.exchangeRates.get(options)
-    .then(function(data) {
-        //Contains the exchange rate
-    })
-    .fail(function (error) {
-        //Contains the error
-    });
-
 ###ExpenseGroupConfigurations
 
 Get an [Expense Group Configurations](https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations) owned by the user based on the search criteria.
@@ -1734,7 +1711,23 @@ npm install passport-concur.
 
 ####Query parameters
 
-Help! This API supports query parameters, how do I use it? Check out the [ExchangeRates API example.](#exchangerates)
+Help! This API supports query parameters, how do I use it? All you need to do is add a queryParameter object to the options.
+
+    var options = {
+        oauthToken:oauthToken,
+        queryParameters: {
+            parameter1:'USD',
+            parameter2:'EUR',
+        }
+    };
+
+    concur.API.get(options)
+    .then(function(data) {
+        //Data contains the response from the API
+    })
+    .fail(function (error) {
+        //Error if the request has an issues.
+    });
 
 ####Issues
 

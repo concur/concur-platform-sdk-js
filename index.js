@@ -5,7 +5,6 @@ exports.connectionRequests = require('./client/connectionRequests');
 exports.digitalTaxInvoices = require('./client/digitalTaxInvoices');
 exports.entries = require('./client/entries');
 exports.entryAttendeeAssociations = require('./client/entryAttendeeAssociations');
-exports.exchangeRates = require('./client/exchangeRates');
 exports.expenseGroupConfigurations = require('./client/expenseGroupConfigurations');
 exports.itemizations = require('./client/itemizations');
 exports.itinerary = require('./client/itinerary');
