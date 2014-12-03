@@ -86,10 +86,10 @@ All platform services are exposed via a root module which can be imported using 
     - [Get Receipt/s from Receipt Store](#get-receipts)
     - [Delete a Receipt from Receipt Store](#delete-receipts)
 - [ReportDigests](#reportdigests)
-    - [Get avilable Report Digests](#get-reportdigests)
+    - [Get available Report Digests](#get-reportdigests)
 - [Reports](#reports)
     - [Add a new Report to a user](#post-reports)
-    - [Get reports avilable to user](#get-reports)
+    - [Get reports available to user](#get-reports)
     - [Update existing report on user](#put-reports)
 
 ####Insights
@@ -97,7 +97,7 @@ All platform services are exposed via a root module which can be imported using 
 - [LatestBookings](#latestbookings)
     - [Get latest Hotel/Air Booking for a User](#get-latestbookings)
 - [Opportunities](#opportunities)
-    - [Get avilable opportunities for a user](#get-opportunities)
+    - [Get available opportunities for a user](#get-opportunities)
 
 ####Invoice
 
