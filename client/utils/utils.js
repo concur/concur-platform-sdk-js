@@ -4,13 +4,19 @@ var request = require('request'),
 
 exports.serviceURL = process.env.CONCUR_BASE_URI || "https://www.concursolutions.com";
 
+var DEFAULTS = {
+    userAgent:'Concur-platform-sdk-js',
+    contentType: 'application/json'
+    
+};
+
 exports.delete = function(options) {
     var deferred = Q.defer();
 
     var headers = {
         'Authorization': 'Oauth '+ options.oauthToken || options.token || options.oAuthToken,
-        'Accept':options.contentType || 'application/json',
-        'User-Agent':'Concur-platform-sdk-js'
+        'Accept':options.contentType || DEFAULTS.contentType,
+        'User-Agent': DEFAULTS.userAgent
     };
 
     var tempURL = options.resourceURL;
@@ -28,7 +34,7 @@ exports.delete = function(options) {
         if (response.statusCode != 204){
             return deferred.reject({
                 'statusCode':response.statusCode,
-                'Message':JSON.parse(body).Message
+                'Message':body && body.Message && JSON.parse(body).Message
             });
         }
 
@@ -43,9 +49,9 @@ exports.send = function(options) {
 
     var headers = {
         'Authorization' : 'OAuth '+ options.oauthToken,
-        'Accept': options.contentType || 'application/json',
-        'Content-Type': options.contentType || 'application/json',
-        'User-Agent':'Concur-platform-sdk-js'
+        'Accept': options.contentType || DEFAULTS.contentType,
+        'Content-Type': options.contentType || DEFAULTS.contentType,
+        'User-Agent':DEFAULTS.userAgent
     };
 
     request.post({url:options.resourceURL, headers:headers, body:JSON.stringify(options.body)}, function(error, response, body) {
@@ -56,7 +62,10 @@ exports.send = function(options) {
 
         // Non-200 HTTP response code
         if (response.statusCode != 200) {
-            return deferred.reject({'error':'Auth URL ('+options.resourceURL+') returned HTTP status code '+response.statusCode});
+            return deferred.reject({
+                'statusCode':response.statusCode,
+                'Message':body && body.Message && JSON.parse(body).Message
+            });
         }
 
         var bodyJSON = JSON.parse(body);
@@ -74,8 +83,8 @@ exports.get = function(options) {
 
     var headers = {
         'Authorization' : 'OAuth ' + options.oauthToken || options.token || options.oAuthToken,
-        'Accept' : 'application/json',
-        'User-Agent':'Concur-platform-sdk-js'
+        'Accept' : DEFAULTS.contentType,
+        'User-Agent': DEFAULTS.userAgent
     };
 
     var tempURL = options.resourceURL;
@@ -91,7 +100,10 @@ exports.get = function(options) {
 
         // Non-200 HTTP response code
         if (response.statusCode != 200) {
-            return deferred.reject({'error':'Auth URL ('+tempURL+') returned HTTP status code '+response.statusCode});
+            return deferred.reject({
+                'statusCode':response.statusCode,
+                'Message':body && body.Message && JSON.parse(body).Message
+            });
         }
 
         var parsedBody;
@@ -119,9 +131,9 @@ exports.put = function(options) {
 
     var headers = {
         'Authorization' : 'OAuth '+ options.oauthToken || options.token || options.oAuthToken,
-        'Accept':'application/json',
-        'Content-Type':'application/json',
-        'User-Agent':'Concur-platform-sdk-js'
+        'Accept': DEFAULTS.contentType,
+        'Content-Type': options.contentType || DEFAULTS.contentType,
+        'User-Agent': DEFAULTS.userAgent
     };
 
     var tempURL = options.resourceURL;
@@ -139,7 +151,7 @@ exports.put = function(options) {
         if (response.statusCode != 204){
             return deferred.reject({
                 'statusCode':response.statusCode,
-                'Message':JSON.parse(body).Message
+                'Message':body && body.Message && JSON.parse(body).Message
             });
         }
 

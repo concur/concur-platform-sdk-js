@@ -43,7 +43,7 @@ describe('Concur Report Tests', function() {
 
       concur.reports.send(options)
       .fail(function (error) {
-        expect(error.error).to.contain('400');
+        expect(error.statusCode).to.equal('400');
         done();
       });
     });
