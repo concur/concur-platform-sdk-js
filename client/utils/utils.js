@@ -48,7 +48,7 @@ exports.send = function(options) {
     var deferred = Q.defer();
 
     var headers = {
-        'Authorization' : 'OAuth '+ options.oauthToken,
+        'Authorization': 'Oauth '+ options.oauthToken || options.token || options.oAuthToken,
         'Accept': options.contentType || DEFAULTS.contentType,
         'Content-Type': options.contentType || DEFAULTS.contentType,
         'User-Agent':DEFAULTS.userAgent
