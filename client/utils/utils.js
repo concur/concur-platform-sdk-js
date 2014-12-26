@@ -27,11 +27,11 @@ var buildHeader = function(options) {
 };
 
 var buildUrl = function(options) {
-  var tempURL = options.resourceURL;
   if (options.id) {
-    tempURL = tempURL +'/'+options.id;
+    return options.resourceURL +'/'+options.id;
+  } else {
+    return options.resourceURL;
   }
-  return tempURL;
 };
 
 exports.delete = function(options) {
