@@ -7,35 +7,47 @@ exports.serviceURL = process.env.CONCUR_BASE_URI || "https://www.concursolutions
 var DEFAULTS = {
     userAgent:'Concur-platform-sdk-js',
     contentType: 'application/json'
-    
+};
+
+var buildError = function(options, response, body) {
+    return {
+        'statusCode':response.statusCode,
+        'Message':body && body.Message && JSON.parse(body).Message,
+        'resourceURL': options.resourceURL
+    };
+};
+
+var buildHeader = function(options) {
+    return {
+      'Authorization' : 'OAuth '+ options.oauthToken || options.token || options.oAuthToken,
+      'Accept': DEFAULTS.contentType,
+      'Content-Type': options.contentType || DEFAULTS.contentType,
+      'User-Agent': DEFAULTS.userAgent
+    };
+};
+
+var buildUrl = function(options) {
+  var tempURL = options.resourceURL;
+  if (options.id) {
+    tempURL = tempURL +'/'+options.id;
+  }
+  return tempURL;
 };
 
 exports.delete = function(options) {
     var deferred = Q.defer();
 
-    var headers = {
-        'Authorization': 'Oauth '+ options.oauthToken || options.token || options.oAuthToken,
-        'Accept':options.contentType || DEFAULTS.contentType,
-        'User-Agent': DEFAULTS.userAgent
-    };
+    var headers = buildHeader(options);
 
-    var tempURL = options.resourceURL;
-    if (options.id) {
-        tempURL = tempURL +'/'+options.id;
-    }
-
-    request.del({url: tempURL, headers:headers}, function(error, response, body) {
+    request.del({url: buildUrl(options), headers:headers}, function(error, response, body) {
         // Error with the actual request
         if (error){
             return deferred.reject(error);
         }
 
         // Non-204 HTTP response code
-        if (response.statusCode != 204){
-            return deferred.reject({
-                'statusCode':response.statusCode,
-                'Message':body && body.Message && JSON.parse(body).Message
-            });
+        if (response.statusCode != 204) {
+            return deferred.reject(buildError(options, response, body));
         }
 
         deferred.resolve(response.statusCode);
@@ -47,12 +59,7 @@ exports.delete = function(options) {
 exports.send = function(options) {
     var deferred = Q.defer();
 
-    var headers = {
-        'Authorization': 'Oauth '+ options.oauthToken || options.token || options.oAuthToken,
-        'Accept': options.contentType || DEFAULTS.contentType,
-        'Content-Type': options.contentType || DEFAULTS.contentType,
-        'User-Agent':DEFAULTS.userAgent
-    };
+    var headers = buildHeader(options);
 
     request.post({url:options.resourceURL, headers:headers, body:JSON.stringify(options.body)}, function(error, response, body) {
         // Error with the actual request
@@ -62,10 +69,7 @@ exports.send = function(options) {
 
         // Non-200 HTTP response code
         if (response.statusCode != 200) {
-            return deferred.reject({
-                'statusCode':response.statusCode,
-                'Message':body && body.Message && JSON.parse(body).Message
-            });
+            return deferred.reject(buildError(options, response, body));
         }
 
         var bodyJSON = JSON.parse(body);
@@ -81,18 +85,9 @@ exports.send = function(options) {
 exports.get = function(options) {
     var deferred = Q.defer();
 
-    var headers = {
-        'Authorization' : 'OAuth ' + options.oauthToken || options.token || options.oAuthToken,
-        'Accept' : DEFAULTS.contentType,
-        'User-Agent': DEFAULTS.userAgent
-    };
+    var headers = buildHeader(options);
 
-    var tempURL = options.resourceURL;
-    if (options.id) {
-        tempURL = tempURL +'/'+options.id;
-    }
-
-    request({url:tempURL, qs:options.queryParameters, headers:headers}, function(error, response, body) {
+    request({url:buildUrl(options), qs:options.queryParameters, headers:headers}, function(error, response, body) {
         // Error with the actual request
         if (error) {
             return deferred.reject(error);
@@ -100,10 +95,7 @@ exports.get = function(options) {
 
         // Non-200 HTTP response code
         if (response.statusCode != 200) {
-            return deferred.reject({
-                'statusCode':response.statusCode,
-                'Message':body && body.Message && JSON.parse(body).Message
-            });
+            return deferred.reject(buildError(options, response, body));
         }
 
         var parsedBody;
@@ -129,19 +121,9 @@ exports.get = function(options) {
 exports.put = function(options) {
     var deferred = Q.defer();
 
-    var headers = {
-        'Authorization' : 'OAuth '+ options.oauthToken || options.token || options.oAuthToken,
-        'Accept': DEFAULTS.contentType,
-        'Content-Type': options.contentType || DEFAULTS.contentType,
-        'User-Agent': DEFAULTS.userAgent
-    };
+    var headers = buildHeader(options);
 
-    var tempURL = options.resourceURL;
-    if (options.id) {
-        tempURL = tempURL +'/'+options.id;
-    }
-
-    request.put({url:tempURL, headers:headers, body:JSON.stringify(options.body)}, function(error, response, body) {
+    request.put({url:buildUrl(options), headers:headers, body:JSON.stringify(options.body)}, function(error, response, body) {
         // Error with the actual request
         if (error) {
             return deferred.reject(error);
@@ -149,10 +131,7 @@ exports.put = function(options) {
 
         // Non-204 HTTP response code
         if (response.statusCode != 204){
-            return deferred.reject({
-                'statusCode':response.statusCode,
-                'Message':body && body.Message && JSON.parse(body).Message
-            });
+            return deferred.reject(buildError(options, response, body));
         }
 
         deferred.resolve(response.statusCode);
