@@ -34,7 +34,7 @@ var buildHeader = function(options) {
 
 var buildUrl = function(options) {
   if (options.id) {
-    return options.resourceURL +'/'+options.id;
+    return options.resourceURL +'/'+ options.id;
   } else {
     return options.resourceURL;
   }
