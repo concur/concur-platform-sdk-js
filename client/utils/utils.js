@@ -14,11 +14,11 @@ var buildError = function(options, response, body) {
     try {
       message = JSON.parse(body);
     } catch(e) {
-      message = 'Failed to parse response body'
+      message = 'Failed to parse response body';
     }
     return {
         'statusCode': response && response.statusCode,
-        'Message': message,
+        'Message': message && message.Error && message.Error.Message,
         'resourceURL': options && options.resourceURL
     };
 };
