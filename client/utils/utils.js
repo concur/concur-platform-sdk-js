@@ -10,10 +10,16 @@ var DEFAULTS = {
 };
 
 var buildError = function(options, response, body) {
+    var message;
+    try {
+      message = JSON.parse(body);
+    } catch(e) {
+      message = 'Failed to parse response body'
+    }
     return {
-        'statusCode':response.statusCode,
-        'Message':body && body.Message && JSON.parse(body).Message,
-        'resourceURL': options.resourceURL
+        'statusCode': response && response.statusCode,
+        'Message': message,
+        'resourceURL': options && options.resourceURL
     };
 };
 
@@ -130,7 +136,7 @@ exports.put = function(options) {
         }
 
         // Non-204 HTTP response code
-        if (response.statusCode != 204){
+        if (response.statusCode != 204) {
             return deferred.reject(buildError(options, response, body));
         }
 
