@@ -30,7 +30,7 @@ describe('Concur Quickexpense Test', function() {
             };
 
             concur.quickexpenses.send(options)
-            .then(function(data){
+            .then(function(data) {
                 expect(data).to.have.property('ID');
                 expect(data).to.have.property('URI');
                 done();
@@ -49,7 +49,7 @@ describe('Concur Quickexpense Test', function() {
 
             concur.quickexpenses.send(options)
             .fail(function (error) {
-                expect(error.error).to.contain('400');
+                expect(error.statusCode).to.equal(400);
                 done();
             });
         });

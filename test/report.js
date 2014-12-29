@@ -43,7 +43,7 @@ describe('Concur Report Tests', function() {
 
       concur.reports.send(options)
       .fail(function (error) {
-        expect(error.error).to.contain('400');
+        expect(error.statusCode).to.be.equal(400);
         done();
       });
     });
@@ -118,8 +118,9 @@ describe('Concur Report Tests', function() {
 
       concur.reports.put(options)
       .fail(function (error) {
+          console.log(error);
         expect(error.Message).to.contain('No HTTP resource was found that matches the request URI');
-        expect(error.statusCode).to.be.equal(404);
+        expect(error.statusCode).to.be.equal(400);
         done();
       });
     });
