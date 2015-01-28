@@ -27,6 +27,7 @@ describe('Concur Itinerary Tests', function(){
             }
         });
     });
+  
 
     it('should contain a list of trips', function(done) {
         this.timeout(10000);

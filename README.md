@@ -16,6 +16,26 @@ All platform services are exposed via a root module which can be imported using 
 
     var concur = require('concur-platform');
 
+## Tests
+
+To run the client SDK tests, create a default.json file in the config folder which contains the credentials of the Concur account to test with.
+Template.json can be used as a template. You need to have a file named default.json under the config file with this object
+
+  {
+      "oauthToken":"OAUTH_TOKEN_HERE",
+      "webserviceAdminoauthToken":"WEBSERVICE_ADMIN_OAUTH_TOKEN",
+      "username":"USERNAME_HERE",
+      "password":"PASSWORD_HERE",
+      "consumerKey":"CONSUMER_KEY_HERE"
+  }
+
+
+Then, run the following:
+
+    npm test
+
+The test will upload the concur logo to the expense receipt store associated with the OAuth token. It will also upload an E-Receipt to the associated user account.
+
 ##Table of Contents
 
 ###Platform Services
@@ -136,7 +156,6 @@ All platform services are exposed via a root module which can be imported using 
     - [OAuth Help](#oauth-help)
     - [Query parameters](#query-parameters)
     - [Find an issue?](#issues)
-- [Tests](#tests)
 - [Promises](#promises)
 - [License](#license)
 
@@ -1730,14 +1749,6 @@ Help! This API supports query parameters, how do I use it? All you need to do is
 ####Issues
 
 There is a bug in the SDK! Feel free to log an [issue.](https://github.com/concur/concur-platform-sdk-js/issues)
-
-## Tests
-
-To run the client SDK tests, create a default.json file in the config folder which contains the credentials of the Concur account to test with. Template.json can be used as a template. Then, run the following:
-
-    npm test
-
-The test will upload the concur logo to the expense receipt store associated with the OAuth token. It will also upload an E-Receipt to the associated user account.
 
 ## Promises
 In order to simplify the asynchronous nature of the platform Web service calls, the client SDK has made use of the Q promises library. More information can be found on the [project's GitHub site](https://github.com/kriskowal/q).

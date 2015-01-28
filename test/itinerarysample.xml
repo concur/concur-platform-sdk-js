@@ -1,30 +1,30 @@
 <?xml version="1.0"?>
 <Itinerary xmlns="http://www.concursolutions.com/api/travel/trip/2010/06">
-    <TripName>SEA TO SJC</TripName>
-    <StartDateLocal>2015-01-30T03:47:14</StartDateLocal>
-    <EndDateLocal>2015-02-06T03:47:14</EndDateLocal>
+    <TripName>SEA TO DTW</TripName>
+    <StartDateLocal>2015-01-14T03:47:14</StartDateLocal>
+    <EndDateLocal>2015-01-18T03:47:14</EndDateLocal>
     <IsPersonal>true</IsPersonal>
     <Bookings>
         <Booking>
             <Segments>
                 <Hotel>
                     <Status>HK</Status>
-                    <StartCityCode>SJC</StartCityCode>
-                    <StartDateLocal>2015-01-30T07:47:14</StartDateLocal>
-                    <EndDateLocal>2015-01-06T03:47:14</EndDateLocal>
-                    <Name>ALoft Cupertino</Name>
+                    <StartCityCode>SEA</StartCityCode>
+                    <StartDateLocal>2015-01-14T03:47:14</StartDateLocal>
+                    <EndDateLocal>2015-01-18T07:47:14</EndDateLocal>
+                    <Name>Courtyard Ann Arbor</Name>
                     <RecordLocator>Hotel Locator</RecordLocator>
                     <RoomDescription>1 KING BED ACCESSIBLE ROOM - K1RRC</RoomDescription>
                     <Currency>USD</Currency>
                     <CancellationPolicy>Cxl 1 day prior to Arrival</CancellationPolicy>
-                    <DailyRate>240.3500</DailyRate>
+                    <DailyRate>140.3500</DailyRate>
                     <NumRooms>1</NumRooms>
                     <NumPersons>1</NumPersons>
                     <RateCode>LV4</RateCode>
                     <Charges>
                         <Rate>
                             <Currency>USD</Currency>
-                            <Amount>220.00</Amount>
+                            <Amount>140.00</Amount>
                             <StartDatelocal>2015-01-30T07:47:14</StartDatelocal>
                             <IsPrimary>false</IsPrimary>
                             <SemanticsCode>ROOMRATE</SemanticsCode>
@@ -34,26 +34,36 @@
                     </Charges>
                 </Hotel>
             </Segments>
-            <RecordLocator>CodeCamp</RecordLocator>
-            <BookingSource>Sample Itin for CodeCamp</BookingSource>
+            <RecordLocator>MHacks Hackathon</RecordLocator>
+            <BookingSource>MHacks Hackathon</BookingSource>
             <DateBookedLocal>2015-01-30T03:47:14</DateBookedLocal>
         </Booking>
         <Booking>
             <Segments>
                 <Air>
-                    <Vendor>AA</Vendor>
+                    <Vendor>AS</Vendor>
                     <FlightNumber>425</FlightNumber>
                     <StartCityCode>SEA</StartCityCode>
-                    <StartDateLocal>2015-01-30T03:47:14</StartDateLocal>
-                    <EndCityCode>SFO</EndCityCode>
-                    <EndDateLocal>2015-01-30T07:47:14</EndDateLocal>
+                    <StartDateLocal>2015-01-14T03:47:14</StartDateLocal>
+                    <EndCityCode>DTW</EndCityCode>
+                    <EndDateLocal>2015-01-14T03:47:14</EndDateLocal>
                     <Cabin>O</Cabin>
                     <ClassOfService>O</ClassOfService>
                 </Air>
+                <Air>
+                  <Vendor>AS</Vendor>
+                  <FlightNumber>425</FlightNumber>
+                  <StartCityCode>DTW</StartCityCode>
+                  <StartDateLocal>2015-01-18T03:47:14</StartDateLocal>
+                  <EndCityCode>SEA</EndCityCode>
+                  <EndDateLocal>2015-01-18T10:47:14</EndDateLocal>
+                  <Cabin>O</Cabin>
+                  <ClassOfService>O</ClassOfService>
+                </Air>
             </Segments>
             <RecordLocator>Air Locator</RecordLocator>
-            <BookingSource>Sample Itin for CodeCamp</BookingSource>
-            <DateBookedLocal>2015-01-30T03:47:14</DateBookedLocal>
+            <BookingSource>MHacks</BookingSource>
+            <DateBookedLocal>2015-01-02T03:47:14</DateBookedLocal>
         </Booking>
     </Bookings>
 </Itinerary>
