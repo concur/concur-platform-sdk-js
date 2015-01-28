@@ -21,13 +21,13 @@ All platform services are exposed via a root module which can be imported using 
 To run the client SDK tests, create a default.json file in the config folder which contains the credentials of the Concur account to test with.
 Template.json can be used as a template. You need to have a file named default.json under the config file with this object
 
-  {
-      "oauthToken":"OAUTH_TOKEN_HERE",
-      "webserviceAdminoauthToken":"WEBSERVICE_ADMIN_OAUTH_TOKEN",
-      "username":"USERNAME_HERE",
-      "password":"PASSWORD_HERE",
-      "consumerKey":"CONSUMER_KEY_HERE"
-  }
+    {
+        "oauthToken":"OAUTH_TOKEN_HERE",
+        "webserviceAdminoauthToken":"WEBSERVICE_ADMIN_OAUTH_TOKEN",
+        "username":"USERNAME_HERE",
+        "password":"PASSWORD_HERE",
+        "consumerKey":"CONSUMER_KEY_HERE"
+    }
 
 
 Then, run the following:
