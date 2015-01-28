@@ -878,7 +878,8 @@ For example a School has departments and those could be a list, and the courses 
 #####POST Lists
 
      var options = {
-       oauthToken:oauthToken
+       oauthToken:oauthToken,
+       body: {}
      };
 
      concur.lists.send(options)
@@ -942,7 +943,8 @@ Returns all the [ListItems](https://www.concursolutions.com/api/docs/index.html#
 #####POST ListItems
 
      var options = {
-       oauthToken:oauthToken
+       oauthToken:oauthToken,
+       body: {}
      };
 
      concur.listItems.send(options)
