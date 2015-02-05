@@ -3,3 +3,4 @@ config/default.json
 .idea/**
 .DS_Store
 test/config
+results.txt

@@ -48,8 +48,6 @@ describe('Concur Report Tests', function() {
     });
   });
 
-  var reportId;
-
   describe('#get', function() {
     it('should get a list of reports', function(done) {
       var options = {

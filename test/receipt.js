@@ -132,7 +132,7 @@ describe('Concur Receipt Tests', function(){
             done();
         })
         .fail(function(error) {
-            console.log('Error image not deleted: ', error)
+            console.log('Error image not deleted: ', error);
         });
     });
 });
