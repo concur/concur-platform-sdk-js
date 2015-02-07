@@ -26,7 +26,8 @@ Template.json can be used as a template. You need to have a file named default.j
         "webserviceAdminoauthToken":"WEBSERVICE_ADMIN_OAUTH_TOKEN",
         "username":"USERNAME_HERE",
         "password":"PASSWORD_HERE",
-        "consumerKey":"CONSUMER_KEY_HERE"
+        "consumerKey":"CONSUMER_KEY_HERE",
+        "client_secret":"CLIENT_SECRET_HERE"
     }
 
 
