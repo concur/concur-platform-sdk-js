@@ -7,8 +7,11 @@ var concur = require('../'),
 var username = config.get('username');
 var password = config.get('password');
 var consumerKey = config.get('consumerKey');
+var client_secret = config.get('client_secret');
 
 describe('Concur Native Flow oAuth Tests', function(){
+    var tokenToRefresh;
+
     it('should validate the server returned a valid payload', function(done) {
         this.timeout(10000);
         var options = {
@@ -18,6 +21,7 @@ describe('Concur Native Flow oAuth Tests', function(){
         };
         concur.oauth.native(options)
         .then(function(token) {
+            tokenToRefresh = token.refreshToken;
             expect(token).to.have.property('value');
             expect(token).to.have.property('refreshToken');
             expect(token).to.have.property('instanceUrl');
@@ -28,6 +32,27 @@ describe('Concur Native Flow oAuth Tests', function(){
             console.log("Getting an OAuth token failed: ", error);
         });
     });
+
+    it('should refresh the token', function(done) {
+      this.timeout(10000);
+      var options = {
+        client_id:consumerKey,
+        client_secret:client_secret,
+        refreshToken:tokenToRefresh
+      };
+      concur.oauth.refreshToken(options)
+      .then(function(token) {
+        expect(token.Access_Token).to.have.property('Token');
+        expect(token.Access_Token).to.have.property('Instance_Url');
+        expect(token.Access_Token).to.have.property('Expiration_date');
+        done();
+      })
+      .fail(function(error) {
+        console.log("Refreshing the OAuth Token failed:", error);
+      });
+    });
+
+
 
     it('should fail if the username is incorrect', function(done) {
         var options = {
