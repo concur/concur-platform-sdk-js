@@ -1,7 +1,7 @@
 var utils = require('../utils/utils.js'),
     util = require('util');
 
-var url = utils.serviceURL + '/net2/oauth2/getaccesstoken.ashx?';
+var url = utils.serviceURL + '/net2/oauth2/getaccesstoken.ashx';
 
 module.exports = {
   send: function(options) {
