@@ -1,0 +1,40 @@
+# only trigger ci for dev and master branches
+branches:
+  only:
+    - dev
+
+# language setting
+language: node_js
+
+# version numbers, testing against two versions of node
+node_js:
+  - 0.10.35
+
+# The path for Xunit to output test reports
+env:
+  global:
+    - secure: ZL5P4KACDJHWmhW2OSNhcse2/mjufb5hPu6iFbCWvNIGtLNju8ZtYRwa0lk6ii91xyDQXeeWEBr8pTJcti/KKbk1WQ/2iCGle2RYJSAAgjxDu9WJ/Z60hmaY5m8NYrhdwHqNSMk0Gay16y1vizKX7Su1MuJ1s7anbKHmvKm2tHWCHINdzCqFOy72Bq5dILIeK704S5jdB9vw2QyrzPSoet4gWhosEKiDZH/4UljXsJ38QisBmdkX5yGgSISApp9GUH0TV/HvbDpEGyVh+GNpvZsqecp0ixjyNE3NQlQagXTJDk9dFZyClf5XoLesh7DjR+63pvCWExSrjEMDI0b13w==
+    - XUNIT_FILE=shippable/testresults/result.xml
+    - SLACK_ORG=ConcurCTO 
+    - PROJECT=concur-platform-sdk-js
+
+# Create directories for test and coverage reports
+before_script:
+  - mkdir -p shippable/testresults
+  - mkdir -p shippable/codecoverage
+
+  # Running npm test to run your test cases
+script:
+  - grunt ci-shippable
+  - ./build/record_version.sh
+
+# Tell istanbul to generate a coverage report
+after_script:
+  - ./node_modules/.bin/istanbul cover grunt -- -u tdd
+  - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
+
+after_failure:
+  - python ./build/slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN
+
+after_success:
+  - python ./build/slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN -s
