@@ -25,7 +25,7 @@ var buildError = function(options, response, body) {
 
 var buildHeader = function(options) {
     return {
-      'Authorization' : 'OAuth '+ options.oauthToken || options.token || options.oAuthToken,
+      'Authorization' : 'OAuth '+ (options.oauthToken || options.token || options.oAuthToken),
       'Accept': DEFAULTS.contentType,
       'Content-Type': options.contentType || DEFAULTS.contentType,
       'User-Agent': DEFAULTS.userAgent
@@ -78,7 +78,7 @@ exports.send = function(options) {
             return deferred.reject(buildError(options, response, body));
         }
 
-        var bodyJSON = JSON.parse(body);
+        var bodyJSON = JSON.parse(body || '{}');
 
         // 200, but Error in token payload
         if (bodyJSON.Error) return deferred.reject({'error':bodyJSON.Message});
