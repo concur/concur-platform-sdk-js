@@ -47,6 +47,7 @@ The test will upload the concur logo to the expense receipt store associated wit
     - [Native Flow](#native-flow)
     - [AppCenter Flow](#appcenter-flow)
     - [Refresh Token](#refresh-token)
+    - [Revoke Token](#revoke-token)
 - [ConnectionRequests](#connectionrequests)
     - [Create a connection request for a given supplier ID](#post-connectionrequests)
     - [Get connection request/s for a supplier ID](#get-connectionrequests)
@@ -207,7 +208,7 @@ for your registered partner application.
     .fail(function(error) {
         // error will contain the error message returned
     });
-    
+
 #####Refresh Token
 
 Use a [Refresh Token](https://developer.concur.com/oauth-20/refreshing-access-tokens) to get a new Access Token.
@@ -221,6 +222,22 @@ Use a [Refresh Token](https://developer.concur.com/oauth-20/refreshing-access-to
     concur.oauth.refreshToken(options)
     .then(function(token) {
         // token will contain an `Access_Token` object that contains `Token`, `Instance_Url` and `Expiration_date`
+    })
+    .fail(function(error) {
+        // error will contain the error message returned
+    });
+
+#####Revoke Token
+
+[Revoke an Access Token](https://developer.concur.com/oauth-20/working-access-tokens/revoking-access-tokens).
+
+    var options = {
+        token:token
+    }
+
+    concur.oauth.revokeToken(options)
+    .then(function() {
+        // token is revoked
     })
     .fail(function(error) {
         // error will contain the error message returned
