@@ -78,7 +78,8 @@ exports.send = function(options) {
             return deferred.reject(buildError(options, response, body));
         }
 
-        var bodyJSON = JSON.parse(body || '{}');
+
+        var bodyJSON = body ? JSON.parse(body) : {};
 
         // 200, but Error in token payload
         if (bodyJSON.Error) return deferred.reject({'error':bodyJSON.Message});
