@@ -33,7 +33,7 @@ Template.json can be used as a template. You need to have a file named default.j
 
 Then, run the following:
 
-    npm test
+    Run the mochaTest grunt command
 
 The test will upload the concur logo to the expense receipt store associated with the OAuth token. It will also upload an E-Receipt to the associated user account.
 
