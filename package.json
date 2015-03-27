@@ -21,6 +21,7 @@
   "dependencies": {
     "q": "^1.0.1",
     "request": "^2.40.0",
+    "should": "^5.2.0",
     "underscore": "^1.7.0",
     "util": "^0.10.3",
     "xml2js": "^0.4.4"
@@ -29,10 +30,13 @@
     "request": "browser-request"
   },
   "devDependencies": {
+    "should": "^5.2.0",
+    "mock": "^0.1.1",
     "mocha": "^1.21.4",
     "chai": "^1.9.1",
     "config": "^1.0.2",
     "grunt": "^0.4.5",
+    "stack-trace":"0.0.9",
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-env": "^0.4.2",
     "grunt-mocha-test": "^0.12.1",
