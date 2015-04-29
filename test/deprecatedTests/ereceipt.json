@@ -1,0 +1,31 @@
+{
+    "CurrencyCode": "USD",
+    "FormofPayment": "CASHX",
+    "LineItems": [
+        {
+            "Date": "2014-09-03T12:29:00.0000000",
+            "Description": "Test Purchase",
+            "Quantity": "1",
+            "Total": "",
+            "TransactionID": ""
+        }
+    ],
+    "LocationCity": "Seattle",
+    "LocationCountry": "US",
+    "LocationDescription": "Test Location",
+    "LocationInternetAddress": "http://www.testurl.com",
+    "LocationSubdivision": "WA",
+    "MatchingFacts": {
+        "OAuthToken": ""
+    },
+    "ProviderID": "",
+    "SpendCategoryCode": "MEALS",
+    "SupplierDescription": "",
+    "TransactionAmount": "7.61",
+    "TransactionDate": "2014-09-03T12:29:00.0000000",
+    "TravelHeader": {
+        "GuestFirstName": "WilliaM",
+        "GuestLastName": "NeVeR"
+    },
+    "Type": "General"
+}
