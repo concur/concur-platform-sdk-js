@@ -1,6 +1,8 @@
 Concur SDK for JavaScript
 ==============
 
+[![Join the chat at https://gitter.im/concur/concur-platform-sdk-js](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/concur/concur-platform-sdk-js?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 JavaScript SDK for the [Concur Platform](http://developer.concur.com). For more information on the set of platform services, see the [Web services overview](https://developer.concur.com/get-started/webservices-overview) document on the developer portal.
 Register for a [developer Sandbox here](https://developer.concur.com/register).
 
