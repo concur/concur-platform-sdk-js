@@ -27,17 +27,3 @@ exports.travelProfile = require('./client/travelProfile');
 exports.user = require('./client/user');
 exports.utils = require('./client/utils');
 exports.vendors = require('./client/vendors');
-
-
-
-
-
-
-
-
-
-
-
-
-
-

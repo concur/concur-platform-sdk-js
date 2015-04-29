@@ -7,19 +7,19 @@ var concur = null;
 var entriesURL = 'https://www.concursolutions.com/api/v3.0/common/connectionrequests';
 
 var sampleEntry = {
-    'Comment': 'COMMENT',
-    'ExpenseTypeCode': 'CODE',
-    'ReportID': 'REPORTID',
-    'TransactionAmount': 'AMOUNT',
-    'TransactionDate': 'TRANSACTIONDATE',
-    'TransactionCurrencyCode':'USD',
-    'PaymentTypeID':'PAYMENTTYPEID'
+  'Comment': 'COMMENT',
+  'ExpenseTypeCode': 'CODE',
+  'ReportID': 'REPORTID',
+  'TransactionAmount': 'AMOUNT',
+  'TransactionDate': 'TRANSACTIONDATE',
+  'TransactionCurrencyCode':'USD',
+  'PaymentTypeID':'PAYMENTTYPEID'
 };
 
 var sampleRequest = {
-    oauthToken: 'TOKEN',
-    contentType: 'application/json',
-    body: sampleEntry
+  oauthToken: 'TOKEN',
+  contentType: 'application/json',
+  body: sampleEntry
 };
 
 var sampleRequestNoContentType = {
@@ -56,13 +56,15 @@ describe('connectionRequests Unit Tests', function() {
       called: false
     };
 
-    concur = require('./mockRequire.js')('../index.js', {sandbox: 'all', requires: {
-      request: function (options,callback) {
-        requestMockData.options = options;
-        requestMockData.callback = callback;
-        requestMockData.called = true;
-      }
-    }});
+    concur = mock('../index.js', {
+        '../client/connectionRequests':null,
+        '../client/utils/utils.js':null,
+        'request': function (options,callback) {
+          requestMockData.options = options;
+          requestMockData.callback = callback;
+          requestMockData.called = true;
+        }},
+      require);
   });
 
   describe('#GET', function() {

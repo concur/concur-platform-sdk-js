@@ -56,13 +56,15 @@ describe('Entries Unit Tests', function() {
       called: false
     };
 
-    concur = require('./mockRequire.js')('../index.js', {sandbox: 'all', requires: {
-      request: function (options,callback) {
-        requestMockData.options = options;
-        requestMockData.callback = callback;
-        requestMockData.called = true;
-      }
-    }});
+    concur = mock('../index.js', {
+        '../client/entries':null,
+        '../client/utils/utils.js':null,
+        'request': function (options,callback) {
+          requestMockData.options = options;
+          requestMockData.callback = callback;
+          requestMockData.called = true;
+        }},
+      require);
   });
 
   describe('#GET', function() {
