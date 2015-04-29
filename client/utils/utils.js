@@ -18,7 +18,7 @@ var buildError = function(options, response, body) {
     }
     return {
         'statusCode': response && response.statusCode,
-        'Message': message && message.Error && message.Error.Message,
+        'Message': message && message.Error && message.Error.Message || message,
         'resourceURL': options && options.resourceURL
     };
 };
@@ -42,48 +42,36 @@ var buildUrl = function(options) {
 
 exports.delete = function(options) {
     var deferred = Q.defer();
-
     var headers = buildHeader(options);
-
     request.del({url: buildUrl(options), headers:headers}, function(error, response, body) {
         // Error with the actual request
         if (error){
             return deferred.reject(error);
         }
-
         // Non-204 HTTP response code
         if (response.statusCode != 204) {
             return deferred.reject(buildError(options, response, body));
         }
-
         deferred.resolve(response.statusCode);
-
     });
     return deferred.promise;
 };
 
 exports.send = function(options) {
     var deferred = Q.defer();
-
     var headers = buildHeader(options);
-
     request.post({url:options.resourceURL, headers:headers, body:JSON.stringify(options.body)}, function(error, response, body) {
         // Error with the actual request
         if (error) {
             return deferred.reject(error);
         }
-
         // Non-200 HTTP response code
         if (response.statusCode != 200) {
             return deferred.reject(buildError(options, response, body));
         }
-
-
         var bodyJSON = body ? JSON.parse(body) : {};
-
         // 200, but Error in token payload
         if (bodyJSON.Error) return deferred.reject({'error':bodyJSON.Message});
-
         deferred.resolve(bodyJSON);
     });
     return deferred.promise;
@@ -91,20 +79,16 @@ exports.send = function(options) {
 
 exports.get = function(options) {
     var deferred = Q.defer();
-
     var headers = buildHeader(options);
-
     request({url:buildUrl(options), qs:options.queryParameters, headers:headers}, function(error, response, body) {
         // Error with the actual request
         if (error) {
             return deferred.reject(error);
         }
-
         // Non-200 HTTP response code
         if (response.statusCode != 200) {
             return deferred.reject(buildError(options, response, body));
         }
-
         var parsedBody;
         if (options.contentType) {
             xml.getCleansedObjectFromXmlBody(body, function (err, result) {
@@ -117,9 +101,8 @@ exports.get = function(options) {
         } else {
             parsedBody = JSON.parse(body);
         }
-
         // 200, but Error in token payload
-        if (parsedBody.Error) return deferred.reject({'error':parsedBody.Message});
+        if (parsedBody.Error) return deferred.reject({'error':parsedBody.Error.Message});
         deferred.resolve(parsedBody);
     });
     return deferred.promise;
@@ -127,22 +110,17 @@ exports.get = function(options) {
 
 exports.put = function(options) {
     var deferred = Q.defer();
-
     var headers = buildHeader(options);
-
     request.put({url:buildUrl(options), headers:headers, body:JSON.stringify(options.body)}, function(error, response, body) {
         // Error with the actual request
         if (error) {
             return deferred.reject(error);
         }
-
         // Non-204 HTTP response code
         if (response.statusCode != 204) {
             return deferred.reject(buildError(options, response, body));
         }
-
         deferred.resolve(response.statusCode);
-
     });
     return deferred.promise;
 };

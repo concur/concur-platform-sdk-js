@@ -26,14 +26,14 @@ module.exports = function(grunt){
           captureFile: 'results.txt', // Optionally capture the reporter output to a file
           quiet: false // Optionally suppress output to standard out (defaults to false)
         },
-        src: ['test/**/*.js']
+        src: ['test/*.js']
       },
       'ci-shippable': {
         options: {
           reporter: 'xunit',
           captureFile: 'shippable/testresults/result.xml' // Optionally capture the reporter output to a file
         },
-        src: ['test/**/*.js']
+        src: ['test/*.js']
       }
     }
   });

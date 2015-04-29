@@ -3,5 +3,6 @@
     "webserviceAdminoauthToken":"WEBSERVICE_ADMIN_OAUTH_TOKEN",
     "username":"USERNAME",
     "password":"PASSWORD",
-    "consumerKey":"CONSUMER-KEY"
+    "consumerKey":"CONSUMER-KEY",
+    "client_secret":"CONSUMER-SECRET"
 }
