@@ -7,7 +7,7 @@ then
   npm version patch -m "Package version %s created from build $BUILD_NUMBER [ci skip]"
 
   # use the key that Shippable uses to connect to GitHub
-  ssh-agent bash -c "ssh-add /home/shippable/.ssh/project_rsa; git push --tags origin $BRANCH"
+  ssh-agent bash -c "ssh-add ~/.ssh/project_rsa; git push --tags origin $BRANCH"
 else
   echo 'Not incrementing version number for pull requests'
 fi
