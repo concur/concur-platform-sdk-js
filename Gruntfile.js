@@ -33,7 +33,7 @@ module.exports = function(grunt){
           reporter: 'xunit',
           captureFile: 'shippable/testresults/result.xml' // Optionally capture the reporter output to a file
         },
-        src: ['test/**/*.js']
+        src: ['test/*.js']
       }
     }
   });
