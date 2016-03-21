@@ -1,8 +1,8 @@
 Concur SDK for JavaScript
 ==============
 
-JavaScript SDK for the [Concur Platform](http://developer.concur.com). For more information on the set of platform services, see the [Web services overview](https://developer.concur.com/get-started/webservices-overview) document on the developer portal.
-Register for a [developer Sandbox here](https://developer.concur.com/register).
+JavaScript SDK for the [Concur Platform](https://developer.concur.com/).
+Register for a [developer Sandbox here](https://developer.concur.com/manage-apps/register.html).
 
 [![NPM](https://nodei.co/npm/concur-platform.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/concur-platform/)
 
