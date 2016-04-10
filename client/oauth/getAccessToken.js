@@ -9,7 +9,7 @@ module.exports = {
     accessToken: function(options) {
         var deferred = Q.defer();
 
-        var concurAccessTokenURL = util.format('%s/net2/oauth2/getaccesstoken.ashx?code=%s&client_id=%s&client_secret=%s',
+        var concurAccessTokenURL = util.format('%s/net2/oauth2/GetAccessToken.ashx?code=%s&client_id=%s&client_secret=%s',
             utils.serviceURL,
             options.code,
             options.client_id,
