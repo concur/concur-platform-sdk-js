@@ -37,11 +37,11 @@ Then, run the following:
 
 The test will upload the concur logo to the expense receipt store associated with the OAuth token. It will also upload an E-Receipt to the associated user account.
 
-##Table of Contents
+## Table of Contents
 
-###Platform Services
+### Platform Services
 
-####Common
+#### Common
 
 - [OAuth](#oauth)
     - [Native Flow](#native-flow)
@@ -61,7 +61,7 @@ The test will upload the concur logo to the expense receipt store associated wit
     - [Create a new user employee profile form](#post-user)
     - [Get existing users employee profile form](#get-user)
 
-####Expense
+#### Expense
 
 - [Allocations](#allocations)
     - [Get existing allocations on an expense report](#get-allocations)
@@ -115,14 +115,14 @@ The test will upload the concur logo to the expense receipt store associated wit
     - [Get reports available to user](#get-reports)
     - [Update existing report on user](#put-reports)
 
-####Insights
+#### Insights
 
 - [LatestBookings](#latestbookings)
     - [Get latest Hotel/Air Booking for a User](#get-latestbookings)
 - [Opportunities](#opportunities)
     - [Get available opportunities for a user](#get-opportunities)
 
-####Invoice
+#### Invoice
 
 - [PurchaseOrderReceipts](#purchaseorderreceipts)
     - [Update a purchase order receipt](#put-purchaseorderreceipts)
@@ -140,7 +140,7 @@ The test will upload the concur logo to the expense receipt store associated wit
     - [Update a vendor](#put-vendors)
     - [Deletes a vendor](#delete-vendors)
 
-####Travel
+#### Travel
 
 - [Itinerary](#itinerary)
     - [Create a trip for a user](#post-itinerary)
@@ -148,12 +148,12 @@ The test will upload the concur logo to the expense receipt store associated wit
 - [TravelProfile](#travelprofile)
     - [Get the users travel profile, which includes travel preferences](#get-travelprofile)
 
-####Travel Request
+#### Travel Request
 
 - [Requests](#requests)
     - [Get travel requests for a user](#get-requests)
 
-####Other
+#### Other
 
 - [FAQ](#faq)
     - [OAuth Help](#oauth-help)
@@ -168,7 +168,7 @@ The test will upload the concur logo to the expense receipt store associated wit
 
 Enables the client to acquire an [OAuth token](https://developer.concur.com/oauth-20).
 
-#####Native Flow
+##### Native Flow
 
 This is for the [native flow Oauth](https://developer.concur.com/oauth-20/native-flow). Use this
 to get a token to test your application. This requires username, password and your registered consumerkey.
@@ -189,7 +189,7 @@ to get a token to test your application. This requires username, password and yo
         // error will contain the error message returned
     });
 
-#####AppCenter Flow
+##### AppCenter Flow
 
 This is for the [AppCenter Flow](https://developer.concur.com/oauth-20/app-center-flow).
 AppCenter Flow requires the code query parameter from Concur AppCenter, clientID (consumerKey) and clientSecret
@@ -209,7 +209,7 @@ for your registered partner application.
         // error will contain the error message returned
     });
 
-#####Refresh Token
+##### Refresh Token
 
 Use a [Refresh Token](https://developer.concur.com/oauth-20/refreshing-access-tokens) to get a new Access Token.
 
@@ -227,7 +227,7 @@ Use a [Refresh Token](https://developer.concur.com/oauth-20/refreshing-access-to
         // error will contain the error message returned
     });
 
-#####Revoke Token
+##### Revoke Token
 
 [Revoke an Access Token](https://developer.concur.com/oauth-20/working-access-tokens/revoking-access-tokens).
 
@@ -243,11 +243,11 @@ Use a [Refresh Token](https://developer.concur.com/oauth-20/refreshing-access-to
         // error will contain the error message returned
     });
 
-###Allocations
+### Allocations
 
 Used for getting a list of [Allocations](https://www.concursolutions.com/api/docs/index.html#!/Allocations) on an Expense Report.
 
-#####GET Allocations
+##### GET Allocations
 
      //This will contain a list of Allocations
      var options = {
@@ -277,11 +277,11 @@ Used for getting a list of [Allocations](https://www.concursolutions.com/api/doc
        // Error will contain the error returned.
      });
 
-###Attendees
+### Attendees
 
 Used for adding, getting, updating or deleting [Attendees](https://www.concursolutions.com/api/docs/index.html#!/Attendees) on a users or shared list.
 
-#####POST Attendees
+##### POST Attendees
 
      var options = {
        oauthToken:oauthToken
@@ -295,7 +295,7 @@ Used for adding, getting, updating or deleting [Attendees](https://www.concursol
        // Error will contain the error returned.
      });
 
-#####GET Attendees
+##### GET Attendees
 
      //This will contain a list of Attendees
      var options = {
@@ -325,7 +325,7 @@ Used for adding, getting, updating or deleting [Attendees](https://www.concursol
        // Error will contain the error returned.
      });
 
-#####PUT Attendees
+##### PUT Attendees
 
      var options = {
        oauthToken:oauthToken,
@@ -340,7 +340,7 @@ Used for adding, getting, updating or deleting [Attendees](https://www.concursol
        // Error will contain the error returned.
      });
 
-#####DELETE Attendees
+##### DELETE Attendees
 
      var options = {
        oauthToken:oauthToken,
@@ -355,12 +355,12 @@ Used for adding, getting, updating or deleting [Attendees](https://www.concursol
        // Error will contain the error returned.
      });
 
-###AttendeeTypes
+### AttendeeTypes
 
 Used for adding, getting, updating or deleting [AttendeeTypes](https://www.concursolutions.com/api/docs/index.html#!/AttendeeTypes)
 for a company. AttendeeTypes are used in the Attendees API to define the type of attendee you want to add.
 
-#####POST AttendeeTypes
+##### POST AttendeeTypes
 
      var options = {
        oauthToken:oauthToken
@@ -374,7 +374,7 @@ for a company. AttendeeTypes are used in the Attendees API to define the type of
        // Error will contain the error returned.
      });
 
-#####GET AttendeeTypes
+##### GET AttendeeTypes
 
      //This will contain a list of AttendeeTypes
      var options = {
@@ -404,7 +404,7 @@ for a company. AttendeeTypes are used in the Attendees API to define the type of
        // Error will contain the error returned.
      });
 
-#####PUT AttendeeTypes
+##### PUT AttendeeTypes
 
      var options = {
        oauthToken:oauthToken,
@@ -419,7 +419,7 @@ for a company. AttendeeTypes are used in the Attendees API to define the type of
        // Error will contain the error returned.
      });
 
-#####DELETE AttendeeTypes
+##### DELETE AttendeeTypes
 
      var options = {
        oauthToken:oauthToken,
@@ -434,12 +434,12 @@ for a company. AttendeeTypes are used in the Attendees API to define the type of
        // Error will contain the error returned.
      });
 
-###ConnectionRequests
+### ConnectionRequests
 
 Used to interact with [ConnectionRequests](https://www.concursolutions.com/api/docs/index.html#!/ConnectionRequests) from
 the Auto-Connect listing in Concur AppCenter. Given a supplier ID it will match all available ConnectionRequests.
 
-#####POST ConnectionRequests
+##### POST ConnectionRequests
 
      var options = {
        oauthToken:oauthToken
@@ -453,7 +453,7 @@ the Auto-Connect listing in Concur AppCenter. Given a supplier ID it will match 
        // Error will contain the error returned.
      });
 
-#####GET ConnectionRequests
+##### GET ConnectionRequests
 
      //This will contain a list of ConnectionRequests
      var options = {
@@ -483,7 +483,7 @@ the Auto-Connect listing in Concur AppCenter. Given a supplier ID it will match 
        // Error will contain the error returned.
      });
 
-#####PUT ConnectionRequests
+##### PUT ConnectionRequests
 
      var options = {
        oauthToken:oauthToken,
@@ -498,7 +498,7 @@ the Auto-Connect listing in Concur AppCenter. Given a supplier ID it will match 
        // Error will contain the error returned.
      });
 
-#####DELETE ConnectionRequests
+##### DELETE ConnectionRequests
 
      var options = {
        oauthToken:oauthToken,
@@ -513,11 +513,11 @@ the Auto-Connect listing in Concur AppCenter. Given a supplier ID it will match 
        // Error will contain the error returned.
      });
 
-###DigitalTaxInvoices
+### DigitalTaxInvoices
 
 Returns all [Digital Tax Invoices](https://www.concursolutions.com/api/docs/index.html#!/DigitalTaxInvoices) that can be validated by the user based on the search criteria. Also given a digital tax invoice ID you can update them.
 
-#####GET DigitalTaxInvoices
+##### GET DigitalTaxInvoices
 
      //This will contain a list of DigitalTaxInvoices
      var options = {
@@ -547,7 +547,7 @@ Returns all [Digital Tax Invoices](https://www.concursolutions.com/api/docs/inde
        // Error will contain the error returned.
      });
 
-#####PUT DigitalTaxInvoices
+##### PUT DigitalTaxInvoices
 
      var options = {
        oauthToken:oauthToken,
@@ -566,7 +566,7 @@ Returns all [Digital Tax Invoices](https://www.concursolutions.com/api/docs/inde
 
 Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#!/Entries). which belong to an [Expense Report.](#get-reports)
 
-#####POST
+##### POST
 
     //This will post an Expense Entry to a given ReportID
     var entry = {
@@ -592,7 +592,7 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
         // Error will contian the error returned by the server
     });
 
-#####GET Entries
+##### GET Entries
 
     //This will contain a list of expense entries
     var options = {
@@ -621,7 +621,7 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
         // Error will contain the error returned by the server
     });
 
-#####PUT Entries
+##### PUT Entries
 
     //This will update the entry given by the entryId, and you can use any field support by entries from the link above.
     var entry = {
@@ -642,7 +642,7 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
         // Error will contain the error returned by the server
     });
 
-#####DELETE Entries
+##### DELETE Entries
 
     //This will delete the entry given an ID.
     var options = {
@@ -662,7 +662,7 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
 
 Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#!/EntryAttendeeAssociations).
 
-#####POST EntryAttendeeAssociations
+##### POST EntryAttendeeAssociations
 
     //This will post an Expense Entry to a given ReportID
     var entryAttendee = {
@@ -691,7 +691,7 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
         // Error will contian the error returned by the server
     });
 
-#####GET EntryAttendeeAssociations
+##### GET EntryAttendeeAssociations
 
     //This will contain a list of expense entries
     var options = {
@@ -720,7 +720,7 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
         // Error will contain the error returned by the server
     });
 
-#####PUT EntryAttendeeAssociations
+##### PUT EntryAttendeeAssociations
 
     //This will update the entry given by the entryAttendeeAssociationId.
     var entry = {
@@ -741,7 +741,7 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
         // Error will contain the error returned by the server
     });
 
-#####DELETE EntryAttendeeAssociations
+##### DELETE EntryAttendeeAssociations
 
     //This will delete the entryAttendeeAssociation given an ID.
     var options = {
@@ -757,11 +757,11 @@ Used to work with [Entries](https://www.concursolutions.com/api/docs/index.html#
         //Contains the error returned
     });
 
-###ExpenseGroupConfigurations
+### ExpenseGroupConfigurations
 
 Get an [Expense Group Configurations](https://www.concursolutions.com/api/docs/index.html#!/ExpenseGroupConfigurations) owned by the user based on the search criteria.
 
-#####GET ExpenseGroupConfigurations
+##### GET ExpenseGroupConfigurations
 
      //This will contain a list of ExpenseGroupConfigurations
      var options = {
@@ -791,11 +791,11 @@ Get an [Expense Group Configurations](https://www.concursolutions.com/api/docs/i
        // Error will contain the error returned.
      });
 
-###Itemizations
+### Itemizations
 
 Returns all expense [Itemizations](https://www.concursolutions.com/api/docs/index.html#!/Itemizations) owned by the user. Also allows you to add new itemizations to an existing [report](#get-reports).
 
-#####POST Itemizations
+##### POST Itemizations
 
      var options = {
        oauthToken:oauthToken
@@ -809,7 +809,7 @@ Returns all expense [Itemizations](https://www.concursolutions.com/api/docs/inde
        // Error will contain the error returned.
      });
 
-#####GET Itemizations
+##### GET Itemizations
 
      //This will contain a list of Itemizations
      var options = {
@@ -839,12 +839,12 @@ Returns all expense [Itemizations](https://www.concursolutions.com/api/docs/inde
        // Error will contain the error returned.
      });
 
-###Itinerary
+### Itinerary
 
 The [Itineraries](https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource) in Concur Travel, also referred to as Trips. Can contain multiple bookings.
 [Itineraries](https://developer.concur.com/itinerary-tmc-and-third-party-developers/itinerary-resource) will allow you to post new trips or get existing trips for a user.
 
-#####POST Itinerary
+##### POST Itinerary
 
      var options = {
        oauthToken:oauthToken
@@ -858,7 +858,7 @@ The [Itineraries](https://developer.concur.com/itinerary-tmc-and-third-party-dev
        // Error will contain the error returned.
      });
 
-#####GET Itinerary
+##### GET Itinerary
 
      //This will contain a list of Itineraries
      var options = {
@@ -888,11 +888,11 @@ The [Itineraries](https://developer.concur.com/itinerary-tmc-and-third-party-dev
        // Error will contain the error returned.
      });
 
-###LatestBookings
+### LatestBookings
 
 Get the [Latest booking](https://www.concursolutions.com/api/docs/index.html#!/LatestBookings) for hotel and air booking for a particular user.
 
-#####GET LatestBookings
+##### GET LatestBookings
 
      //This will contain a list of LatestBookings
      var options = {
@@ -907,12 +907,12 @@ Get the [Latest booking](https://www.concursolutions.com/api/docs/index.html#!/L
        // Error will contain the error returned.
      });
 
-###Lists
+### Lists
 
 Returns the [Lists](https://www.concursolutions.com/api/docs/index.html#!/Lists) available to the oauth token used. Also allows you to add and updating existing lists. Lists are a grouping of related items.
 For example a School has departments and those could be a list, and the courses under departments are the list items.
 
-#####POST Lists
+##### POST Lists
 
      var options = {
        oauthToken:oauthToken,
@@ -927,7 +927,7 @@ For example a School has departments and those could be a list, and the courses 
        // Error will contain the error returned.
      });
 
-#####GET Lists
+##### GET Lists
 
      //This will contain a list of Lists
      var options = {
@@ -957,7 +957,7 @@ For example a School has departments and those could be a list, and the courses 
        // Error will contain the error returned.
      });
 
-#####PUT Lists
+##### PUT Lists
 
      var options = {
        oauthToken:oauthToken,
@@ -973,11 +973,11 @@ For example a School has departments and those could be a list, and the courses 
      });
 
 
-###ListItems
+### ListItems
 
 Returns all the [ListItems](https://www.concursolutions.com/api/docs/index.html#!/ListItems) for a given list. Also allows you to add, update and delete existing list items. These are children of [list](#get-lists).
 
-#####POST ListItems
+##### POST ListItems
 
      var options = {
        oauthToken:oauthToken,
@@ -992,7 +992,7 @@ Returns all the [ListItems](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
-#####GET ListItems
+##### GET ListItems
 
      //This will contain a list of ListItems
      var options = {
@@ -1022,7 +1022,7 @@ Returns all the [ListItems](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
-#####PUT ListItems
+##### PUT ListItems
 
      var options = {
        oauthToken:oauthToken,
@@ -1037,7 +1037,7 @@ Returns all the [ListItems](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
-#####DELETE ListItems
+##### DELETE ListItems
 
      var options = {
        oauthToken:oauthToken,
@@ -1052,11 +1052,11 @@ Returns all the [ListItems](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
-###Locations
+## Locations
 
 Return details based on the search criteria for all [Locations](https://www.concursolutions.com/api/docs/index.html#!/Locations) for a company.
 
-#####GET Locations
+##### GET Locations
 
      //This will contain a list of Locations
      var options = {
@@ -1086,13 +1086,13 @@ Return details based on the search criteria for all [Locations](https://www.conc
        // Error will contain the error returned.
      });
 
-###Opportunities
+### Opportunities
 
 Gets a collection of [Opportunities API](https://www.concursolutions.com/api/docs/index.html#!/Opportunities) for a specified trip or for all trips that fall within a date range.
 Specify values for fromUtc and toUtc to get [Opportunities API](https://www.concursolutions.com/api/docs/index.html#!/Opportunities) for a range of trips. Specify only tripId to get opportunities for a single trip.
 Specify OpportunityType to filter results by the specified opportunity types.
 
-#####GET Opportunities
+##### GET Opportunities
 
      //This will contain a list of Opportunities
      var options = {
@@ -1107,11 +1107,11 @@ Specify OpportunityType to filter results by the specified opportunity types.
        // Error will contain the error returned.
      });
 
-###PurchaseOrderReceipts
+### PurchaseOrderReceipts
 
 Updates [Purchase Order](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrderReceipts) line item with receipt information and returns status of the request.
 
-#####PUT PurchaseOrderReceipts
+##### PUT PurchaseOrderReceipts
 
      var options = {
        oauthToken:oauthToken
@@ -1125,11 +1125,11 @@ Updates [Purchase Order](https://www.concursolutions.com/api/docs/index.html#!/P
        // Error will contain the error returned.
      });
 
-###PurchaseOrders
+### PurchaseOrders
 
 Gets an existing [PurchaseOrder](https://www.concursolutions.com/api/docs/index.html#!/PurchaseOrders). You can also create and update an existing purchase order and returns the status of the request.
 
-#####POST PurchaseOrders
+##### POST PurchaseOrders
 
      var options = {
        oauthToken:oauthToken
@@ -1143,7 +1143,7 @@ Gets an existing [PurchaseOrder](https://www.concursolutions.com/api/docs/index.
        // Error will contain the error returned.
      });
 
-#####PUT PurchaseOrders
+##### PUT PurchaseOrders
 
      var options = {
        oauthToken:oauthToken
@@ -1157,7 +1157,7 @@ Gets an existing [PurchaseOrder](https://www.concursolutions.com/api/docs/index.
        // Error will contain the error returned.
      });
 
-#####DELETE PurchaseOrders
+##### DELETE PurchaseOrders
 
      var options = {
        oauthToken:oauthToken
@@ -1274,7 +1274,7 @@ Enables the client to interact with the [receipt](https://www.concursolutions.co
 [eReceipt](https://developer.concur.com/api-documentation/more-resources/draft-documentation/e-receipt-service) Web services. Using this in the
 SDK will also allow you to add receipts to any resource in Concur that allows receipts. For example entries and reports.
 
-#####POST Receipts
+##### POST Receipts
 
     var concur = require('concur-platform');
 
@@ -1339,7 +1339,7 @@ SDK will also allow you to add receipts to any resource in Concur that allows re
         //error will contain the error message returned
     });
 
-#####GET Receipts
+##### GET Receipts
 
     // Getting a lit of receipts
     var options = {
@@ -1368,7 +1368,7 @@ SDK will also allow you to add receipts to any resource in Concur that allows re
         // error will contain the error message returned
     });
 
-#####DELETE Receipts
+##### DELETE Receipts
 
     // Deleting a receipt
     var options = {
@@ -1384,11 +1384,11 @@ SDK will also allow you to add receipts to any resource in Concur that allows re
         // error will contain the error message returned
     });
 
-###ReportDigests
+### ReportDigests
 
 Returns all [ReportDigests](https://www.concursolutions.com/api/docs/index.html#!/ReportDigests) owned by the user based on the search criteria.
 
-#####GET ReportDigests
+##### GET ReportDigests
 
      //This will contain a list of ReportDigests
      var options = {
@@ -1418,11 +1418,11 @@ Returns all [ReportDigests](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
-###Reports
+### Reports
 
 This is for Expense [Reports](https://www.concursolutions.com/api/docs/index.html#!/Reports). Allows you to add or update report fields such as Name, comment, custom fields, org unit and policy.
 
-#####POST Reports
+##### POST Reports
 
      var options = {
        oauthToken:oauthToken
@@ -1436,7 +1436,7 @@ This is for Expense [Reports](https://www.concursolutions.com/api/docs/index.htm
        // Error will contain the error returned.
      });
 
-#####GET Reports
+##### GET Reports
 
      //This will contain a list of Reports
      var options = {
@@ -1482,7 +1482,7 @@ This is for Expense [Reports](https://www.concursolutions.com/api/docs/index.htm
         // Error will contain the error returned.
      });
 
-#####PUT Reports
+##### PUT Reports
 
      var options = {
        oauthToken:oauthToken,
@@ -1497,12 +1497,12 @@ This is for Expense [Reports](https://www.concursolutions.com/api/docs/index.htm
        // Error will contain the error returned.
      });
 
-###Requests
+### Requests
 
 This is for the [Travel Requests API](https://www.concursolutions.com/api/docs/index.html#!/Requests)
 
 
-#####GET Requests
+##### GET Requests
 
      //This will contain a list of Requests
      var options = {
@@ -1532,11 +1532,11 @@ This is for the [Travel Requests API](https://www.concursolutions.com/api/docs/i
        // Error will contain the error returned.
      });
 
-###SalesTaxValidationRequests
+### SalesTaxValidationRequests
 
 Retrieves invoices for calculating tax, filtered based on input params. [SalesTaxValidationRequests API](https://www.concursolutions.com/api/docs/index.html#!/SalesTaxValidationRequests)
 
-#####GET SalesTaxValidationRequests
+##### GET SalesTaxValidationRequests
 
      //This will contain a list of SalesTaxValidationRequests
      var options = {
@@ -1566,7 +1566,7 @@ Retrieves invoices for calculating tax, filtered based on input params. [SalesTa
        // Error will contain the error returned.
      });
 
-#####PUT SalesTaxValidationRequests
+##### PUT SalesTaxValidationRequests
 
      var options = {
        oauthToken:oauthToken
@@ -1580,7 +1580,7 @@ Retrieves invoices for calculating tax, filtered based on input params. [SalesTa
        // Error will contain the error returned.
      });
 
-#####DELETE SalesTaxValidationRequests
+##### DELETE SalesTaxValidationRequests
 
      var options = {
        oauthToken:oauthToken
@@ -1594,11 +1594,11 @@ Retrieves invoices for calculating tax, filtered based on input params. [SalesTa
        // Error will contain the error returned.
      });
 
-###Suppliers
+### Suppliers
 
 Returns all [Suppliers API](https://www.concursolutions.com/api/docs/index.html#!/Suppliers) based on the search criteria.
 
-#####GET Suppliers
+##### GET Suppliers
 
      //This will contain a list of Suppliers
      var options = {
@@ -1628,11 +1628,11 @@ Returns all [Suppliers API](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
-###TravelProfile
+### TravelProfile
 
 This is for the Concur [TravelProfile.](https://developer.concur.com/travel-profile/travel-profile-resource/travel-profile-resource-get). Which includes traveler preferences.
 
-#####GET TravelProfile
+##### GET TravelProfile
 
      //This will contain a single TravelProfile
      var options = {
@@ -1648,11 +1648,11 @@ This is for the Concur [TravelProfile.](https://developer.concur.com/travel-prof
        // Error will contain the error returned.
      });
 
-###User
+### User
 
 This is for the Concur [User](https://developer.concur.com/api-documentation/web-services/user) Profile. Which includes what Concur products the user has, and what groups the user is associated with inside their company.
 
-#####POST User
+##### POST User
 
      var options = {
        oauthToken:oauthToken
@@ -1666,7 +1666,7 @@ This is for the Concur [User](https://developer.concur.com/api-documentation/web
        // Error will contain the error returned.
      });
 
-###GET User
+### GET User
 
     var options = {
         oauthToken:oauthToken,
@@ -1681,11 +1681,11 @@ This is for the Concur [User](https://developer.concur.com/api-documentation/web
         // error will contain the error message returned
     });
 
-###Vendors
+### Vendors
 
 Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#!/Vendors) Allows you to create, update and deleting existing vendors available to the oauth token.
 
-#####POST Vendors
+##### POST Vendors
 
      var options = {
        oauthToken:oauthToken
@@ -1699,7 +1699,7 @@ Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
-#####GET Vendors
+##### GET Vendors
 
      //This will contain a list of Vendors
      var options = {
@@ -1729,7 +1729,7 @@ Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
-#####PUT Vendors
+##### PUT Vendors
 
      var options = {
        oauthToken:oauthToken
@@ -1743,7 +1743,7 @@ Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#
        // Error will contain the error returned.
      });
 
-#####DELETE Vendors
+##### DELETE Vendors
 
      var options = {
        oauthToken:oauthToken
@@ -1760,12 +1760,12 @@ Gets an existing [Vendors.](https://www.concursolutions.com/api/docs/index.html#
 
 ## FAQ
 
-####OAuth Help
+#### OAuth Help
 
 How do I use Concur's Oauth? Check out the [passport for Concur](https://github.com/concur/passport-concur). Or just use
 npm install passport-concur.
 
-####Query parameters
+#### Query parameters
 
 Help! This API supports query parameters, how do I use it? All you need to do is add a queryParameter object to the options.
 
@@ -1785,7 +1785,7 @@ Help! This API supports query parameters, how do I use it? All you need to do is
         //Error if the request has an issues.
     });
 
-####Issues
+#### Issues
 
 There is a bug in the SDK! Feel free to log an [issue.](https://github.com/concur/concur-platform-sdk-js/issues)
 
